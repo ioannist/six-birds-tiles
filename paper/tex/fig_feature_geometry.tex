@@ -1,0 +1,29 @@
+% fig_feature_geometry.tex — Fig. 2.3: a feature in cross-section (schematic; heights exaggerated,
+% the exact numbers are printed). Used by sec2_solid.tex.
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small,>={Latex[length=1.6mm]}]
+  % left: pyramid cross-section through the apex, along a tangent axis: base [-eta, eta], apex height h
+  \begin{scope}
+    \draw[thick] (-3.0,0) -- (3.0,0);
+    \node[anchor=north] at (-2.4,-0.05) {panel (flat)};
+    \draw[thick,fill=red!12] (-1.4,0) -- (0,1.0) -- (1.4,0) -- cycle;
+    \draw[<->] (-1.4,-0.45) -- (1.4,-0.45) node[midway,below] {$2\eta = 1/50$};
+    \draw[<->] (1.7,0) -- (1.7,1.0) node[midway,right] {$h = a/10000$};
+    \draw[dashed] (0,0) -- (0,1.0);
+    \draw (-1.4,0) ++(0.55,0) arc (0:35.5:0.55);
+    \node at (-0.55,0.25) {$\alpha_j$};
+    \node[anchor=north,align=center,text width=6.4cm] at (0,-1.0)
+      {$|a|\in\{1,\dots,12\}$; base edge: dihedral $\pi\pm\alpha_j$, $\tan\alpha_j=t_j=j/100$;\\
+       apex ridge: dihedral $\pi\mp\beta_j$, $\cos\beta_j=1/(1+t_j^2)$;\\ all $24$ deviations distinct and $<\pi/4$};
+  \end{scope}
+  % right: the Lipschitz cone at a point of the feature graph
+  \begin{scope}[shift={(7.4,0)}]
+    \draw[thick] (-2.0,0) -- (2.0,0);
+    \fill[black!8] (0,0) -- (-1.8,-0.22) -- (-1.8,-1.4) -- (1.8,-1.4) -- (1.8,-0.22) -- cycle;
+    \draw[thick] (0,0) -- (-1.8,-0.22);
+    \draw[thick] (0,0) -- (1.8,-0.22);
+    \fill (0,0) circle (1.2pt);
+    \node[anchor=south] at (0,0.08) {a point of the feature graph};
+    \node[anchor=north,align=center,text width=6.4cm] at (0,-1.5)
+      {interior cone $w<-L\|v\|$, $L=3/25$:\\ solid angle $\Omega(L)=2\pi\bigl(1-L/\sqrt{1+L^2}\bigr)>7\pi/4$};
+  \end{scope}
+\end{tikzpicture}

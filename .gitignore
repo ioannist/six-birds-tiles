@@ -1,0 +1,71 @@
+# Bulk machine outputs kept out of git (see offgit/README.md).
+offgit/
+
+# Local caches and environments.
+__pycache__/
+*.pyc
+.venv/
+.cache/
+.DS_Store
+Thumbs.db
+*.swp
+*.pid
+
+# Lean build products and downloaded dependencies.
+.lake/
+
+# Public-release boundary. These files remain available in the private working
+# tree; the rules take effect when the clean, pruned release commit is made.
+/.codex/
+/.agents/
+/.claude/
+/history/
+/archive/
+/TILE_DISCOVERY_THREAD.txt
+
+# Bulk provenance snapshots and local copies of separately published SBT work.
+# Keep provenance/HASH_CHAIN.md if a compact provenance pointer is desired.
+/provenance/packets/
+/provenance/sbt_papers/
+/provenance/six-birds-tiles_checkpoint*.zip
+
+# Superseded delivery trees and internal review process records.
+/proof/external_lean/
+/proof/review/
+/paper/review/
+/lean/R44/review/
+/simulations/review/
+/viewer/review/
+/notebook/review/
+/reader/review/
+/media/review/
+
+# Downloaded third-party source copies. Cite their public sources instead.
+/calibration_2d/sources/
+
+# Duplicated packet archives and generated verifier logs.
+/verify/packets/*/upstream/*.zip
+/verify/packets/*/results/*.log
+/verify/packets/*/results/*.replay.log
+
+# Machine-local formalization scratch space.
+/lean/R44/external/
+
+# Private Zenodo draft configuration, generated metadata, and upload artifacts.
+/paper/submission/
+
+# Private outreach/contact planning.
+/3D_Einstein_Outreach_Consolidated.xlsx
+
+# Internal planning / process-narration docs (agent lane mechanics, gate
+# records, model IDs, owner rulings). Kept in the private working tree; excluded
+# from the public release. NOTE: some published files link to these — see report.
+/FUSION_PLAN.md
+/READER_UTILITIES.md
+/lean/R44/MECHANIZATION_PLAN.md
+/lean/R44/PAPER_UPDATES.md
+/paper/WRITING_PLAN.md
+/paper/DECISIONS.md
+/paper/HANDOFF.md
+/paper/PAPER_PLAN.md
+/paper/COMMUNITY_PAPER_PROFILE.md

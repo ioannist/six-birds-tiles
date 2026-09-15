@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "scope": "four orthogonal affine maps, exact chair fixed-point cover and contraction factor; uniqueness for all compact alternatives proved in RESULT.md",
+  "certificate_sha256": "c90c353fbe444d1e854b45d89782aa819a151485d9a1cb04da80eb3cec92a570"
+}

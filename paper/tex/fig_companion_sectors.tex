@@ -1,0 +1,33 @@
+% fig_companion_sectors.tex — Fig. 4.1: the sector budget at a generic feature-edge point (left),
+% why three feature sectors cannot meet (middle), and the solid-angle cone at a vertex of the
+% feature graph (right). Schematic. Used by sec4_companions.tex.
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small,>={Latex[length=1.6mm]}]
+  \begin{scope}
+    \fill[red!15] (0,0) -- (-2.2,0) arc (180:360:2.2) -- (2.2,0) -- (2.2*0.94,2.2*0.34) arc (20:0:2.2) -- cycle;
+    \fill[blue!15] (0,0) -- (2.2*0.94,2.2*0.34) arc (20:180:2.2) -- cycle;
+    \draw[thick] (-2.2,0) -- (2.2,0);
+    \draw[thick] (0,0) -- (2.2*0.94,2.2*0.34);
+    \node at (0,-1.1) {root: $\pi+\alpha_j$};
+    \node at (-0.6,1.0) {partner: $\pi-\alpha_j$};
+    \node[anchor=north,align=center,text width=5.2cm] at (0,-2.5)
+      {a generic point of a feature edge: exactly two sectors, the same magnitude $j$, the same type, complementary angles};
+  \end{scope}
+  \begin{scope}[shift={(7.4,0)}]
+    \draw[thick] (0,0) circle (1.6);
+    \foreach \a in {0,120,240} { \draw[thick] (0,0) -- (\a:1.6); }
+    \node at (60:1.0) {$>\tfrac{3\pi}{4}$};
+    \node at (180:1.0) {$>\tfrac{3\pi}{4}$};
+    \node at (300:1.0) {$>\tfrac{3\pi}{4}$};
+    \node[anchor=north,align=center,text width=5.2cm] at (0,-2.5)
+      {three feature sectors would exceed $2\pi$; two plus an ordinary sector ($\ge\pi/2$) too};
+  \end{scope}
+  \begin{scope}[shift={(14.8,0)}]
+    \draw[thick] (-1.9,0) -- (1.9,0);
+    \fill[black!8] (0,0) -- (-1.8,-0.22) -- (-1.8,-1.5) -- (1.8,-1.5) -- (1.8,-0.22) -- cycle;
+    \draw[thick] (0,0) -- (-1.8,-0.22); \draw[thick] (0,0) -- (1.8,-0.22);
+    \fill (0,0) circle (1.2pt);
+    \node[anchor=south] at (0,0.08) {apex or base corner};
+    \node[anchor=north,align=center,text width=5.2cm] at (0,-2.5)
+      {interior solid angle $>4\pi/3$ at every point of $E(F)$: no third tile on the graph};
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,44 @@
+[
+  {
+    "round": "fable_preview",
+    "model": "claude-fable-5-1",
+    "model_confirmed": true,
+    "verdict": "FIX-FIRST",
+    "raw_record_sha256": "39d41d74db2c5618913671d3d5fafbf14e63db5427af1015f47bc54a9b29d97c",
+    "scope": "Scientific communication and rendered preview via decoded frames; no real-time playback/audio or theorem verdict.",
+    "revision": 1
+  },
+  {
+    "round": "fable_preview_closure",
+    "model": "claude-fable-5-1",
+    "model_confirmed": true,
+    "verdict": "READY",
+    "raw_record_sha256": "15db81ebfafa23a0c10488ce8d27f7cd6af2bf98982a5f8841294e6d6ff8a6a5",
+    "scope": "Scientific communication and rendered preview via decoded frames; no real-time playback/audio or theorem verdict.",
+    "revision": 1
+  },
+  {
+    "round": "fable_final_media",
+    "model": "claude-fable-5-1",
+    "model_confirmed": true,
+    "verdict": "READY",
+    "raw_record_sha256": "25486eb98762c6c629a515dfc7c5fbe3819449b18cb87ae9b0ac4b1c9bd9c23d",
+    "scope": "Final encoded 240-second film, 40-second teaser and thumbnail via decoded frames: 480 full-film samples, 140 slide samples, 80 assembly samples, 80 teaser samples and full-resolution keys. No real-time playback, audio assessment or theorem verdict.",
+    "revision": 1
+  },
+  {
+    "round": "revision2_local_visual",
+    "revision": 2,
+    "reviewer": "Implementing Codex agent",
+    "independent": false,
+    "verdict": "PASS",
+    "scope": "Inspected 246 one-second samples of the revised encoded full film and 40 one-second samples of the teaser, plus full-resolution decoded closing cards, clean overlap scene, and thumbnail. Checked naming, restrained feature-dimension correction, credits, destination and final hold. No real-time playback, listening assessment or theorem verdict.",
+    "review_assets": "video/output/revision2_review/",
+    "media_sha256": {
+      "r44_captioned.mp4": "41a27b69aa5756442f836de5a64a2a15e74e192e86aa450adcc32e74a90dcccb",
+      "r44_clean.mp4": "8aacc0171b5031bf5064f607c6421d788ed55776bba403dd61ea56d15e12a6a7",
+      "r44_teaser_40s.mp4": "af46a68fad6cecb09d6182c395a1cf44d056692a2dea35473f89b8536a72caf9",
+      "thumbnail.jpg": "c0d6fd8efa671f8493d7d668b55cfb0484ae78649e1a984fa8aedfe4dfa13d48"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+.tools/
+.venv/
+.cache/
+output/
+*.blend
+*.blend1
+
+__pycache__/
+review/

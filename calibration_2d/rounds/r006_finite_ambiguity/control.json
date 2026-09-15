@@ -1,0 +1,394 @@
+{
+  "status": "PASS",
+  "periodic_square_controls": [
+    {
+      "L": 1,
+      "global_choices": 1,
+      "inradius": "1/2",
+      "radius_per_choice": "1/2",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 1,
+          "orbits": 1
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 1,
+          "orbits": 1
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 1,
+          "orbits": 1
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 1,
+          "orbits": 1
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 1,
+          "orbits": 1
+        }
+      ]
+    },
+    {
+      "L": 2,
+      "global_choices": 4,
+      "inradius": "1",
+      "radius_per_choice": "1/4",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 2,
+          "orbits": 2
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 2,
+          "orbits": 2
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 2,
+          "orbits": 2
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 1,
+          "orbits": 4
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 2,
+          "orbits": 2
+        }
+      ]
+    },
+    {
+      "L": 3,
+      "global_choices": 9,
+      "inradius": "3/2",
+      "radius_per_choice": "1/6",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 3,
+          "orbits": 3
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 3,
+          "orbits": 3
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 3,
+          "orbits": 3
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 3,
+          "orbits": 3
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 3,
+          "orbits": 3
+        }
+      ]
+    },
+    {
+      "L": 4,
+      "global_choices": 16,
+      "inradius": "2",
+      "radius_per_choice": "1/8",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 4,
+          "orbits": 4
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 4,
+          "orbits": 4
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 4,
+          "orbits": 4
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 2,
+          "orbits": 8
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 4,
+          "orbits": 4
+        }
+      ]
+    },
+    {
+      "L": 5,
+      "global_choices": 25,
+      "inradius": "5/2",
+      "radius_per_choice": "1/10",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 5,
+          "orbits": 5
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 5,
+          "orbits": 5
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 5,
+          "orbits": 5
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 5,
+          "orbits": 5
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 5,
+          "orbits": 5
+        }
+      ]
+    },
+    {
+      "L": 8,
+      "global_choices": 64,
+      "inradius": "4",
+      "radius_per_choice": "1/16",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 8,
+          "orbits": 8
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 8,
+          "orbits": 8
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 8,
+          "orbits": 8
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 4,
+          "orbits": 16
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 8,
+          "orbits": 8
+        }
+      ]
+    },
+    {
+      "L": 12,
+      "global_choices": 144,
+      "inradius": "6",
+      "radius_per_choice": "1/24",
+      "actions": [
+        {
+          "translation": [
+            1,
+            0
+          ],
+          "orbit_length": 12,
+          "orbits": 12
+        },
+        {
+          "translation": [
+            0,
+            1
+          ],
+          "orbit_length": 12,
+          "orbits": 12
+        },
+        {
+          "translation": [
+            1,
+            1
+          ],
+          "orbit_length": 12,
+          "orbits": 12
+        },
+        {
+          "translation": [
+            2,
+            0
+          ],
+          "orbit_length": 6,
+          "orbits": 24
+        },
+        {
+          "translation": [
+            2,
+            3
+          ],
+          "orbit_length": 12,
+          "orbits": 12
+        }
+      ]
+    }
+  ],
+  "stack_control": [
+    {
+      "horizontal_side": 1,
+      "height": 1,
+      "inradius": "1/2",
+      "vertical_period": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "horizontal_side": 2,
+      "height": 1,
+      "inradius": "1/2",
+      "vertical_period": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "horizontal_side": 4,
+      "height": 1,
+      "inradius": "1/2",
+      "vertical_period": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "horizontal_side": 8,
+      "height": 1,
+      "inradius": "1/2",
+      "vertical_period": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "horizontal_side": 16,
+      "height": 1,
+      "inradius": "1/2",
+      "vertical_period": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "scope": "finite actions and dimensional false-target controls; general theorem is proved in RESULT.md"
+}

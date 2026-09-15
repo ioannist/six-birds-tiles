@@ -1,0 +1,233 @@
+\section{Finding \texorpdfstring{$\solid$}{Q}}\label{sec:finding}
+
+\subsection{The substitution}\label{sec:substitution}
+
+% ledger: O8, D3; source PROOFS_registered.md R§1; Lean children_partition_2P (T1)
+The chair is a rep-tile: eight copies of $\carrier$ form the doubled chair $2\carrier$. Write a
+\emph{frame} as a pair $(p,s)$ of a permutation of the coordinate axes and a sign vector, acting
+by $G(x)_i=s_i x_{p_i}$; a \emph{pose} is a frame followed by a translation. The eight child poses
+are listed in \cref{tab:children} and drawn in \cref{fig:cluster}. Every child frame is a proper
+rotation, and the $56$ unit cubes of the eight children partition $2\carrier$ exactly, as sets of
+integer cells (a Lean theorem by kernel \lean{decide}). Refinement acts on poses by
+\[
+  (G,t)\ \longmapsto\ \{(GH,\,2t+Gu) : (H,u)\ \text{a child pose}\},
+\]
+Thus refinement replaces the doubled support of a chair by eight unit-size chairs; iteration from
+the native chair produces patches of $8$, $64$, $512,\dots$ chairs (\cref{fig:patch}).
+
+\begin{table}[ht]
+  \centering
+  \caption{The eight child poses of the doubled chair (permutation $p$, signs $s$, translation
+  $u$, in the coordinates of $2\carrier$). Every frame is a proper rotation.}
+  \label{tab:children}
+  \begin{tabular}{llll}
+    \toprule
+    child & $p$ & $s$ & $u$ \\
+    \midrule
+    000 & $(0,1,2)$ & $(+,+,+)$ & $(0,0,0)$ \\
+    001 & $(1,0,2)$ & $(+,+,-)$ & $(0,0,4)$ \\
+    010 & $(0,2,1)$ & $(+,-,+)$ & $(0,4,0)$ \\
+    011 & $(2,0,1)$ & $(+,-,-)$ & $(0,4,4)$ \\
+    100 & $(2,1,0)$ & $(-,+,+)$ & $(4,0,0)$ \\
+    101 & $(1,2,0)$ & $(-,+,-)$ & $(4,0,4)$ \\
+    110 & $(0,1,2)$ & $(-,-,+)$ & $(4,4,0)$ \\
+    central & $(0,1,2)$ & $(+,+,+)$ & $(1,1,1)$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.52\linewidth]{r44_parent_cluster.pdf}
+  \caption{The eight-child dissection: eight properly rotated chair carriers partition
+  $2\carrier$. Colours distinguish children; the small boundary features are omitted.}
+  \label{fig:cluster}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.52\linewidth]{r44_patch64.pdf}
+  \caption{Two refinements: $64$ chair carriers partition $4\carrier$, coloured by their eight
+  parents in the same view as \cref{fig:cluster}. Thin lines separate children; thicker lines
+  mark parent boundaries and carrier creases. Boundary features are omitted; colour is annotation only.}
+  \label{fig:patch}
+\end{figure}
+
+% ledger: R2, R3, D3, Q22; Lean atlas_44 (T1n), orientation_group_24 (T1n); source 1003.4909 L48 (Fletcher's atlas); 2303.10798 L96
+Call a pose \emph{registered} if its frame is one of the $24$ proper cubic rotations and its
+translation is an integer vector, and call a tiling \emph{registered} if, after one ambient
+isometry, every tile is in a registered pose. In a registered tiling a chair with its pose
+normalized to the identity has $22$ grid cells adjacent to it across its $24$ panels, and a
+neighbouring chair covering one of them can sit in any of the $48$ signed frames; subtracting
+its seven cells from each shell cell and rejecting overlaps of the two chairs leaves $2{,}388$
+candidate face-neighbour poses. The features decide which of them are legal: two pyramids fit
+only as a protrusion into a recess of the same magnitude, and because every one of the twelve
+magnitudes is used by exactly one signed component, equality of the two profiles across a
+shared panel is checked exactly, centre by centre. Exactly $44$ of the $2{,}388$ poses are legal
+(a Lean theorem using \lean{native\_decide}). We call this set the \emph{$44$-contact atlas}
+$\atlas$ (\cref{fig:atlas}). Its $44$ poses use $19$ distinct relative rotations, and those $19$
+generate the whole $24$-element proper cubic group (\lean{native\_decide}). The word ``atlas'' is
+Fletcher's, who uses it for a matching rule imposed on a cubic prototile \cite{Fle10}; here it
+names a theorem about what the shape permits, and no rule is imposed. To see the substitution
+and the atlas in action, the repository includes an interactive browser-based viewer of the solid
+and its patches.
+
+\begin{figure}[ht]
+  \centering
+  {\footnotesize\input{generated/atlas_44_table}}
+  \caption{The $44$-contact atlas $\atlas$.}
+  \label{fig:atlas}
+\end{figure}
+
+\subsection{The design test in finite form}\label{sec:designtest}
+
+% ledger: H5, R7, R3; source PROOFS_registered.md R§8; Lean parent_atlas_eq_fine (T1n)
+The test of \cref{sec:reading} asks whether the decoded parents obey the tile's own rule. In a
+registered tiling whose chairs have been grouped into doubled chairs, a legal contact between two
+fine chairs together with a choice of which child each is in its parent determines the relative
+pose of the two parents. Enumerating the $8\times44\times8$ possibilities and removing duplicates
+gives $697$ candidate parent contacts; $116$ of them have disjoint parent bodies; and testing every
+fine contact across the two parents leaves $44$ legal parent contacts, every one with an even
+translation. Dividing the translations by two gives \emph{exactly} the fine atlas $\atlas$, not
+merely a set of the same size:
+\[
+  \tfrac12\,(\text{admitted parent atlas}) \;=\; \atlas
+\]
+(a Lean theorem using \lean{native\_decide}). This is the identity the whole construction was
+designed to satisfy. Together with unique parent recognition and small-collar realization, this
+identity permits coarsening (\cref{sec:hierarchy}): divide parent positions and lengths by two
+and replace each parent carrier by a fresh copy of $\solid$. Translation covariance sends a period
+$p$ to $p/2$, so \cref{sec:aperiodicity}'s halving argument applies at every level. The fact that
+the $19$ contact
+rotations generate the full proper cubic group, rather than a subgroup, is what makes the parent
+frames the same set of frames as the child frames.
+
+\subsection{How the tile was found}\label{sec:found}
+
+% ledger: H7, H8, H9, H14; sources LINEAGE.md; history/cascade/findings.md L40-L48; packets P3-P6 (provenance/packets/); provenance/HASH_CHAIN.md
+This section records how the solid was found; nothing in it is used in the proofs. Three
+computed steps led to $\solid$, each recorded in a public artifact of the repository.
+
+% ledger: H7; source history/cascade/findings.md L40-L48 (step 150); LINEAGE.md item 1
+\emph{Step 1: a marked chair.} The construction record of the repository (steps $140$--$165$)
+introduces the seven-cube chair as a rep-8 rep-tile and proves that a single-marking local rule
+on the chairs, read off a radius-one box, admits the chair substitution; a SAT solver finds no
+periodic tiling satisfying the rule up to period $L=7$. The record calls the all-scale recursion
+an ``honest gap'': this is a marked candidate with strong finite evidence, not a proved marked
+einstein. Attempts to realize the marks as notches on the chair failed; the verdict at the time
+was that the rule is too complex for fixed covariant notches.
+
+% ledger: H8; sources P3 README.md; P4 PROOFS.md L104-L139, L240-L258; P4 README.md
+\emph{Step 2: a bare solid that is a periodic control.} The first bare solid put $192$ square
+pyramids with signed heights on the $24$ panels, in fixed child frames. It admits an all-scale
+aperiodic hierarchy, and it also admits a legal eight-copy periodic tiling. Decoding its tilings
+into parent tilings explained why: the parents obey a weaker rule than the tiles, $62$ legal fine
+contacts decoding to $398$ parent contacts, so the decoded language is the language of all
+bare-chair tilings. The packet further proves that a deterministic translation-covariant recoding
+with uniformly bounded neighbourhood and displacement, if it realizes the specified hierarchical
+tiling by one compact solid, also realizes a periodic tiling. Requirement two of
+\cref{sec:reading} fails, not requirement three: period preservation holds exactly,
+$\Per(T)=2\Per(D(T))$ for the decoding $D$; what fails is preservation of the solid's
+admissibility rule, since the decoded parents obey the less restrictive bare-chair language.
+
+% ledger: H9, H14; sources P5 PROOFS.md "Claim and evidence status"; LINEAGE.md; provenance/HASH_CHAIN.md; Lean parent_atlas_eq_fine, orientation_group_24 (T1n)
+\emph{Step 3: the frame change.} Replacing the fixed child frames by the proper-rotation frames of
+\cref{tab:children}, which generate the full $24$-element cubic group, and recomputing the
+profile from the closed contact set ($21\to30$ contacts) produced $\solid$, with $44$ legal
+contacts and a parent atlas that halves to the same $44$. The decisive finite distinction for the
+halving test is equality of the decoded parent atlas with the fine atlas, $44=44$ against
+$62\to398$. The unrestricted alignment proof of \cref{sec:companions,sec:registration}, that every
+tiling, not only registered ones, is forced onto the lattice, was written last. These stages are
+recorded in packets P3--P6 of the repository's six-packet hash chain, each packet naming its
+predecessor by hash and replayed and re-verified here; P6 strengthens the unrestricted alignment
+argument.
+
+% ledger: H2, H4, H6, H11, H10; Q-G author's account (labelled; carries no claim); framework named once with citations
+\emph{The reading behind the steps.} What follows is the author's account of the route, in the
+sense in which the hat paper recounts its own discovery, and it carries no claim. In the author's
+recollection, the tile was found by asking what an aperiodic monotile is through the Six Birds
+framework, an emergence framework developed by the author \cite{Tsi26F6,Tsi26F4,Tsi26NDO}, and
+then having an AI reasoning model that was given the framework design a solid to satisfy that
+description (see the disclosure after the acknowledgements); the packets that produced $\solid$
+name the framework as their structural
+compass and state their diagnoses of the control in its terms. The framework's statement of the
+phenomenon is its law G11, ``Local-Rule Global-Anti-Symmetry'' \cite{Tsi26F6}, stated for a finite
+local constraint system $C$ over configurations $\Z^d\to A$:
+
+\begin{quote}\small
+Assume: [H-G11-hierarchy] every globally admissible $C$-configuration carries the declared
+hierarchy uniquely at every scale; the hierarchy is locally forced by the rules of $C$; and for
+every nonzero period vector $p$ some scale $k$ has forced marker or block structure that cannot be
+invariant under translation by $p$; [H-G11-nonempty] at least one global configuration satisfies
+all local rules of $C$. Then admissible configurations exist; for every nonzero $p$ the hierarchy
+supplies a scale whose forced structure is incompatible with $p$-periodicity; because the forcing
+is local, the incompatibility is witnessed on a finite region $R_p$, yielding a per-period defect
+certificate; and therefore every admissible configuration is aperiodic.
+\end{quote}
+
+\noindent The source lists Berger, Robinson, Penrose, the hat and the Spectre as its instances and
+reads its own content as ``P2 constraint gating, P4 hierarchy across forced scales, and P1 descent
+obstruction per candidate period''. For $\solid$ the instance is the registered system $C_{44}$:
+labellings of $\Z^3$ by the $168$ registered cell labels (a chair in one of $24$ frames at one of
+seven cells) obeying the atlas $\atlas$. Registration carries tilings of $\solid$ to $C_{44}$
+(\cref{sec:registration}, resting on written lemmas) and the small-collar realization carries
+registered baseline tilings back (\cref{sec:existence}, a written lemma); we do not claim a
+packaged theorem that the two are one object. Clause by clause: [H-G11-nonempty] is
+\cref{thm:full}(1); uniqueness at every scale is \cref{thm:full}(4); local forcing is the
+unique-parent theorem of \cref{sec:hierarchy} applied level by level, the same finite rule
+determining the parent from a neighbourhood whose radius grows with the level, which is not local
+derivability from the unmarked chair tiling; and the period clause is reached not by exhibiting
+G11's per-period certificates $R_p$, which our proof does not extract, but by the halving tower
+of \cref{sec:aperiodicity}. At their verification levels, all four clauses are Lean theorems of
+the pinned development, kernel-checked modulo the named compiler hooks: existence
+(\lean{existence}); the hierarchy, with uniqueness among arbitrary geometrically nested registered
+families (\lean{geometric\_hierarchy\_canonical}, \lean{geometric\_hierarchy\_unique}); local
+forcing, from the finite shell and parent-atlas checks via \lean{native\_decide} together with the
+proved local-to-global assembly and the proved registration bridge; and period exclusion, by the
+Lean halving tower. The design test of \cref{sec:designtest} is, in the framework's terms,
+its sufficiency and composability gate (laws F7 and F28 of \cite{Tsi26F4}). That reading
+of the laws is the packets' own; F7 concerns factorization of declared readouts, whereas
+preservation of legal tilings under coarsening is the separate geometric theorem of
+\cref{sec:hierarchy}. The catalog contains no tiling instance. \Cref{sec:context} develops
+this distinction as a complementary interpretation of the proved construction.
+
+% ledger: H10, H6; source non-descending-objects paper (wording discipline)
+The framework supplied a reading and a test. It proves nothing about $\solid$: existence is the
+substitution's, universality is the companion argument's and the census's, and the framework's
+own wording discipline says that its vocabulary certifies no claim. The monotile theorem
+is certified by the proof and by the verification record of \cref{sec:computer},
+and G11 is not a step of any proof here.
+
+\subsection{Existence}\label{sec:existence}
+
+% ledger: R10, T1, E2, E6, R8; source PROOFS_registered.md R§9; ERRATA E2; Lean nested_substitution_controls (T1n), existence (T1n); small_collar_realization_holds (T1n; formal proof identifies duplicate tube sites by centre)
+\begin{theorem}[existence; R\S9, \lean{existence}, \tier{T1n}]\label{thm:existence}
+$\solid$ admits a tiling of $\R^3$.
+\end{theorem}
+
+\begin{proof}
+Every contact that occurs inside a refined patch lies in the closed set of $30$ contacts from
+which the profile was built (\cref{sec:solid}), so every finite substitution patch is a packing
+of copies of $\solid$ whose internal panels match. Two refinements of the native chair contain the
+same-frame grandchild at $(2,2,2)$: the central child $(I,(1,1,1))$ has its own $000$ child there.
+Put $c_n=2(4^n-1)/3$ and $A_n=\sigma^{2n}(\carrier)-c_n(1,1,1)$, the $2n$-fold refinement
+recentred. The grandchild relation makes $A_n$ a literal subpatch of $A_{n+1}$, with the same
+frames, and the support of $A_n$ contains the cube $[-c_n,(4^n+2)/3]^3$. These cubes exhaust
+$\R^3$, so the nested union is a registered baseline tiling of the whole space by chairs whose
+contacts all lie in the closed contact set. The \emph{small-collar realization} lemma then
+applies: a locally finite baseline chair tiling whose profiles match on every shared panel is
+carried to a tiling by $\solid$ by the glued tube homeomorphism of \cref{sec:solid}, each chair
+going exactly to its copy of $\solid$ because every feature tube belongs to the two cells on
+either side of its panel, both with unique owners (\cref{sec:registration}, \cref{lem:cover}).
+Small-collar realization is the Lean theorem \lean{small\_collar\_realization\_holds}
+(\tier{T1n}); its formal proof identifies duplicate tube sites by their centres, so that the
+conjugated tube maps agree where two chairs name the same tube, and separates distinct sites by
+$21/200>1/16$.
+\end{proof}
+
+The same-frame grandchild, the exact dissection and the first two nested patches ($64$ and
+$4{,}096$ tiles; $448$ and $28{,}672$ cells) are checked by Lean (\lean{native\_decide}); the
+all-$n$ statement is the induction above, assembled in Lean from those checks and the realization
+theorem. The construction is explicit; existence is not assumed to make \cref{thm:full}(2)
+non-vacuous, and, as in the hat paper, it is proved independently of the census that establishes
+universality.

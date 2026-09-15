@@ -1,0 +1,15 @@
+\section{The planar calibration}\label{app:calibration}
+
+% ledger: D8; source calibration_2d/LANDING.md, rounds/r004_varying_geometry_tower/formal/Tower.lean; not evidence for the theorem
+The same pipeline was run on the hat as a calibration of the tooling, not as a result: the hat
+polykite with its thirteen vertices was reconstructed as an exact polygon, its published
+substitution and recognition grammar were replayed with explicit proof dependencies, the growth
+of patches was derived, and controls were run. The calibration checked an abstract theorem that
+transports a period unchanged through coarsening levels and excludes nonzero periods using
+unbounded lower bounds on their size; its geometric and recognition inputs remain explicit
+imports from the hat paper \cite{SMKGS24}, to whose authors the hat and its aperiodicity are due.
+The R44 proof uses the related obstruction in a different normalization: periods halve while
+nonzero registered periods have a uniform positive lower bound. The calibration is recorded in
+the repository under \texttt{calibration\_2d/} with its own charter, receipts and lessons, and it
+served as the template for the Lean skeleton of \cref{sec:mechanization} and as an exercise of the
+replay, control and review discipline of \cref{app:data} on a known einstein.

@@ -1,0 +1,40 @@
+$ /usr/bin/time -f 'negative-control elapsed=%e s, max-rss=%M KB, exit=%x' lake env lean -j 4 negative/NegativeControl.lean
+negative/NegativeControl.lean:13:2: error: Tactic `native_decide` evaluated that the proposition
+  profileCanonicalCheckWith wrongProfile = true
+is false
+negative/NegativeControl.lean:20:2: error: Tactic `native_decide` evaluated that the proposition
+  matesCensusCheckWith missingRejectionWitness = true
+is false
+Command exited with non-zero status 1
+negative-control elapsed=14.16 s, max-rss=820088 KB, exit=1
+
+$ /usr/bin/time -f 'hypotheses-contradiction elapsed=%e s, max-rss=%M KB, exit=%x' lake env lean -j 4 negative/HypothesesContradiction.lean
+negative/HypothesesContradiction.lean:31:21: error: Application type mismatch: The argument
+  r
+has type
+  Role
+of sort `Type` but is expected to have type
+  g ≠ g
+of sort `Prop` in the application
+  hrig T g g hg hg r
+negative/HypothesesContradiction.lean:31:35: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+hrig : FeatureContainmentRigidity Q
+T : Tiling Q
+r : Role
+g : RigidMotion
+hg : g ∈ T.placements
+right✝ : 0 ∈ ⇑g '' Q
+⊢ Role
+Command exited with non-zero status 1
+hypotheses-contradiction elapsed=5.86 s, max-rss=6698428 KB, exit=1
+
+$ /usr/bin/time -f 'mixed-handedness elapsed=%e s, max-rss=%M KB, exit=%x' lake env lean -j 4 negative/MixedHandedness.lean
+negative/MixedHandedness.lean:18:2: error: Type mismatch
+  tiling_homochiral H
+has type
+  ∀ (T : Tiling Q) (g h : RigidMotion), g ∈ T.placements → h ∈ T.placements → handedness g = handedness h
+but is expected to have type
+  ∃ T, ∃ g ∈ T.placements, ∃ h ∈ T.placements, handedness g ≠ handedness h
+Command exited with non-zero status 1
+mixed-handedness elapsed=5.69 s, max-rss=6594324 KB, exit=1

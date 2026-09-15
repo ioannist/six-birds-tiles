@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "each exhibited exact cell partition and congruence; geometric existence and periodic counterexample, not a claim of no other covers",
+  "reports": {
+    "scale2": {
+      "checked_covers": 1,
+      "pieces_per_cover": 4
+    },
+    "rectangle3x2": {
+      "checked_covers": 2,
+      "pieces_per_cover": 2
+    }
+  },
+  "periodic_tiling_generators": [
+    [
+      3,
+      0
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "certificate_sha256": "1f661753af95e5834022c6d8d1fc8eb19a5c427fe358c2b8e2dfb886fd56bdc9"
+}

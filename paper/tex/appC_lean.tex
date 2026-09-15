@@ -1,0 +1,90 @@
+\section{Lean statement listing and axioms}\label{app:lean}
+
+% ledger: T1-T3, T12, M1, M2, M2b (closed), M5; source lean/R44/R44/LogicalSpine.lean and AXIOMS.md at the pinned commit
+\emph{The main theorem.} In \file{lean/R44/R44/LogicalSpine.lean}, with $Q$ the solid defined
+from the canonical panel data, \lean{Tiling Q} the tilings of $\R^3$ by affine-isometric copies of
+$Q$ (reflections allowed, local finiteness not assumed), and \lean{Per}, \lean{Sym} as in
+\cref{sec:terminology}, the main theorem reads
+\begin{footnotesize}
+\begin{verbatim}
+theorem r44_einstein : Nonempty (Tiling Q) ∧ ∀ T : Tiling Q,
+    Per T = {0} ∧ (Set.univ : Set (Sym T)).encard ≤ 24
+\end{verbatim}
+\end{footnotesize}
+and takes no hypothesis argument. The companion declarations of \cref{sec:lean} (homochirality,
+the chirality corollary, the hierarchy and its uniqueness) retain an argument \lean{H} of type
+\lean{Hypotheses}, but that record is empty and is instantiated by the empty anonymous
+constructor; it imposes no mathematical assumption. The finite theorems of \cref{tab:finite} take no hypothesis
+argument.
+
+% ledger: T12, M5; source lean/R44/HYPOTHESES.md, LogicalSpine.lean (structure Hypotheses) at the pin
+\emph{The record.} The development was written around a record \lean{Hypotheses} whose fields
+quoted the written lemmas of this paper, one field per lemma, with \lean{r44\_einstein} proved
+over that record. Each field has since been proved as a theorem of the development
+(\cref{tab:hypotheses}; the theorems live in \file{lean/R44/R44/Proved/}), and at the pinned
+commit the record has no fields: its declaration is, verbatim,
+\begin{footnotesize}
+\input{generated/hypotheses_record}
+\end{footnotesize}
+The conditional theorem survives, over the empty record, as
+\lean{r44\_einstein\_of\_hypotheses}; the main theorem is its instance at the empty record.
+\file{lean/R44/HYPOTHESES.md} gives, for each former field, the written lemma it quoted, the
+theorem that discharged it and the delivery it came in. The diagonal audit, made after the first
+external review, distinguishes assertions about distinct companion tiles from relations with
+legitimate reflexive cases.
+
+% ledger: M2, M2b (closed), M5; source lean/R44/build_axioms.log and AXIOMS.md at the pin
+\emph{Axioms.} \Cref{tab:axioms} is the output of \lean{\#print axioms}; the main theorem's line
+is, verbatim,
+\begin{scriptsize}
+\begin{verbatim}
+'R44.r44_einstein' depends on axioms: [propext, Classical.choice, Quot.sound,
+  R44.atlas_44._native.native_decide.ax_1_1,
+  R44.central_completion._native.native_decide.ax_1_1,
+  R44.contact_closure_30._native.native_decide.ax_1_1,
+  R44.first_shells_33._native.native_decide.ax_1_1,
+  R44.hierarchy_cell_controls._native.native_decide.ax_1_1,
+  R44.mate_records_roles_nonempty._native.native_decide.ax_1_1,
+  R44.mates_census._native.native_decide.ax_1_1,
+  R44.mesh_angle_audit._native.native_decide.ax_1_1,
+  R44.nested_substitution_controls._native.native_decide.ax_1_1,
+  R44.orientation_group_24._native.native_decide.ax_1_1,
+  R44.parent_atlas_eq_fine._native.native_decide.ax_1_1,
+  R44.parent_conflicts_28._native.native_decide.ax_1_1,
+  R44.profile_canonical._native.native_decide.ax_1_1,
+  R44.registered_shell_cell_controls._native.native_decide.ax_1_1,
+  R44.solid_mesh_exact._native.native_decide.ax_1_1,
+  R44.transported_role_geometry._native.native_decide.ax_1_1,
+  R44.DischargeCarrierStrata.carrier_coordinate_states_table
+      ._native.native_decide.ax_1_1,
+  R44.DischargeMeshTrace.native_mesh_incidence_trace
+      ._native.native_decide.ax_1_1,
+  R44.DischargeVertexData.carrier_vertex_lookup._native.native_decide.ax_1_1,
+  R44.DischargeVertexData.feature_index_bounds._native.native_decide.ax_1_1,
+  R44.DischargeVertexData.feature_vertex_lookup._native.native_decide.ax_1_1]
+\end{verbatim}
+\end{scriptsize}
+(one line in the log, broken here, the two longest names at their namespace dot). Each
+\lean{native\_decide} hook trusts the compiled evaluation
+of one closed decidable proposition. Of the $21$ hooks, $15$ belong to the finite theorems of
+\cref{tab:finite} and to the auxiliary \lean{transported\_role\_geometry} check; the other six
+are closed checks over the certified finite data made by the discharge proofs: a side condition
+on the census metadata (\lean{mate\_records\_roles\_nonempty}), the $6{,}408$-edge mesh
+incidence trace (\lean{native\_mesh\_incidence\_trace}), a $125$-state classifier of carrier
+coordinates (\lean{carrier\_coordinate\_states\_table}), and three lookups in the tables of
+exceptional feature and carrier vertices. None of them changes the proposition it certifies; the
+repository's rulings R8 and R10 in \file{lean/R44/MECHANIZATION\_PLAN.md} record why each is a
+named hook rather than a kernel \texttt{rfl}. The independent Python replays check the certificates
+and geometric data described in \cref{app:data}. No \lean{sorryAx} occurs anywhere in the
+development, and the directory \file{lean/R44/R44/Discharge/}, which held the separately built
+discharge library with its marked admissions at the earlier baseline, holds no module at the
+pinned commit.
+
+\emph{Controls.} \file{lean/R44/scripts/controls.sh} runs the positive build and then compiles
+every must-fail file, checking that each fails with its expected diagnostic. The negative
+controls exercise the repaired diagonal application, corrupted finite inputs, mixed-handedness
+claims, a second-hierarchy claim and a claim that a raw geometric hierarchy has a noncanonical
+level-one pose. The
+runner also checks the scope regressions (which include legitimate reflexive uses) and reports
+the admission count, zero at the pinned commit. A transcript of the controls run, with build time
+and peak memory, is not included at the state described here.

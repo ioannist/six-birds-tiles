@@ -1,0 +1,29 @@
+{
+  "asset_family": "I02 why Chair44 is remarkable",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "inputs": {
+    "media/source/feature_map/000090.png": "378fa0aef7e78b772bb8432f01e7770657ad21699f772550bf745d0440aace43",
+    "media/source/plain/000810.png": "8f7556307c2f8499cd794bf785e23a1192e50b98196783ca9b4f87bf1f7e703a",
+    "video/output/final/frames/003600.png": "b60b2de8e04d011aacc82d73167f5b7855e897d5d422a80a6c992f4472f7e696",
+    "video/output/final/frames/001440.png": "fffb4855b644e1b50c8348ce775bae8e59b940878986e13f3ee883d52be25faf"
+  },
+  "footer": "Ioannis Tsiokos \u00b7 with ChatGPT Astra + Six Birds Theory \u00b7 EmergenceCalculus.com/r44",
+  "outputs": {
+    "media/output/infographic/why_chair44_portrait_2000x2500.pdf": {
+      "bytes": 320825,
+      "sha256": "b2e987a717abfe3094a44f15f83f5fe4e79257320d9bdb19ec6c652c7d6ccadb"
+    },
+    "media/output/infographic/why_chair44_portrait_2000x2500.png": {
+      "bytes": 708654,
+      "sha256": "9c5d03e255b8ddaad8fc6341984ed6cc02d99c8404c991338b6d2943cae49e02"
+    },
+    "media/output/infographic/why_chair44_wide_2400x1350.pdf": {
+      "bytes": 223396,
+      "sha256": "08d3820d2c3545cfde00103cf5091b8961f3ae47831cb4e47d1279b1b644c848"
+    },
+    "media/output/infographic/why_chair44_wide_2400x1350.png": {
+      "bytes": 571190,
+      "sha256": "3e7591bfbcc0f8b6e65daa31e492d60e0f4b29551c28054ec4a3f608bc1104f5"
+    }
+  }
+}

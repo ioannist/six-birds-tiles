@@ -1,0 +1,33 @@
+{
+  "asset_family": "I06 one tile to a space-filling patch",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "nested_counts": [
+    1,
+    64,
+    4096
+  ],
+  "inputs": {
+    "media/source/feature_map/000090.png": "378fa0aef7e78b772bb8432f01e7770657ad21699f772550bf745d0440aace43",
+    "video/output/final/frames/003810.png": "3fce7a282a5747be28938396007ac334bb63d14975050d433e4767655ad0e64a",
+    "video/output/final/frames/004140.png": "242addd24c266551d22c290683b3a1baf948952e3e0f1f1048c47bea05f6e28c"
+  },
+  "footer": "Ioannis Tsiokos \u00b7 with ChatGPT Astra + Six Birds Theory \u00b7 EmergenceCalculus.com/r44",
+  "outputs": {
+    "media/output/growth/growth_landscape_1920x1080.png": {
+      "bytes": 450650,
+      "sha256": "dfcceb8eb48accf8f7c6dfb3b063675d3381188a20dd737e235bc755ff6065b1",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    "media/output/growth/growth_portrait_1080x1350.png": {
+      "bytes": 320722,
+      "sha256": "f97697ef0ff1da9500eca42665c0eb8db077e6ed228c34e7761a28eb3b3ac730",
+      "dimensions": [
+        1080,
+        1350
+      ]
+    }
+  }
+}

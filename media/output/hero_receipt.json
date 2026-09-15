@@ -1,0 +1,69 @@
+{
+  "asset_family": "I04 discovery hero",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "canonical_solid_sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+  "tile_render_sha256": "378fa0aef7e78b772bb8432f01e7770657ad21699f772550bf745d0440aace43",
+  "exact_tile_render_sha256": "d52d04f412b6dceaa92a2b2fb4acf33386997e41e71d46cc8a298b6f80a09817",
+  "decorative_background_sha256": "6fd80b5e19ae8b372bb0b3c0bb92501f7047a1757c50588ecc8e40852e406162",
+  "geometry_policy": "Chair44 is the pinned exact mesh with source-derived flat polarity glyphs rendered just above every feature base; the generated background never supplies geometry or text.",
+  "feature_map": "All 192 glyph centres and coefficient signs are read from canonical rational JSON. Filled coral denotes bumps and hollow sky denotes dents; glyphs are annotations.",
+  "footer": "Ioannis Tsiokos \u00b7 with ChatGPT Astra + Six Birds Theory \u00b7 EmergenceCalculus.com/r44",
+  "outputs": {
+    "media/output/hero/hero_github_1280x640.png": {
+      "bytes": 170885,
+      "sha256": "69f657ad59e6a3e67586cbef19b9bb2af769ee61b33bc29f8a4e59ed37804b8e",
+      "dimensions": [
+        1280,
+        640
+      ]
+    },
+    "media/output/hero/hero_landscape_1920x1080.png": {
+      "bytes": 363703,
+      "sha256": "27916e78b50adf05197b36e8ea141753cef918bb5f8838c37b54d17f542b521e",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    "media/output/hero/hero_open_graph_1200x630.png": {
+      "bytes": 165554,
+      "sha256": "28b4aa34963ccfccc886dc7b2afd9dbc9a62b078c76598af2a4dc49b6235354e",
+      "dimensions": [
+        1200,
+        630
+      ]
+    },
+    "media/output/hero/hero_portrait_1080x1350.png": {
+      "bytes": 738041,
+      "sha256": "2ab983f179e1ad48b854a4042d50f3ce8b667fb4ab02b0af72399a24e553a413",
+      "dimensions": [
+        1080,
+        1350
+      ]
+    },
+    "media/output/hero/hero_square_1080x1080.png": {
+      "bytes": 712846,
+      "sha256": "7b0c4b7b4d58afb032b2cd634077b7bd4e01702d106b11d17be31c712b75442d",
+      "dimensions": [
+        1080,
+        1080
+      ]
+    },
+    "media/output/hero/hero_square_320_review.png": {
+      "bytes": 74086,
+      "sha256": "09171fac72750921b13a9c27ffb0d3a14dae676fe7c19c3af82e8580442c6aac",
+      "dimensions": [
+        320,
+        320
+      ]
+    },
+    "media/output/hero/hero_story_1080x1920.png": {
+      "bytes": 826392,
+      "sha256": "a2f3d886e7021709ec6aa2fb1b599e18cae509d3382a752c7d341378423437e5",
+      "dimensions": [
+        1080,
+        1920
+      ]
+    }
+  }
+}

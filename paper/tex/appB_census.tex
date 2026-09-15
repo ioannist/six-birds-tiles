@@ -1,0 +1,36 @@
+\section{Census tables}\label{app:census}
+
+% ledger: R1-R9, A11, L1, M3; generated census_table; Lean names per row
+\Cref{tab:census} collects the finite censuses used in the proof, read by a script from the
+certificates and the packet results that the replay checks. For each row the Lean theorem that
+certifies it is: the contact closure and profile, \lean{contact\_closure\_30} and
+\lean{profile\_canonical}; the atlas and the group it generates, \lean{atlas\_44} and
+\lean{orientation\_group\_24}; the first shells, completions and conflicts,
+\lean{first\_shells\_33}, \lean{central\_completion} and \lean{parent\_conflicts\_28}; the parent
+census, \lean{parent\_atlas\_eq\_fine}; the companion census and its collisions,
+\lean{mates\_census}; the substitution, \lean{substitution\_modular\_coincidence}. The companion
+census is computed by the two independent implementations of \cref{sec:computer}; the second
+implementation records, for its own audit, that it imports no upstream program, derives the
+features from the actual triangles, uses no flat-panel filter to reject placements, and uses no
+existing rejection to prune the companion options.
+
+\begin{table}[ht]
+  \centering
+  \caption{The censuses (FIGURES.md, Table 2).}
+  \label{tab:census}
+  \small
+  \input{generated/census_table}
+\end{table}
+
+% ledger: R2, A11; source PROOFS_registered.md R§6; alignment_verification.json (complete_feature_mates)
+The $2{,}388$ candidate contact poses arise as follows. A root chair in the identity pose has $22$
+grid cells adjacent to it across its $24$ panels (the $21$ outer panels face distinct exterior
+cells, while all three notch panels face the missing cell $(1,1,1)$, giving $22$ distinct shell
+cells); a neighbouring chair in one of
+the $48$ signed frames covering a shell cell is positioned by subtracting each of its seven cells
+from that shell cell; deduplicating and rejecting overlaps with the root leaves $2{,}388$. The
+$6{,}862$ companion poses are the formula poses of \cref{cor:discrete} over all ordered pairs of
+opposite features and all signed permutations with matching normals; of them $1{,}545$ collide with
+the root directly, $5{,}317$ are isolated ($5{,}234$ with a fractional translation, $83$ integral),
+$5{,}273$ are rejected by the collision witnesses, and the $44$ survivors equal the atlas as a
+set.

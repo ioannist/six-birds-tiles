@@ -1,0 +1,43 @@
+{
+  "asset_family": "I07 negative control",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "plain_tile_sha256": "8f7556307c2f8499cd794bf785e23a1192e50b98196783ca9b4f87bf1f7e703a",
+  "chair44_feature_overlay_sha256": "378fa0aef7e78b772bb8432f01e7770657ad21699f772550bf745d0440aace43",
+  "periodic_finite_view_sha256": "fffb4855b644e1b50c8348ce775bae8e59b940878986e13f3ee883d52be25faf",
+  "periodic_basis": [
+    [
+      -2,
+      1,
+      0
+    ],
+    [
+      -1,
+      -1,
+      -1
+    ],
+    [
+      -1,
+      0,
+      2
+    ]
+  ],
+  "footer": "Ioannis Tsiokos \u00b7 with ChatGPT Astra + Six Birds Theory \u00b7 EmergenceCalculus.com/r44",
+  "outputs": {
+    "media/output/comparison/comparison_landscape_1920x1080.png": {
+      "bytes": 347661,
+      "sha256": "46276ed722144dcfa9ad05aa6dfaf2139db62ca416f37d41664736a8f5ee2dbc",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    "media/output/comparison/comparison_portrait_1080x1350.png": {
+      "bytes": 399438,
+      "sha256": "933e571feec7c5fb2c72aed90b618bbc64f3adbcd88d37abd2d24e451869ced6",
+      "dimensions": [
+        1080,
+        1350
+      ]
+    }
+  }
+}

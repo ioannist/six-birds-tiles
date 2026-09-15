@@ -1,0 +1,209 @@
+\section{Features force companions}\label{sec:companions}
+
+% ledger: A1-A9, A17, O6; source proof/ALIGNMENT_PROOF.md A§1-A§4 (A supersedes R where both treat a step)
+This section and the next prove that every tiling by $\solid$ is registered
+(\cref{fig:companion}). The argument is
+continuous geometry: the pyramids are tiny, but their edges carry dihedral angles that only a
+pyramid of the same magnitude and opposite polarity can complete, and that forces every feature
+of every tile to be matched, whole, by one feature of one neighbour. We follow the written
+alignment proof of the repository, whose lemma labels (A-L2.1 and so on) we give with each
+statement together with the Lean theorem that proves it and that theorem's tier
+(\cref{tab:hypotheses}); the written proofs are the exposition, and where a formal proof argues
+differently we say so after the written one.
+
+% notation; source A§1
+Fix a feature $F$ of a tile and write $E(F)$ for its \emph{closed edge graph}: the four edges of
+the base square and the four ridges from the base corners to the apex, a compact connected graph
+without isolated vertices. In tangent coordinates $u$ on the panel and outward normal coordinate
+$z$, the feature of signed height $h=a/10000$ is the graph of the tent function
+$f_h(u)=h\max(0,1-\|u\|_\infty/\eta)$, and near it the solid is the hypograph $z\le f_h(u)$.
+Throughout, a \emph{packing} is a family of isometric copies of $\solid$ with pairwise disjoint
+interiors, and a tiling is a packing whose union is $\R^3$.
+
+\begin{lemma}[local finiteness; A-L2.1, \tier{T1} \lean{local\_finiteness}]\label[lemma]{lem:locfin}
+Every packing by congruent copies of $\solid$ is locally finite.
+\end{lemma}
+
+\begin{proof}
+Choose a ball of positive radius inside the interior of $\solid$ and carry it along with each
+tile. The carried balls have pairwise disjoint interiors. A tile meeting a bounded set $K$ has its
+ball inside a fixed bounded enlargement of $K$, since $\solid$ has bounded diameter, and only
+finitely many disjoint balls of equal positive volume fit there.
+\end{proof}
+
+% ledger: A2; Lean cone_sector_budgets_holds (T1n)
+\begin{lemma}[cone budgets; A-L2.2, written; Lean \tier{T1n} \lean{cone\_sector\_budgets\_holds}]\label[lemma]{lem:cones}
+At a point common to finitely many tiles of a packing, the interiors of their tangent cones are
+disjoint, so their solid angles sum to at most $4\pi$, with equality in a tiling. At a generic
+point of an edge, a perpendicular cross-section is partitioned into planar sectors whose angles
+sum to $2\pi$ in a tiling.
+\end{lemma}
+
+\begin{proof}
+Near a boundary point a polyhedral set agrees with a translate of its tangent cone, and one
+radius serves the finitely many incident tiles; a common open direction would give overlapping
+interiors. Cone boundaries are finite unions of planar pieces and have spherical area zero.
+Coverage gives equality in a tiling. The planar statement is the same argument in the
+perpendicular plane.
+\end{proof}
+
+The word \emph{generic} is made precise as follows. Fix a closed root edge and the finitely many
+tiles meeting a small neighbourhood of it. Remove their vertices on the edge, their intersections
+with non-collinear edges, and the intersections with face planes that meet the root line in a
+single point: finitely many points. At every remaining point an incident tile either has a face
+containing the line, which contributes a half-plane sector of angle $\pi$, or an edge collinear
+with it, which contributes an ordinary dihedral sector. No tile can contain such a point in its
+interior, since $\solid$ is the closure of its interior and the root has interior points nearby.
+Nothing here assumes that a neighbouring facet coincides with a facet of the root; contacts that
+are not face-to-face are handled by the same sectors.
+
+% ledger: A3, O6, A17 (E3); Lean deviations_distinct (T1), mesh_angle_audit (T1n)
+Put $t_j=j/100$ for $j=1,\dots,12$, and
+\[
+  \alpha_j=\arctan t_j,\qquad \beta_j=\arccos\frac{1}{1+t_j^2}.
+\]
+
+\begin{lemma}[complete dihedral list; A-L3.1, written; Lean \tier{T1n}
+\lean{complete\_dihedral\_list\_holds}; its arithmetic and the mesh audit are separate Lean
+theorems, see below]\label[lemma]{lem:dihedral}
+A protrusion of magnitude $j$ has base dihedral $\pi+\alpha_j$ and ridge dihedral $\pi-\beta_j$;
+a recess has the complementary angles. Every other edge of $\solid$ has dihedral $\pi/2$ or
+$3\pi/2$, and flat triangulation edges have angle $\pi$. All $24$ deviations $\alpha_j,\beta_j$
+are distinct and less than $\pi/4$.
+\end{lemma}
+
+\begin{proof}
+The facets of the tent have slopes $(0,0)$, $(\pm t_j,0)$ and $(0,\pm t_j)$; their outward normals
+give the formulas and the signs. The tube construction changes no carrier edge, and the disjoint
+feature supports create no other kind of edge. Both sequences increase strictly, and a
+coincidence $\alpha_i=\beta_j$ would force $1+(i/100)^2=(1+(j/100)^2)^2$, that is
+$10000\,i^2=20000\,j^2+j^4$; then $10\mid j$, so $j=10$ and $i^2=201$, impossible. The bound
+$\pi/4$ follows from $t_j<1$ and $(1+t_j^2)^2<2$ at $t_{12}=3/25$.
+\end{proof}
+
+The unsolvability of $10000\,i^2=20000\,j^2+j^4$ over $1\le i,j\le12$ is a Lean theorem by kernel
+\lean{decide} (\lean{deviations\_distinct}). The lemma is about the ideal construction; a separate
+audit, a Lean theorem using \lean{native\_decide} (\lean{mesh\_angle\_audit}), classifies every
+one of the $6{,}408$ edges of the actual mesh by exact rational outward normals, finds exactly
+$1{,}536$ feature edges with $32$ of each sign for each of the $24$ deviations, and checks that
+every other edge is flat or has orthogonal normals (\cref{tab:mesh}).
+
+% ledger: A4, A17 (E3); Lean generic_feature_partner_holds (T1n)
+\begin{lemma}[one complementary partner; A-L3.2, written; Lean \tier{T1n}
+\lean{generic\_feature\_partner\_holds}]\label[lemma]{lem:partner}
+At a generic point of a feature edge in any tiling exactly two tiles are incident: the root, and
+one tile whose incident edge has the same type (base or ridge), the same magnitude, and the
+complementary dihedral angle.
+\end{lemma}
+
+\begin{proof}
+Every feature sector lies strictly between $3\pi/4$ and $5\pi/4$. Three feature sectors exceed
+$2\pi$, as do two feature sectors together with any ordinary sector, whose angle is at least
+$\pi/2$. A single feature sector is impossible: its angle is $\pi$ plus a nonzero deviation of
+magnitude less than $\pi/4$, while the remaining sectors are multiples of $\pi/2$ (a face
+containing the line contributes $\pi$, as noted above), and such a sum is not $2\pi$. The root
+supplies one feature sector, so there are exactly two and nothing else; their deviations are
+opposite and equal in magnitude, and \cref{lem:dihedral} identifies the type and the magnitude.
+\end{proof}
+
+This does not yet say that an edge angle forces a whole feature. That needs a bound at the
+vertices of the feature, where sectors are not available.
+
+% ledger: A5, A6; Lean feature_circular_cone_containment_holds (T1n), circular_cone_solid_angle_holds (T1)
+\begin{lemma}[solid-angle bound on the feature graph; A-L4.1, written; Lean \tier{T1n}
+\lean{feature\_circular\_cone\_containment\_holds}, with the cone formula and
+its arithmetic \tier{T1} \lean{circular\_cone\_solid\_angle\_holds}]\label[lemma]{lem:solidangle}
+At every point of $E(F)$, including the apex and the base corners, the interior solid angle of
+the tile exceeds $4\pi/3$; for $\solid$ it exceeds $7\pi/4$.
+\end{lemma}
+
+\begin{proof}
+The tent is Lipschitz with constant at most $L=3/25$, on its faces, along its creases, and across
+the transition to the flat panel. At any point of the graph the tile's interior tangent cone
+contains the circular cone $\{(v,w): w<-L\|v\|_2\}$, whose solid angle is
+$\Omega(L)=2\pi\bigl(1-L/\sqrt{1+L^2}\bigr)$. This exceeds $4\pi/3$ exactly when $8L^2<1$, and here
+$8L^2=72/625$; it exceeds $7\pi/4$ when $63L^2<1$, and $63L^2=567/625$.
+\end{proof}
+
+Only the weaker bound is used below: by \cref{lem:cones}, three distinct tiles cannot share a
+point lying on a feature graph of each of them.
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\linewidth}{!}{\input{fig_companion_sectors}}
+  \caption{The companion argument: sectors at a generic edge point (\cref{lem:partner}) and the
+  solid-angle cone at a vertex of the feature graph (\cref{lem:solidangle}).}
+  \label{fig:companion}
+\end{figure}
+
+% ledger: A7; Lean connected_feature_companion_holds (T1n)
+\begin{theorem}[one tile accompanies the whole feature graph; A-T4.2, written; Lean \tier{T1n}
+\lean{connected\_feature\_companion\_holds}]\label{thm:companion}
+For each feature $F$ of a tile $R$ in any tiling there is a unique other tile $S$ such that
+$E(F)$ is contained in the union of the feature edge graphs of $S$; moreover $E(F)$ lies in one
+feature edge graph of $S$.
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:locfin}, only finitely many tiles other than $R$ meet $E(F)$. For each such tile
+$S\ne R$, let $C_S$ be the intersection of $E(F)$ with the union of the feature edge graphs of
+$S$; each $C_S$ is closed in $E(F)$. The sets $C_S$ cover $E(F)$: the generic interior points of the root's edges are covered
+by \cref{lem:partner}, they are dense in $E(F)$, and a finite union of closed sets containing a
+dense subset is everything. The sets $C_S$ are pairwise disjoint: a point in $C_S\cap C_T$ with
+$S\ne T$ would lie on a feature graph of $R$, of $S$ and of $T$, which \cref{lem:cones,lem:solidangle}
+forbid. A connected space is not the union of two or more nonempty members of a finite disjoint
+closed cover, each member being also open. Hence exactly one $C_S$ is nonempty and equals $E(F)$.
+The feature graphs of $S$ are disjoint compact sets, and the same connectedness argument applied
+to $E(F)$ inside their union puts $E(F)$ in one of them.
+\end{proof}
+
+This single argument disposes of every case in which a partner might change: at an interior edge
+point, at a subdivision vertex of the mesh, at the apex, at a base corner, or between two
+features of the same neighbour. It needs no face-to-face hypothesis and no continuation rule
+supplied by the observer.
+
+% ledger: A8, A17 (E1); Lean feature_containment_rigidity_holds (T1n; formal proof by compactness)
+\begin{lemma}[containment implies equality; A-L4.3, written, with erratum E1; Lean \tier{T1n}
+\lean{feature\_containment\_rigidity\_holds}]\label[lemma]{lem:equal}
+The features $F$ and $F'$ of \cref{thm:companion} have the same closed edge graph, the same
+magnitude, and opposite polarity; their triangulated surfaces coincide.
+\end{lemma}
+
+\begin{proof}
+Choose a point in the interior of a base edge of $F$ that avoids the vertices of the companion's
+graph and the finite exceptional set of \cref{lem:cones}; such a point exists. There
+\cref{lem:partner} gives $F'$ the same magnitude $j$ and the same edge type. A feature of
+magnitude $j$ has total edge length $\ell_j=8\eta+4\sqrt{2\eta^2+(j/10000)^2}$. We know $E(F)$ is
+a closed subset of $E(F')$; if the inclusion were proper, a point of $E(F')$ outside $E(F)$ would
+have positive distance from the closed set $E(F)$, and since $E(F')$ has no isolated vertices it
+would contribute a nonzero subsegment outside $E(F)$, giving $\ell_j<\ell_j$ by additivity of
+length. So the graphs are equal. In the graph the apex is the unique vertex of degree four and
+the base corners have degree three, so equality recovers the base square, the apex, and the four
+triangles; complementary base dihedrals force opposite polarity.
+\end{proof}
+
+The formal proof argues differently: the graph $E(F)$ is compact and the placement carrying it
+into $E(F')$ is an isometry, and an isometric self-map of a compact metric space is onto, so the
+containment is an equality without the length count; the premise that the two tiles are distinct
+is used there.
+
+% ledger: A9; Lean companion_pose_discrete_holds (T1n)
+\begin{corollary}[a feature match discretizes the pose; A-C4.4, written; Lean \tier{T1n}
+\lean{companion\_pose\_discrete\_holds}]\label[corollary]{cor:discrete}
+Normalize the root's pose to $(I,0)$. Every feature companion has a signed permutation matrix $G$
+as linear part and translation $t=c_u-Gc_v\in\tfrac18\Z^3$, where $c_u,c_v$ are native feature
+centres with $a_u=-a_v$ and outward base normals $n_u=-Gn_v$.
+\end{corollary}
+
+\begin{proof}
+A rigid motion matching two complete pyramid graphs carries base-edge directions and base-plane
+normal to each other, and those are the coordinate directions, so its orthogonal part is a
+signed permutation, of either determinant. The graph identifies the centre; opposite polarity and
+a common apex force opposite outward normals; all centres lie in $\tfrac18\Z^3$.
+\end{proof}
+
+No global alignment has been concluded yet: only the poses of complete feature companions have
+been reduced to a finite list, which the next section examines exhaustively. The mechanism is the
+one Socolar and Taylor use for their three-dimensional tile, where plugs enforce a matching rule
+by shape \cite{ST11}; here the pyramids enforce, by dihedral angles and solid angles alone, that
+every feature is matched by a feature of the opposite polarity on one neighbour.

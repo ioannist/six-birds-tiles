@@ -1,0 +1,607 @@
+{
+ "script": "simulations/periodicity_search.py",
+ "solver": "cadical153",
+ "frames": 48,
+ "proper_only": false,
+ "model": "grid-registered copies; compatibility = disjoint cells and exactly opposite features on every shared unit panel (exact rationals)",
+ "caveat": "evidence, not proof: registered copies only; full-rank period lattices up to the stated index only",
+ "runs": [
+  {
+   "tile": "R44 self-closing framed chair candidate",
+   "sha256": "80f7247e4b7ed0fe969f5884b4a64f01dc38daf7e4d60b4d8fd44b9895807ac5",
+   "solid_sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+   "torus": {
+    "max_index": 40,
+    "per_index": [
+     {
+      "index": 1,
+      "lattices": 1,
+      "unsat": 1,
+      "seconds": 0.16,
+      "formula_aggregates": {
+       "placements_max": 0,
+       "variables_max": 0,
+       "clauses_max": 0,
+       "variables_total": 0,
+       "clauses_total": 0
+      }
+     },
+     {
+      "index": 2,
+      "lattices": 7,
+      "unsat": 7,
+      "seconds": 1.15,
+      "formula_aggregates": {
+       "placements_max": 0,
+       "variables_max": 0,
+       "clauses_max": 0,
+       "variables_total": 0,
+       "clauses_total": 0
+      }
+     },
+     {
+      "index": 3,
+      "lattices": 13,
+      "unsat": 13,
+      "seconds": 2.15,
+      "formula_aggregates": {
+       "placements_max": 0,
+       "variables_max": 0,
+       "clauses_max": 0,
+       "variables_total": 0,
+       "clauses_total": 0
+      }
+     },
+     {
+      "index": 4,
+      "lattices": 35,
+      "unsat": 35,
+      "seconds": 5.8,
+      "formula_aggregates": {
+       "placements_max": 0,
+       "variables_max": 0,
+       "clauses_max": 0,
+       "variables_total": 0,
+       "clauses_total": 0
+      }
+     },
+     {
+      "index": 5,
+      "lattices": 31,
+      "unsat": 31,
+      "seconds": 5.12,
+      "formula_aggregates": {
+       "placements_max": 0,
+       "variables_max": 0,
+       "clauses_max": 0,
+       "variables_total": 0,
+       "clauses_total": 0
+      }
+     },
+     {
+      "index": 6,
+      "lattices": 91,
+      "unsat": 91,
+      "seconds": 14.91,
+      "formula_aggregates": {
+       "placements_max": 0,
+       "variables_max": 0,
+       "clauses_max": 0,
+       "variables_total": 0,
+       "clauses_total": 0
+      }
+     },
+     {
+      "index": 7,
+      "lattices": 57,
+      "unsat": 57,
+      "seconds": 10.54,
+      "formula_aggregates": {
+       "placements_max": 84,
+       "variables_max": 6083,
+       "clauses_max": 30681,
+       "variables_total": 48664,
+       "clauses_total": 245448
+      }
+     },
+     {
+      "index": 8,
+      "lattices": 155,
+      "unsat": 155,
+      "seconds": 44.05,
+      "formula_aggregates": {
+       "placements_max": 384,
+       "variables_max": 12328,
+       "clauses_max": 109464,
+       "variables_total": 391624,
+       "clauses_total": 3157368
+      }
+     },
+     {
+      "index": 9,
+      "lattices": 130,
+      "unsat": 130,
+      "seconds": 33.19,
+      "formula_aggregates": {
+       "placements_max": 432,
+       "variables_max": 13869,
+       "clauses_max": 123147,
+       "variables_total": 329940,
+       "clauses_total": 2089692
+      }
+     },
+     {
+      "index": 10,
+      "lattices": 217,
+      "unsat": 217,
+      "seconds": 82.72,
+      "formula_aggregates": {
+       "placements_max": 480,
+       "variables_max": 15410,
+       "clauses_max": 136830,
+       "variables_total": 948240,
+       "clauses_total": 7619760
+      }
+     },
+     {
+      "index": 11,
+      "lattices": 133,
+      "unsat": 133,
+      "seconds": 50.23,
+      "formula_aggregates": {
+       "placements_max": 528,
+       "variables_max": 16951,
+       "clauses_max": 150513,
+       "variables_total": 636240,
+       "clauses_total": 4769424
+      }
+     },
+     {
+      "index": 12,
+      "lattices": 455,
+      "unsat": 455,
+      "seconds": 257.2,
+      "formula_aggregates": {
+       "placements_max": 576,
+       "variables_max": 18492,
+       "clauses_max": 164196,
+       "variables_total": 3552144,
+       "clauses_total": 28980720
+      }
+     },
+     {
+      "index": 13,
+      "lattices": 183,
+      "unsat": 183,
+      "seconds": 99.34,
+      "formula_aggregates": {
+       "placements_max": 624,
+       "variables_max": 20033,
+       "clauses_max": 177879,
+       "variables_total": 1323088,
+       "clauses_total": 10361520
+      }
+     },
+     {
+      "index": 14,
+      "lattices": 399,
+      "unsat": 399,
+      "seconds": 273.32,
+      "formula_aggregates": {
+       "placements_max": 672,
+       "variables_max": 21574,
+       "clauses_max": 191562,
+       "variables_total": 3863216,
+       "clauses_total": 32062800
+      }
+     },
+     {
+      "index": 15,
+      "lattices": 403,
+      "unsat": 403,
+      "seconds": 277.23,
+      "formula_aggregates": {
+       "placements_max": 720,
+       "variables_max": 23115,
+       "clauses_max": 205245,
+       "variables_total": 4128390,
+       "clauses_total": 33057450
+      }
+     },
+     {
+      "index": 16,
+      "lattices": 651,
+      "unsat": 651,
+      "seconds": 581.08,
+      "formula_aggregates": {
+       "placements_max": 768,
+       "variables_max": 24656,
+       "clauses_max": 218928,
+       "variables_total": 8774032,
+       "clauses_total": 73854192
+      }
+     },
+     {
+      "index": 17,
+      "lattices": 307,
+      "unsat": 307,
+      "seconds": 248.69,
+      "formula_aggregates": {
+       "placements_max": 816,
+       "variables_max": 26197,
+       "clauses_max": 232611,
+       "variables_total": 3852744,
+       "clauses_total": 31489848
+      }
+     },
+     {
+      "index": 18,
+      "lattices": 910,
+      "unsat": 910,
+      "seconds": 953.61,
+      "formula_aggregates": {
+       "placements_max": 864,
+       "variables_max": 27738,
+       "clauses_max": 246294,
+       "variables_total": 14670720,
+       "clauses_total": 123786144
+      }
+     },
+     {
+      "index": 19,
+      "lattices": 381,
+      "unsat": 381,
+      "seconds": 368.43,
+      "formula_aggregates": {
+       "placements_max": 912,
+       "variables_max": 29279,
+       "clauses_max": 259977,
+       "variables_total": 5843488,
+       "clauses_total": 48339648
+      }
+     },
+     {
+      "index": 20,
+      "lattices": 1085,
+      "unsat": 1085,
+      "seconds": 1342.46,
+      "formula_aggregates": {
+       "placements_max": 960,
+       "variables_max": 30820,
+       "clauses_max": 273660,
+       "variables_total": 20700880,
+       "clauses_total": 175809840
+      }
+     },
+     {
+      "index": 21,
+      "lattices": 741,
+      "unsat": 741,
+      "seconds": 915.86,
+      "formula_aggregates": {
+       "placements_max": 1008,
+       "variables_max": 32361,
+       "clauses_max": 287343,
+       "variables_total": 13936188,
+       "clauses_total": 116464068
+      }
+     },
+     {
+      "index": 22,
+      "lattices": 931,
+      "unsat": 931,
+      "seconds": 1311.99,
+      "formula_aggregates": {
+       "placements_max": 1056,
+       "variables_max": 33902,
+       "clauses_max": 301026,
+       "variables_total": 19735584,
+       "clauses_total": 168198624
+      }
+     },
+     {
+      "index": 23,
+      "lattices": 553,
+      "unsat": 553,
+      "seconds": 759.95,
+      "formula_aggregates": {
+       "placements_max": 1104,
+       "variables_max": 35443,
+       "clauses_max": 314709,
+       "variables_total": 11646648,
+       "clauses_total": 97894440
+      }
+     },
+     {
+      "index": 24,
+      "lattices": 2015,
+      "unsat": 2015,
+      "seconds": 3660.26,
+      "formula_aggregates": {
+       "placements_max": 1152,
+       "variables_max": 36984,
+       "clauses_max": 328392,
+       "variables_total": 52083552,
+       "clauses_total": 447106464
+      }
+     },
+     {
+      "index": 25,
+      "lattices": 806,
+      "unsat": 806,
+      "seconds": 1343.34,
+      "formula_aggregates": {
+       "placements_max": 1200,
+       "variables_max": 38525,
+       "clauses_max": 342075,
+       "variables_total": 19508750,
+       "clauses_total": 164891250
+      }
+     },
+     {
+      "index": 26,
+      "lattices": 1281,
+      "unsat": 1281,
+      "seconds": 2465.45,
+      "formula_aggregates": {
+       "placements_max": 1248,
+       "variables_max": 40066,
+       "clauses_max": 355758,
+       "variables_total": 34764080,
+       "clauses_total": 298281360
+      }
+     },
+     {
+      "index": 27,
+      "lattices": 1210,
+      "unsat": 1210,
+      "seconds": 2275.65,
+      "formula_aggregates": {
+       "placements_max": 1296,
+       "variables_max": 41607,
+       "clauses_max": 369441,
+       "variables_total": 33855327,
+       "clauses_total": 288372393
+      }
+     },
+     {
+      "index": 28,
+      "lattices": 1995,
+      "unsat": 1995,
+      "seconds": 4205.8,
+      "formula_aggregates": {
+       "placements_max": 1344,
+       "variables_max": 43148,
+       "clauses_max": 383124,
+       "variables_total": 61755568,
+       "clauses_total": 531920592
+      }
+     },
+     {
+      "index": 29,
+      "lattices": 871,
+      "unsat": 871,
+      "seconds": 1741.25,
+      "formula_aggregates": {
+       "placements_max": 1392,
+       "variables_max": 44689,
+       "clauses_max": 396807,
+       "variables_total": 26015088,
+       "clauses_total": 221716368
+      }
+     },
+     {
+      "index": 30,
+      "lattices": 2821,
+      "unsat": 2821,
+      "seconds": 6642.33,
+      "formula_aggregates": {
+       "placements_max": 1440,
+       "variables_max": 46230,
+       "clauses_max": 410490,
+       "variables_total": 96405300,
+       "clauses_total": 832013100
+      }
+     },
+     {
+      "index": 31,
+      "lattices": 993,
+      "unsat": 993,
+      "seconds": 2171.34,
+      "formula_aggregates": {
+       "placements_max": 1488,
+       "variables_max": 47771,
+       "clauses_max": 424173,
+       "variables_total": 32610760,
+       "clauses_total": 278814744
+      }
+     },
+     {
+      "index": 32,
+      "lattices": 2667,
+      "unsat": 2667,
+      "seconds": 7588.96,
+      "formula_aggregates": {
+       "placements_max": 1536,
+       "variables_max": 49312,
+       "clauses_max": 437856,
+       "variables_total": 100006688,
+       "clauses_total": 866230752
+      }
+     },
+     {
+      "index": 33,
+      "lattices": 1729,
+      "unsat": 1729,
+      "seconds": 4414.33,
+      "formula_aggregates": {
+       "placements_max": 1584,
+       "variables_max": 50853,
+       "clauses_max": 451539,
+       "variables_total": 63400392,
+       "clauses_total": 544472280
+      }
+     },
+     {
+      "index": 34,
+      "lattices": 2149,
+      "unsat": 2149,
+      "seconds": 6077.27,
+      "formula_aggregates": {
+       "placements_max": 1632,
+       "variables_max": 52394,
+       "clauses_max": 465222,
+       "variables_total": 84183456,
+       "clauses_total": 728451360
+      }
+     },
+     {
+      "index": 35,
+      "lattices": 1767,
+      "unsat": 1767,
+      "seconds": 4821.0,
+      "formula_aggregates": {
+       "placements_max": 1680,
+       "variables_max": 53935,
+       "clauses_max": 478905,
+       "variables_total": 69292370,
+       "clauses_total": 595668990
+      }
+     },
+     {
+      "index": 36,
+      "lattices": 4550,
+      "unsat": 4550,
+      "seconds": 14902.64,
+      "formula_aggregates": {
+       "placements_max": 1728,
+       "variables_max": 55476,
+       "clauses_max": 492588,
+       "variables_total": 200279376,
+       "clauses_total": 1740423024
+      }
+     },
+     {
+      "index": 37,
+      "lattices": 1407,
+      "unsat": 1407,
+      "seconds": 4723.03,
+      "formula_aggregates": {
+       "placements_max": 1776,
+       "variables_max": 57017,
+       "clauses_max": 506271,
+       "variables_total": 58851904,
+       "clauses_total": 506778048
+      }
+     },
+     {
+      "index": 38,
+      "lattices": 2667,
+      "unsat": 2667,
+      "seconds": 8689.95,
+      "formula_aggregates": {
+       "placements_max": 1824,
+       "variables_max": 58558,
+       "clauses_max": 519954,
+       "variables_total": 120645440,
+       "clauses_total": 1046928576
+      }
+     },
+     {
+      "index": 39,
+      "lattices": 2379,
+      "unsat": 2379,
+      "seconds": 7598.94,
+      "formula_aggregates": {
+       "placements_max": 1872,
+       "variables_max": 60099,
+       "clauses_max": 533637,
+       "variables_total": 108826302,
+       "clauses_total": 940303026
+      }
+     },
+     {
+      "index": 40,
+      "lattices": 4805,
+      "unsat": 4805,
+      "seconds": 17247.73,
+      "formula_aggregates": {
+       "placements_max": 1920,
+       "variables_max": 61640,
+       "clauses_max": 547320,
+       "variables_total": 238913120,
+       "clauses_total": 2079783840
+      }
+     }
+    ],
+    "sat_witness": null,
+    "complete": true
+   },
+   "corona": {
+    "max_coronas": 5,
+    "per_k": [
+     {
+      "k": 1,
+      "sat": true,
+      "copies_used": 9,
+      "placements": 5892,
+      "formula": {
+       "variables": 259171,
+       "clauses": 1790450
+      },
+      "seconds": 13.58
+     },
+     {
+      "k": 2,
+      "sat": true,
+      "copies_used": 35,
+      "placements": 16356,
+      "formula": {
+       "variables": 671531,
+       "clauses": 4897850
+      },
+      "seconds": 36.33
+     },
+     {
+      "k": 3,
+      "sat": true,
+      "copies_used": 73,
+      "placements": 34884,
+      "formula": {
+       "variables": 1370547,
+       "clauses": 10350098
+      },
+      "seconds": 73.1
+     },
+     {
+      "k": 4,
+      "sat": true,
+      "copies_used": 154,
+      "placements": 63780,
+      "formula": {
+       "variables": 2430187,
+       "clauses": 18803978
+      },
+      "seconds": 131.1
+     },
+     {
+      "k": 5,
+      "sat": true,
+      "copies_used": 251,
+      "placements": 105348,
+      "formula": {
+       "variables": 3924419,
+       "clauses": 30916274
+      },
+      "seconds": 219.78
+     }
+    ],
+    "largest_sat": 5,
+    "complete": true
+   }
+  }
+ ],
+ "encoding": "slots",
+ "seconds": 108682.4,
+ "status": "complete"
+}

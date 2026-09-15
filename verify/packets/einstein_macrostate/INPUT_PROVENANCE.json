@@ -1,0 +1,8 @@
+{
+  "input_archives": {
+    "tsiokos(20260905-200915).zip": "a68c8f6394dc4d97559387cf90371da18fe5d137be1379ccdeae1e35e77181a1",
+    "einstein_reverse_descent.zip": "ac6016d8e72b36abcf41a0250dfd456633714825315c41cb3623a0879a642243"
+  },
+  "upstream_replay_this_turn": "PASS",
+  "new_source_compass_file_sha256": "4754d40ef9d943eb507c963124827ae8678cbd1cc05c83404d235547d4c27722"
+}

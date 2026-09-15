@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chair44 (R44) — the tile, in your browser</title>
+<style>
+  :root {
+    --navy: #1b2540; --navy-2: #26325a; --cream: #f4ecdf; --cream-2: #e9dfcc;
+    --coral: #e8563f; --sky: #5aa9e6; --mustard: #f3b53a; --ink: #1b2540; --muted: #5d6478;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--navy); color: var(--cream); font: 15px/1.45 "Helvetica Neue", Helvetica, Arial, sans-serif; overflow: hidden; }
+  #scene { position: fixed; inset: 0; }
+  canvas { display: block; }
+  header { position: fixed; left: 28px; top: 22px; pointer-events: none; }
+  header h1 { margin: 0; font: 700 44px/1 Georgia, "Times New Roman", serif; letter-spacing: .5px; color: var(--cream); }
+  header h1 span { color: var(--mustard); }
+  header p { margin: 6px 0 0; color: #c9cfe0; max-width: 520px; }
+  #panel { position: fixed; right: 20px; top: 20px; bottom: 20px; width: 330px; background: var(--cream); color: var(--ink);
+    border-radius: 6px; padding: 18px 18px 14px; overflow-y: auto; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+  #panel h2 { font: 700 12px/1 Helvetica, Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 18px 0 8px; }
+  #panel h2:first-child { margin-top: 0; }
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  #views { grid-template-columns: repeat(5, 1fr); }
+  .seg button, .btn { border: 0; background: var(--cream-2); color: var(--ink); padding: 9px 6px; font: 600 13px Helvetica, Arial, sans-serif; cursor: pointer; border-radius: 4px; }
+  .seg button.on { background: var(--navy); color: var(--cream); }
+  .seg.two { grid-template-columns: repeat(2, 1fr); }
+  .row { display: flex; align-items: center; gap: 10px; margin: 6px 0; flex-wrap: wrap; }
+  .row label { flex: 1 1 100%; }
+  .row.inline label { flex: 1; }
+  .row output { font-variant-numeric: tabular-nums; min-width: 84px; text-align: right; font-weight: 700; }
+  input[type=range] { flex: 2; accent-color: var(--coral); }
+  input[type=checkbox] { accent-color: var(--coral); width: 16px; height: 16px; }
+  .legend { display: grid; grid-template-columns: 18px 1fr; gap: 6px 10px; align-items: center; margin: 8px 0 0; }
+  .sw { width: 18px; height: 18px; border-radius: 3px; border: 1px solid rgba(27,37,64,.25); }
+  .about { font-size: 13.5px; color: #2d3452; }
+  .about p { margin: 6px 0; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+  .fact { background: var(--navy); color: var(--cream); border-radius: 4px; padding: 8px 10px; }
+  .fact b { display: block; font: 700 20px/1.1 Georgia, serif; color: var(--mustard); }
+  .fact span { font-size: 11.5px; color: #c9cfe0; }
+  #vecRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .vg { display: flex; align-items: center; gap: 3px; background: var(--cream-2); border-radius: 4px; padding: 3px; }
+  .vg span { font-weight: 700; color: var(--muted); padding: 0 4px; }
+  .vg output { flex: 1; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stp { padding: 5px 8px !important; background: var(--cream) !important; }
+  .meter { height: 12px; background: var(--cream-2); border-radius: 6px; overflow: hidden; margin: 8px 0 4px; }
+  #meterFill { height: 100%; width: 0; background: var(--coral); transition: width .2s; }
+  .note { margin-top: 14px; padding: 10px 12px; background: var(--coral); color: #fff; border-radius: 4px; font-size: 13px; }
+  .note a { color: #fff; }
+  .credit { margin: 12px 2px 0; padding-top: 10px; border-top: 1px solid rgba(27,37,64,.18); color: var(--muted); font-size: 11px; line-height: 1.35; }
+  #inspect { position: fixed; left: 28px; top: 120px; background: var(--cream); color: var(--ink); border-radius: 6px; padding: 12px 14px; max-width: 300px; box-shadow: 0 12px 40px rgba(0,0,0,.35); font-size: 13.5px; }
+  #inspect b { display: block; font: 700 18px Georgia, serif; margin-bottom: 4px; }
+  #inspect .tag { display: inline-block; padding: 2px 8px; border-radius: 3px; color: #fff; font-weight: 700; font-size: 12px; margin-right: 6px; }
+  #hint { position: fixed; left: 28px; bottom: 20px; color: #9aa3bf; font-size: 13px; pointer-events: none; }
+  @media (max-width: 860px) {
+    #panel { left: 12px; right: 12px; top: auto; bottom: 12px; width: auto; max-height: 52vh; }
+    header { left: 16px; top: 14px; } header h1 { font-size: 32px; } header p { display: none; } #hint { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<header>
+  <h1>Chair44 <span>(R44)</span></h1>
+  <p>An explicit unmarked solid from a proof submission: it is claimed to tile space, and every tiling is claimed to have no nonzero translation period. Drag to turn it, scroll to zoom.</p>
+</header>
+<div id="hint">Pictures are not proofs. Colours are annotation; the tile is one plain solid. Click a feature to inspect it; keys 1–5 switch views, E toggles true scale.</div>
+<div id="inspect" hidden><b id="insTitle"></b><div id="insBody"></div></div>
+
+<aside id="panel">
+  <h2>View</h2>
+  <div class="seg" id="views">
+    <button data-view="tile" class="on">Tile</button>
+    <button data-view="cluster">8 copies</button>
+    <button data-view="p64">64</button>
+    <button data-view="p512">512</button>
+    <button data-view="p4096">4096</button>
+  </div>
+  <div class="seg two" style="margin-top:4px"><button data-view="cousin" id="cousinBtn">Periodic cousin (no features)</button><button class="btn" id="coarsen" disabled>Coarsen ▸</button></div>
+  <div id="coarsenNote" class="about" style="margin-top:4px"></div>
+
+  <h2>Look</h2>
+  <div class="seg" id="looks" style="grid-template-columns:repeat(3,1fr)"><button data-look="map" class="on">Feature map</button><button data-look="exact">Exact</button><button data-look="schematic">Schematic</button></div>
+  <div class="about" id="lookNote"></div>
+  <div class="row inline"><label for="truescale" id="truescaleLabel">Draw schematic at true scale</label><input id="truescale" type="checkbox" disabled></div>
+  <div class="row inline"><label for="outl">Outline the 192 feature bases</label><input id="outl" type="checkbox" checked></div>
+  <div class="row inline"><label for="edges">Chair edges</label><input id="edges" type="checkbox" checked></div>
+
+  <h2>Period test</h2>
+  <div class="about"><p style="margin:0 0 6px">Within this finite window, each copy is compared with the copy displaced by v; when +v leaves the display box, −v is compared instead. Green: a local same-frame match. Red: a local mismatch. Grey: neither comparison fits, and grey copies are excluded from the meter. v is in units of the copies currently shown. A genuine whole-space period would make every tested comparison green, but 100% here does not prove a period, and the test is offered only on the 64, 512, 4096 and cousin views, where the window is large enough to mean something.</p></div>
+  <div id="vecRow">
+    <div class="vg"><span>x</span><button class="btn stp" data-i="0" data-d="-1">−</button><output id="vx">0</output><button class="btn stp" data-i="0" data-d="1">+</button></div>
+    <div class="vg"><span>y</span><button class="btn stp" data-i="1" data-d="-1">−</button><output id="vy">0</output><button class="btn stp" data-i="1" data-d="1">+</button></div>
+    <div class="vg"><span>z</span><button class="btn stp" data-i="2" data-d="-1">−</button><output id="vz">0</output><button class="btn stp" data-i="2" data-d="1">+</button></div>
+  </div>
+  <div class="meter"><div id="meterFill"></div></div>
+  <div id="meterOut" class="about" style="margin:2px 0 6px">no shift</div>
+  <div class="seg two"><button class="btn" id="vReset">Clear</button><button class="btn" id="vLattice" hidden>Try a true period</button></div>
+
+  <h2>Colour</h2>
+  <div class="seg" id="colors">
+    <button data-color="polarity">Bump / dent</button>
+    <button data-color="height">Height</button>
+    <button data-color="copy">Copy</button>
+    <button data-color="plain" class="on">Plain</button>
+  </div>
+  <div class="legend" id="legend"></div>
+
+  <h2>Arrangement</h2>
+  <div class="row"><label for="explode">Explode copies</label><input id="explode" type="range" min="0" max="100" value="0" disabled><output id="explodeOut">off</output></div>
+  <div class="seg two"><button class="btn" id="reset">Reset view</button><button class="btn" id="spin">Auto-rotate</button></div>
+
+  <h2>What you are looking at</h2>
+  <div class="about" id="about"></div>
+  <div class="facts">
+    <div class="fact"><b>7</b><span>unit cubes, volume 7</span></div>
+    <div class="fact"><b>24</b><span>exposed panels</span></div>
+    <div class="fact"><b>192</b><span>square pyramids, 8 per panel</span></div>
+    <div class="fact"><b>±1…12</b><span>heights, in 1/10000</span></div>
+    <div class="fact"><b>44</b><span>legal contacts between copies</span></div>
+    <div class="fact"><b>8</b><span>rotated copies make a double chair</span></div>
+  </div>
+  <div class="note">Nothing on this page is evidence for the theorem. It shows the object the theorem is about, generated from the canonical rational data in <code>solid/</code> (converted to display floats; source hashes recorded in <code>r44_data.js</code>). See the repository README for what is proved, checked, and still written-only.</div>
+  <div class="credit">Ioannis Tsiokos · with ChatGPT Astra + Six Birds Theory · EmergenceCalculus.com/r44</div>
+</aside>
+
+<script src="vendor/three.min.js"></script>
+<script src="r44_data.js"></script>
+<script>
+(function () {
+  const D = window.R44_DATA;
+  const C = { navy: 0x1b2540, cream: 0xf4ecdf, coral: 0xe8563f, sky: 0x5aa9e6, mustard: 0xf3b53a, ink: 0x1b2540 };
+  const COPY_COLORS = [0xf3b53a, 0x5aa9e6, 0xe8563f, 0x8fd19e, 0xf4ecdf, 0xb28dff, 0x5fd3c8, 0xf28fb1];
+
+  // ---------- geometry from the exact data ----------
+  const V = D.vertices.map(v => v.slice()), T = D.triangles;   // display copy; base corners may be widened
+  const nTri = T.length;
+  const pos = new Float32Array(nTri * 9);
+  const col = new Float32Array(nTri * 9);
+  const slotsOfVertex = new Map();               // vertex index -> [buffer slots]
+  for (let k = 0; k < nTri; k++) for (let j = 0; j < 3; j++) {
+    const vi = T[k][j], s = k * 3 + j;
+    pos.set(V[vi], s * 3);
+    if (!slotsOfVertex.has(vi)) slotsOfVertex.set(vi, []);
+    slotsOfVertex.get(vi).push(s);
+  }
+  // which triangles are feature faces, and which feature they belong to
+  const featureOfApex = new Map();
+  D.features.forEach((f, i) => featureOfApex.set(f.apex, i));
+  const triFeature = new Int32Array(nTri).fill(-1);
+  for (let k = 0; k < nTri; k++) for (let j = 0; j < 3; j++) {
+    const fi = featureOfApex.get(T[k][j]);
+    if (fi !== undefined) { triFeature[k] = fi; break; }
+  }
+  const chairGeom = (function () {
+    const cells = D.chair_cells, has = new Set(cells.map(c => c.join(','))), P = [], Cc = [];
+    for (const c of cells) for (let axis = 0; axis < 3; axis++) for (const side of [0, 1]) {
+      const nb = c.slice(); nb[axis] += side ? 1 : -1; if (has.has(nb.join(','))) continue;
+      const [u, v] = [0, 1, 2].filter(a => a !== axis); const base = c.slice(); base[axis] += side;
+      let quad = [[0, 0], [1, 0], [1, 1], [0, 1]].map(([du, dv]) => { const q = base.slice(); q[u] += du; q[v] += dv; return q; });
+      const ctr = c.map(x => x + 0.5), e1 = quad[1].map((x, i) => x - quad[0][i]), e2 = quad[2].map((x, i) => x - quad[0][i]);
+      const n = [e1[1]*e2[2]-e1[2]*e2[1], e1[2]*e2[0]-e1[0]*e2[2], e1[0]*e2[1]-e1[1]*e2[0]];
+      if (n[0]*(quad[0][0]-ctr[0]) + n[1]*(quad[0][1]-ctr[1]) + n[2]*(quad[0][2]-ctr[2]) < 0) quad = quad.reverse();
+      for (const tri of [[0, 1, 2], [0, 2, 3]]) for (const i of tri) { P.push(...quad[i]); Cc.push(0.957, 0.925, 0.875); }
+    }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(Cc, 3)); g.computeVertexNormals(); return g;
+  })();
+  // Jewel look: each panel is split by its diagonals and midlines into 8 triangles; each feature owns the
+  // triangle containing its centre and is drawn as a full-triangle facet (ridge for a bump, hollow for a dent).
+  const facet = (function () {
+    const byPanel = new Map(); D.features.forEach((f, i) => { if (!byPanel.has(f.panel)) byPanel.set(f.panel, []); byPanel.get(f.panel).push(i); });
+    const tris = [], triFeat = [], apexOf = [];       // world triangles (3 pts each), feature index per triangle
+    for (const [panel, idx] of byPanel) {
+      const fs = idx.map(i => D.features[i]); const n = fs[0].normal; const ax = n.findIndex(x => x !== 0);
+      const [u, v] = [0, 1, 2].filter(a => a !== ax);
+      const C = [0, 1, 2].map(a => fs.reduce((acc, f) => acc + f.centre[a], 0) / 8);   // panel centre
+      const pt = (du, dv) => { const q = C.slice(); q[u] += du; q[v] += dv; return q; };
+      idx.forEach(i => {
+        const f = D.features[i], du = f.centre[u] - C[u], dv = f.centre[v] - C[v];
+        const su = Math.sign(du), sv = Math.sign(dv);
+        const corner = pt(su * 0.5, sv * 0.5), mid = Math.abs(du) > Math.abs(dv) ? pt(su * 0.5, 0) : pt(0, sv * 0.5);
+        // orient (C, corner, mid) so that its normal is outward
+        const e1 = corner.map((x, a) => x - C[a]), e2 = mid.map((x, a) => x - C[a]);
+        const nn = [e1[1]*e2[2]-e1[2]*e2[1], e1[2]*e2[0]-e1[0]*e2[2], e1[0]*e2[1]-e1[1]*e2[0]];
+        const ring = (nn[0]*n[0] + nn[1]*n[1] + nn[2]*n[2] > 0) ? [C, corner, mid] : [C, mid, corner];
+        for (let k = 0; k < 3; k++) { tris.push([ring[k], ring[(k + 1) % 3], null]); triFeat.push(i); apexOf.push(i); }
+      });
+    }
+    const P = new Float32Array(tris.length * 9), Cc = new Float32Array(tris.length * 9), apexSlots = new Map();
+    tris.forEach((t, k) => { P.set(t[0], k * 9); P.set(t[1], k * 9 + 3); const fi = apexOf[k]; if (!apexSlots.has(fi)) apexSlots.set(fi, []); apexSlots.get(fi).push(k * 3 + 2); });
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(P, 3)); g.setAttribute('color', new THREE.BufferAttribute(Cc, 3));
+    return { geom: g, triFeature: Int32Array.from(triFeat), apexSlots };
+  })();
+  function setFacetHeight(k) {
+    const P = facet.geom.attributes.position.array;
+    for (const [fi, slots] of facet.apexSlots) { const f = D.features[fi]; const h = f.coef * D.height_unit * k;
+      const a = [f.centre[0] + f.normal[0] * h, f.centre[1] + f.normal[1] * h, f.centre[2] + f.normal[2] * h]; for (const sl of slots) P.set(a, sl * 3); }
+    facet.geom.attributes.position.needsUpdate = true; facet.geom.computeVertexNormals();
+  }
+  const geom = new THREE.BufferGeometry();
+  geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geom.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  geom.computeVertexNormals();
+
+  function setWidth(w) {
+    const P = geom.attributes.position.array;
+    for (const f of D.features) {
+      f.base.forEach(bi => {
+        const o = D.vertices[bi], c = f.centre;
+        const v = [c[0] + (o[0] - c[0]) * w, c[1] + (o[1] - c[1]) * w, c[2] + (o[2] - c[2]) * w];
+        V[bi] = v; for (const s of slotsOfVertex.get(bi)) P.set(v, s * 3);
+      });
+    }
+    geom.attributes.position.needsUpdate = true;
+    geom.computeVertexNormals();
+    if (outlineLines) rebuildLines(state.explode);
+  }
+  function setExaggeration(k) {
+    const P = geom.attributes.position.array;
+    for (const f of D.features) {
+      const h = f.coef * D.height_unit * k;               // signed: bump +, dent −
+      const a = [f.centre[0] + f.normal[0] * h, f.centre[1] + f.normal[1] * h, f.centre[2] + f.normal[2] * h];
+      for (const s of slotsOfVertex.get(f.apex)) P.set(a, s * 3);
+    }
+    geom.attributes.position.needsUpdate = true;
+    geom.computeVertexNormals();
+  }
+
+  const heightRamp = (j) => new THREE.Color().setHSL(0.11 - 0.11 * (j - 1) / 11, 0.85, 0.55); // mustard → coral
+  function featureColor(mode, f, jewel) {
+    const cream = new THREE.Color(C.cream), white = new THREE.Color(0xffffff);
+    if (mode === 'polarity') return jewel ? new THREE.Color(f.coef > 0 ? 0xf7dcc8 : 0xd6e6f2) : new THREE.Color(f.coef > 0 ? C.coral : C.sky);
+    if (mode === 'height') return jewel ? heightRamp(Math.abs(f.coef)).lerp(cream, 0.55) : heightRamp(Math.abs(f.coef));
+    if (mode === 'copy') return jewel ? white : new THREE.Color(f.coef > 0 ? 0xffb0a0 : 0xa8d4ff);
+    return cream;
+  }
+  function paint(mode) {
+    if (state.view === 'cousin') mode = 'plain';
+    const cream = new THREE.Color(C.cream), white = new THREE.Color(0xffffff);
+    const A = geom.attributes.color.array;
+    for (let k = 0; k < nTri; k++) {
+      const fi = triFeature[k]; const c = fi < 0 ? (mode === 'copy' ? white : cream) : featureColor(mode, D.features[fi], false);
+      for (let j = 0; j < 3; j++) { A[(k * 3 + j) * 3] = c.r; A[(k * 3 + j) * 3 + 1] = c.g; A[(k * 3 + j) * 3 + 2] = c.b; }
+    }
+    geom.attributes.color.needsUpdate = true;
+    const B = facet.geom.attributes.color.array;
+    for (let k = 0; k < facet.triFeature.length; k++) {
+      const c = featureColor(mode, D.features[facet.triFeature[k]], true);
+      for (let j = 0; j < 3; j++) { B[(k * 3 + j) * 3] = c.r; B[(k * 3 + j) * 3 + 1] = c.g; B[(k * 3 + j) * 3 + 2] = c.b; }
+    }
+    facet.geom.attributes.color.needsUpdate = true;
+  }
+
+  // crease edges of the carrier (dihedral far from π), for the dark outline
+  const creases = (function () {
+    const n = [], edges = new Map();
+    for (let k = 0; k < nTri; k++) {
+      const a = V[T[k][0]], b = V[T[k][1]], c = V[T[k][2]];
+      const u = [b[0]-a[0], b[1]-a[1], b[2]-a[2]], w = [c[0]-a[0], c[1]-a[1], c[2]-a[2]];
+      const nn = [u[1]*w[2]-u[2]*w[1], u[2]*w[0]-u[0]*w[2], u[0]*w[1]-u[1]*w[0]];
+      const L = Math.hypot(...nn) || 1; n.push(nn.map(x => x / L));
+      for (const [p, q] of [[T[k][0], T[k][1]], [T[k][1], T[k][2]], [T[k][2], T[k][0]]]) {
+        const key = p < q ? p + ':' + q : q + ':' + p;
+        if (!edges.has(key)) edges.set(key, []); edges.get(key).push(k);
+      }
+    }
+    const out = [];
+    for (const [key, fs] of edges) if (fs.length === 2) {
+      const d = n[fs[0]][0]*n[fs[1]][0] + n[fs[0]][1]*n[fs[1]][1] + n[fs[0]][2]*n[fs[1]][2];
+      if (1 - Math.abs(d) > 0.5) { const [p, q] = key.split(':').map(Number); out.push(V[p], V[q]); }
+    }
+    return out;
+  })();
+
+  // ---------- poses ----------
+  const applyFrame = (fr, x) => [fr[1][0] * x[fr[0][0]], fr[1][1] * x[fr[0][1]], fr[1][2] * x[fr[0][2]]];
+  const mulFrame = (g, h) => [[h[0][g[0][0]], h[0][g[0][1]], h[0][g[0][2]]], [g[1][0]*h[1][g[0][0]], g[1][1]*h[1][g[0][1]], g[1][2]*h[1][g[0][2]]]];
+  const ROOT = [[[0, 1, 2], [1, 1, 1]], [0, 0, 0]];
+  function refine(pose) {                        // (G,t) -> {(GH, 2t + G u)}
+    return D.children.map(([H, u]) => { const Gu = applyFrame(pose[0], u); return [mulFrame(pose[0], H), [2*pose[1][0]+Gu[0], 2*pose[1][1]+Gu[1], 2*pose[1][2]+Gu[2]]]; });
+  }
+  function sigma(depth) { let ps = [ROOT]; for (let i = 0; i < depth; i++) ps = ps.flatMap(refine); return ps; }
+  function poseMatrix(pose, sc) {
+    sc = sc || 1;
+    const [[perm, sg], t] = pose, m = new THREE.Matrix4(); const e = m.elements; e.fill(0);
+    for (let i = 0; i < 3; i++) e[i + 4 * perm[i]] = sg[i] * sc;   // column-major: M[i][perm[i]] = s_i · scale
+    e[12] = t[0] * sc; e[13] = t[1] * sc; e[14] = t[2] * sc; e[15] = 1; return m;
+  }
+
+  // ---------- scene ----------
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  document.getElementById('scene').appendChild(renderer.domElement);
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(C.navy);
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 1000);
+  scene.add(new THREE.HemisphereLight(0xfff6e8, 0x223055, 0.75));
+  const key = new THREE.DirectionalLight(0xffffff, 0.7); key.position.set(-2, -4, 6); scene.add(key);
+  const fill = new THREE.DirectionalLight(0x9fbfff, 0.35); fill.position.set(5, 3, 2); scene.add(fill);
+  const material = new THREE.MeshStandardMaterial({ vertexColors: true, flatShading: true, roughness: 0.75, metalness: 0.0 });
+  const jewelMaterial = new THREE.MeshStandardMaterial({ vertexColors: true, flatShading: true, roughness: 0.45, metalness: 0.08 });
+  const group = new THREE.Group(); scene.add(group);
+
+  const $ = id => document.getElementById(id);
+  const EXAG = 80, WIDTH = 5, FACET_EXAG = 40;
+  let state = { view: 'tile', look: 'map', color: 'plain', exag: 1, width: 1, explode: 0, outlines: true, edges: true, spin: false, v: [0, 0, 0], coarse: 0 };
+  const COUSIN_BASIS = [[-2, 1, 0], [-1, -1, -1], [-1, 0, 2]];   // a lattice of index 7: the plain chair tiles by translations alone
+  let poseKeys = new Set(), span = 2;
+  let mesh = null, outlineLines = null, edgeLines = null, featureMap = null, poses = [ROOT], centre = [1, 1, 1], scale = 1;
+  function poseBox(p) { const a = transformNoScale(p, [0, 0, 0]), b = transformNoScale(p, [2, 2, 2]); return [a.map((x, i) => Math.min(x, b[i])), a.map((x, i) => Math.max(x, b[i]))]; }
+  const transformNoScale = (pose, v) => { const y = applyFrame(pose[0], v); return [y[0] + pose[1][0], y[1] + pose[1][1], y[2] + pose[1][2]]; };
+  const keyOf = p => p[0][0].join('') + '|' + p[0][1].join('') + '|' + p[1].join(',');
+
+  function buildView() {
+    $('inspect').hidden = true;                 // a card describes the previous scene otherwise
+    group.clear();
+    const depth = { tile: 0, cluster: 1, p64: 2, p512: 3, p4096: 4, cousin: 3 }[state.view];
+    scale = 1;
+    if (state.view === 'cousin') {
+      poses = []; span = 16;
+      for (let i = -12; i <= 12; i++) for (let j = -12; j <= 12; j++) for (let k = -12; k <= 12; k++) {
+        const t = [0, 1, 2].map(a => i * COUSIN_BASIS[0][a] + j * COUSIN_BASIS[1][a] + k * COUSIN_BASIS[2][a]);
+        if (t.every(x => x >= 0 && x <= span - 2)) poses.push([ROOT[0], t]);
+      }
+    } else {
+      poses = sigma(depth - state.coarse); scale = Math.pow(2, state.coarse); span = 2 * Math.pow(2, depth);
+    }
+    centre = [span / 2, span / 2, span / 2 - (depth ? 0.25 * span : 0)];
+    poseKeys = new Set(poses.map(keyOf));
+    const g = (poses.length > 512 || state.view === 'cousin') ? chairGeom : geom;
+    mesh = new THREE.InstancedMesh(g, material, poses.length);
+    poses.forEach((p, i) => mesh.setMatrixAt(i, poseMatrix(p, scale)));
+    mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(poses.length * 3).fill(1), 3);
+    group.add(mesh);
+    // outlines: base squares of every feature, per copy
+    const segs = [];
+    const outlinePoses = poses.length > 512 ? [] : poses;
+    for (const p of outlinePoses) for (const f of D.features) {
+      const q = f.base.map(i => V[i]);
+      for (let k = 0; k < 4; k++) segs.push(...transform(p, q[k], f.normal), ...transform(p, q[(k + 1) % 4], f.normal));
+    }
+    const og = new THREE.BufferGeometry(); og.setAttribute('position', new THREE.Float32BufferAttribute(segs, 3));
+    const oc = new Float32Array(segs.length); let w = 0;
+    for (const p of outlinePoses) for (const f of D.features) { const c = new THREE.Color(f.coef > 0 ? C.coral : C.sky); for (let k = 0; k < 8; k++) { oc[w++] = c.r; oc[w++] = c.g; oc[w++] = c.b; } }
+    og.setAttribute('color', new THREE.BufferAttribute(oc, 3));
+    outlineLines = new THREE.LineSegments(og, new THREE.LineBasicMaterial({ vertexColors: true }));
+    group.add(outlineLines);
+    // chair crease edges per copy
+    const es = [];
+    for (const p of poses) for (const v of creases) es.push(...transform(p, v, null));
+    const eg = new THREE.BufferGeometry(); eg.setAttribute('position', new THREE.Float32BufferAttribute(es, 3));
+    edgeLines = new THREE.LineSegments(eg, new THREE.LineBasicMaterial({ color: 0x0e1426, transparent: true, opacity: 0.85 }));
+    group.add(edgeLines);
+    featureMap = new THREE.Group();
+    if (state.view === 'tile') {
+      const markerTexture = (filled, colour) => {
+        const c=document.createElement('canvas'); c.width=c.height=64; const x=c.getContext('2d');
+        x.clearRect(0,0,64,64); x.fillStyle='#f4ecdf'; x.strokeStyle=colour; x.lineWidth=9;
+        if (filled) { x.fillStyle=colour; x.fillRect(12,12,40,40); }
+        else x.strokeRect(12,12,40,40);
+        const t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; return t;
+      };
+      const bump=new THREE.SpriteMaterial({map:markerTexture(true,'#e8563f'),transparent:true,depthTest:true,depthWrite:false,sizeAttenuation:false});
+      const dent=new THREE.SpriteMaterial({map:markerTexture(false,'#5aa9e6'),transparent:true,depthTest:true,depthWrite:false,sizeAttenuation:false});
+      for (const f of D.features) {
+        const s=new THREE.Sprite(f.coef>0?bump:dent);
+        s.position.set(f.centre[0]+f.normal[0]*.003,f.centre[1]+f.normal[1]*.003,f.centre[2]+f.normal[2]*.003);
+        s.scale.set(.006,.006,1); featureMap.add(s);
+      }
+    }
+    group.add(featureMap);
+    setExaggeration(state.view === 'cousin' ? 0 : state.exag);
+    applyColor(); applyExplode(); applyVisibility();
+    document.getElementById('explode').disabled = depth === 0;
+    fitCamera(span);
+    describe();
+    $('coarsen').disabled = !(state.view === 'p64' || state.view === 'p512' || state.view === 'p4096');
+    $('coarsen').textContent = state.coarse ? `Coarsen ▸ level ${state.coarse}` : 'Coarsen ▸';
+    $('coarsenNote').textContent = state.coarse ? `Each eight-copy parent is represented by the fresh standardized copy that the coarsening uses, drawn ${scale}× larger to keep the display scale (${poses.length} copies); it is not the literal corrugated union. In normalized coordinates a period p would become p/2 at each step; the vector control is not halved automatically.` : '';
+    $('vLattice').hidden = state.view !== 'cousin';
+    $('cousinBtn').classList.toggle('on', state.view === 'cousin');
+  }
+  function transform(pose, v, normal) {
+    const off = normal ? 0.0008 : 0;     // lift outlines a hair off the surface
+    const x = [v[0] + (normal ? normal[0] * off : 0), v[1] + (normal ? normal[1] * off : 0), v[2] + (normal ? normal[2] * off : 0)];
+    const y = applyFrame(pose[0], x); return [(y[0] + pose[1][0]) * scale, (y[1] + pose[1][1]) * scale, (y[2] + pose[1][2]) * scale];
+  }
+  function applyColor() {
+    paint(state.color);
+    const depth = { tile: 0, cluster: 1, p64: 2, p512: 3, p4096: 4, cousin: 3 }[state.view];
+    const ic = mesh.instanceColor.array;
+    const testable = state.view === 'cousin' || ((state.view === 'p64' || state.view === 'p512' || state.view === 'p4096') && poses.length >= 64);
+    const testing = testable && state.v.some(x => x !== 0);
+    let ok = 0, tested = 0;
+    poses.forEach((p, i) => {
+      let c = new THREE.Color(0xffffff);
+      if (state.color === 'copy') { const parent = depth <= 1 ? i : Math.floor(i / Math.pow(8, depth - 1)); c = new THREE.Color(COPY_COLORS[parent % 8]); }
+      if (testing) {
+        // compare the copy with its image under +v, or under −v if +v leaves the patch (so both sides are tested)
+        const box = poseBox(p), S = span / scale;
+        const fits = v => [0, 1, 2].every(a => box[0][a] + v[a] >= -1e-9 && box[1][a] + v[a] <= S + 1e-9);
+        const vs = [state.v, state.v.map(x => -x)].filter(fits);
+        if (!vs.length) c = new THREE.Color(0x8a92ad);
+        else { tested++; const hit = poseKeys.has(keyOf([p[0], [p[1][0] + vs[0][0], p[1][1] + vs[0][1], p[1][2] + vs[0][2]]])); if (hit) ok++; c = new THREE.Color(hit ? 0x3f9d6b : 0xe8563f); }
+      }
+      ic.set([c.r, c.g, c.b], i * 3);
+    });
+    mesh.instanceColor.needsUpdate = true;
+    document.querySelectorAll('.stp, #vReset').forEach(b => b.disabled = !testable);
+    if (!testable) { $('meterOut').textContent = 'available on the cousin view and on the 64, 512 and 4096 views with at least 64 copies shown'; $('meterFill').style.width = '0'; }
+    else if (!testing) { $('meterOut').textContent = 'no shift'; $('meterFill').style.width = '0'; }
+    else { const pct = tested ? Math.round(100 * ok / tested) : 0; $('meterOut').innerHTML = `<b>${pct}%</b> of ${tested} shifted copies land on a copy (${ok} green, ${tested - ok} red)`; $('meterFill').style.width = pct + '%'; $('meterFill').style.background = pct === 100 ? '#3f9d6b' : '#e8563f'; }
+    renderLegend();
+  }
+  function applyExplode() {
+    const k = state.explode;
+    poses.forEach((p, i) => {
+      const m = poseMatrix(p, scale);
+      if (k > 0) { const c = transform(p, [1, 1, 1], null); m.elements[12] += (c[0] - centre[0]) * k; m.elements[13] += (c[1] - centre[1]) * k; m.elements[14] += (c[2] - centre[2]) * k; }
+      mesh.setMatrixAt(i, m);
+    });
+    mesh.instanceMatrix.needsUpdate = true;
+    // lines follow the same explode by rebuilding lazily (cheap for ≤ 512 copies)
+    if (k > 0 || edgeLines.userData.exploded) rebuildLines(k);
+  }
+  function rebuildLines(k) {
+    const upd = (lines, per, gen) => {
+      const P = lines.geometry.attributes.position.array; let w = 0;
+      for (const p of poses) { const c = transform(p, [1, 1, 1], null); const d = [(c[0]-centre[0])*k, (c[1]-centre[1])*k, (c[2]-centre[2])*k];
+        for (const v of gen(p)) { P[w++] = v[0] + d[0]; P[w++] = v[1] + d[1]; P[w++] = v[2] + d[2]; } }
+      lines.geometry.attributes.position.needsUpdate = true; lines.userData.exploded = k > 0;
+    };
+    if (poses.length <= 512) upd(outlineLines, 8, p => { const out = []; for (const f of D.features) { const q = f.base.map(i => V[i]); for (let j = 0; j < 4; j++) out.push(transform(p, q[j], f.normal), transform(p, q[(j+1)%4], f.normal)); } return out; });
+    upd(edgeLines, 2, p => creases.map(v => transform(p, v, null)));
+  }
+  function applyVisibility() { outlineLines.visible = state.outlines && state.look === 'schematic' && state.view !== 'cousin' && poses.length <= 512; featureMap.visible = state.look === 'map' && state.view === 'tile'; edgeLines.visible = state.edges; $('outl').disabled = poses.length > 512 || state.look !== 'schematic'; }
+
+  // ---------- camera: tiny orbit control ----------
+  let theta = 0.9, phi = 1.05, dist = 8, target = new THREE.Vector3(1, 1, 1);
+  let baseDist = 8;
+  function fitCamera(span) { target.set(centre[0], centre[1], centre[2] + (span > 2 ? 0.08 * span : 0)); baseDist = span * 4.4; dist = baseDist * (1 + state.explode); updateCamera(); }
+  function updateCamera() {
+    camera.position.set(target.x + dist * Math.sin(phi) * Math.cos(theta), target.y + dist * Math.sin(phi) * Math.sin(theta), target.z + dist * Math.cos(phi));
+    camera.up.set(0, 0, 1); camera.lookAt(target);
+  }
+  const el = renderer.domElement; let drag = null;
+  el.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, b: e.button }; el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointermove', e => {
+    if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag.x = e.clientX; drag.y = e.clientY;
+    if (drag.b === 2 || e.shiftKey) { const s = dist * 0.0015; const right = new THREE.Vector3(-Math.sin(theta), Math.cos(theta), 0); target.addScaledVector(right, -dx * s); target.z += dy * s; }
+    else { theta -= dx * 0.008; phi = Math.min(Math.PI - 0.05, Math.max(0.05, phi - dy * 0.008)); }
+    updateCamera();
+  });
+  const ray = new THREE.Raycaster(); ray.params.Line.threshold = 0.02;
+  let downAt = null;
+  el.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; });
+  el.addEventListener('pointerup', e => {
+    drag = null;
+    if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 4) return;
+    const r = el.getBoundingClientRect();
+    const ndc = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObject(mesh, false)[0];
+    if (!hit) { $('inspect').hidden = true; return; }
+    const card = $('inspect'); card.hidden = false;
+    if (mesh.geometry === chairGeom) { $('insTitle').textContent = 'Plain chair'; $('insBody').innerHTML = `Copy ${hit.instanceId + 1} of ${poses.length}. In this view each copy is drawn without its feature geometry; switch to a smaller view to inspect features.`; return; }
+    const tri = hit.faceIndex, fi = (mesh.geometry === facet.geom ? facet.triFeature : triFeature)[tri];
+    if (fi < 0) { $('insTitle').textContent = 'Plain panel'; $('insBody').innerHTML = `Copy ${hit.instanceId + 1} of ${poses.length}. A flat part of one of the 24 exposed unit panels; no feature here.`; return; }
+    const f = D.features[fi], bump = f.coef > 0;
+    $('insTitle').textContent = (bump ? 'Bump' : 'Dent') + ' of height ' + Math.abs(f.coef);
+    $('insBody').innerHTML = `<span class="tag" style="background:${bump ? '#e8563f' : '#5aa9e6'}">${bump ? 'sticks out' : 'sunk in'}</span> role ${f.role}, panel ${f.panel + 1} of 24, copy ${hit.instanceId + 1}.<br>Square base of true side 1/50; true height ${Math.abs(f.coef)}/10000 ${bump ? 'above' : 'below'} the panel. Its partner in any tiling is a ${bump ? 'dent' : 'bump'} of the same height.`;
+  });
+  window.addEventListener('keydown', e => {
+    const v = { '1': 'tile', '2': 'cluster', '3': 'p64', '4': 'p512', '5': 'p4096' }[e.key];
+    if (v) document.querySelector(`#views button[data-view="${v}"]`).click();
+    if (e.key === 'e' || e.key === 'E') { const cb = $('truescale'); cb.checked = !cb.checked; cb.dispatchEvent(new Event('change')); }
+    if (e.key === 'r' || e.key === 'R') $('reset').click();
+  });
+  el.addEventListener('wheel', e => { e.preventDefault(); dist *= Math.exp(e.deltaY * 0.0012); updateCamera(); }, { passive: false });
+  el.addEventListener('contextmenu', e => e.preventDefault());
+  let pinch = null;
+  el.addEventListener('touchstart', e => { if (e.touches.length === 2) pinch = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }, { passive: true });
+  el.addEventListener('touchmove', e => { if (e.touches.length === 2 && pinch) { const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); dist *= pinch / d; pinch = d; updateCamera(); } }, { passive: true });
+
+  function resize() { const w = window.innerWidth, h = window.innerHeight, panel = w > 860 ? 350 : 0; renderer.setSize(w, h); camera.aspect = w / h; camera.setViewOffset(w + panel, h, panel, 0, w, h); camera.updateProjectionMatrix(); }
+  window.addEventListener('resize', resize); resize();
+
+  // ---------- UI ----------
+  document.querySelectorAll('#views button').forEach(b => b.onclick = () => { document.querySelectorAll('#views button').forEach(x => x.classList.remove('on')); b.classList.add('on'); state.view = b.dataset.view; state.coarse = 0; buildView(); });
+  document.querySelectorAll('#colors button').forEach(b => b.onclick = () => { document.querySelectorAll('#colors button').forEach(x => x.classList.remove('on')); b.classList.add('on'); state.color = b.dataset.color; applyColor(); });
+  function applyLook() {
+    const t = $('truescale').checked, schematic = state.look === 'schematic';
+    state.exag = schematic && !t ? EXAG : 1; state.width = schematic && !t ? WIDTH : 1;
+    setWidth(state.width); setExaggeration(state.view === 'cousin' ? 0 : state.exag); setFacetHeight(state.view === 'cousin' ? 0 : state.exag);
+    $('truescale').disabled = !schematic;
+    $('truescaleLabel').textContent = schematic ? 'Draw schematic at true scale' : 'Exact geometry is active';
+    $('lookNote').innerHTML = state.look === 'map'
+      ? '<p style="margin:0 0 6px"><b>Feature map · annotation</b><br>The exact solid is underneath. Filled coral squares mark bumps; hollow sky squares mark dents. These symbols are not markings on the tile.</p>'
+      : state.look === 'exact'
+      ? '<p style="margin:0 0 6px">The canonical solid at true scale, with no feature enlargement. Its relief is barely visible because the square pyramids are extremely small and shallow.</p>'
+      : (t ? '<p style="margin:0 0 6px">The canonical square pyramids at true scale: heights 1/10000 to 12/10000 and bases of side 1/50.</p>'
+           : `<p style="margin:0 0 6px"><b>Explanatory schematic · bases ×${WIDTH}, heights ×${EXAG}</b><br>The 192 real square pyramids retain their centres, polarities and relative heights. This enlarged display is not the theorem\'s solid.</p>`);
+    applyVisibility(); renderLegend();
+    describe();
+  }
+  $('truescale').onchange = applyLook;
+  document.querySelectorAll('#looks button').forEach(b => b.onclick = () => { document.querySelectorAll('#looks button').forEach(x => x.classList.remove('on')); b.classList.add('on'); state.look = b.dataset.look; buildView(); applyLook(); });
+  $('explode').oninput = e => { state.explode = +e.target.value / 100 * 0.9; $('explodeOut').textContent = state.explode ? Math.round(state.explode * 100) + '%' : 'off'; dist = baseDist * (1 + state.explode); applyExplode(); updateCamera(); };
+  $('outl').onchange = e => { state.outlines = e.target.checked; applyVisibility(); };
+  $('edges').onchange = e => { state.edges = e.target.checked; applyVisibility(); };
+  $('reset').onclick = () => { theta = 0.9; phi = 1.05; buildView(); };
+  document.querySelectorAll('.stp').forEach(b => b.onclick = () => { state.v[+b.dataset.i] += +b.dataset.d; showV(); applyColor(); });
+  function showV() { ['vx', 'vy', 'vz'].forEach((id, i) => $(id).textContent = state.v[i]); }
+  $('vReset').onclick = () => { state.v = [0, 0, 0]; showV(); applyColor(); };
+  $('vLattice').onclick = () => { state.v = COUSIN_BASIS[Math.floor(Math.random() * 3)].slice(); showV(); applyColor(); };
+  $('cousinBtn').onclick = () => { document.querySelectorAll('#views button').forEach(x => x.classList.remove('on')); state.view = 'cousin'; state.coarse = 0; buildView(); };
+  $('coarsen').onclick = () => { const depth = { p64: 2, p512: 3, p4096: 4 }[state.view]; state.coarse = (state.coarse + 1) % (depth + 1); buildView(); };
+  $('spin').onclick = () => { state.spin = !state.spin; $('spin').textContent = state.spin ? 'Stop rotating' : 'Auto-rotate'; };
+
+  function renderLegend() {
+    const L = $('legend'); const sw = (c, t) => `<div class="sw" style="background:${c}"></div><div>${t}</div>`;
+    if (state.look === 'map') { L.innerHTML = sw('#e8563f','filled square: bump') + '<div class="sw" style="background:#f4ecdf;border:3px solid #5aa9e6"></div><div>hollow square: dent</div><div></div><div>feature map · annotation, not markings</div>'; return; }
+    const jw = false;
+    if (state.color === 'polarity') L.innerHTML = sw(jw ? '#f7dcc8' : '#e8563f', jw ? 'bump: the facet rises to a ridge (warm tint)' : 'bump: a pyramid raised out of the panel') + sw(jw ? '#d6e6f2' : '#5aa9e6', jw ? 'dent: the facet sinks to a hollow (cool tint)' : 'dent: the same pyramid sunk into the panel') + (jw ? '' : sw('#f4ecdf', 'the plain chair surface'));
+    else if (state.color === 'height') { const h = j => '#' + (jw ? heightRamp(j).lerp(new THREE.Color(C.cream), 0.55) : heightRamp(j)).getHexString(); L.innerHTML = sw(h(1), 'height 1 (1/10000)') + sw(h(12), 'height 12 (12/10000)') + '<div></div><div>each of the 12 heights appears 16 times: 8 bumps and 8 dents</div>'; }
+    else if (state.color === 'copy') L.innerHTML = COPY_COLORS.slice(0, state.view === 'tile' || state.view === 'cousin' ? 1 : 8).map((c, i) => sw('#' + c.toString(16).padStart(6, '0'), state.view === 'p4096' ? 'copies with great-grandparent ' + (i + 1) : state.view === 'p512' ? 'copies with grandparent ' + (i + 1) : state.view === 'p64' ? 'copies with parent ' + (i + 1) : 'child ' + (i + 1) + (i === 7 ? ' (the hidden central child)' : ''))).join('');
+    else L.innerHTML = sw('#f4ecdf', 'everything the same colour: this is what the solid really looks like');
+  }
+  function describe() {
+    const ex = state.look === 'map' ? 'The filled coral and hollow sky squares are a feature-map annotation over exact geometry.' : (state.exag === 1 ? 'Drawn at true scale: feature heights range from 1/10000 to 12/10000 of a unit edge and bases have side 1/50.' : `Explanatory schematic: bases ×${WIDTH}, heights ×${EXAG}; centres, polarities and relative heights are preserved.`);
+    const txt = {
+      tile: `<p>One copy of Chair44 (R44): seven unit cubes, the 2×2×2 block with one corner missing, and on each of the 24 exposed unit panels eight tiny square pyramids. Half the pyramids stick out (bumps), half are sunk in (dents). ${ex}</p><p>The written proof argues that equal-height bump/dent companionship, together with the 44-contact census and the parent-recognition and coarsening lemmas, forces a parent hierarchy on every tiling; repeated coarsening then rules out nonzero translation periods. The continuous-geometric steps are proof-submission claims, not yet externally reviewed.</p>`,
+      cluster: `<p>Eight copies, each a proper rotation of the tile, fitting together into a double-size chair. The eighth copy sits hidden in the middle. This is the rule that repeats at every scale: try "Explode copies" to see them separately. ${ex}</p>`,
+      p64: `<p>Sixty-four copies: the eight-copy rule applied twice. Colour by copy to see the eight parents. Every shared face between neighbouring copies has a relative pose in the 44-pose legal-contact atlas. ${ex}</p>`,
+      cousin: `<p>The periodic cousin: the same seven-cube chair with its features flattened, tiling space by lattice translations. “Try a true period” makes every tested copy green and the meter read 100%; untestable boundary copies stay grey. Chair44 adds 192 features with heights from 1/10000 to 12/10000 of a unit edge. The theorem claims that no whole-space R44 tiling has a nonzero translation period; this finite test supplies neither that proof nor its converse.</p>`,
+      p4096: `<p>Four thousand and ninety-six copies: the fourth refinement, coloured by great-grandparent; at this size each copy is drawn as its plain chair without feature geometry (the features would be invisible anyway). Every shared face between neighbouring copies has a relative pose in the 44-pose legal-contact atlas.</p>`,
+      p512: `<p>Five hundred and twelve copies: the third refinement, coloured by grandparent. The existence proof uses shifted even-depth refinements as a nested sequence exhausting space. The theorem does not say all tilings are congruent; it says every tiling has no nonzero translation period and a symmetry group of order at most 24. ${ex}</p>`,
+    }[state.view];
+    $('about').innerHTML = txt;
+  }
+
+  setWidth(WIDTH); buildView(); setExaggeration(EXAG); setFacetHeight(FACET_EXAG); applyLook();
+  window.__r44 = { camera, D, get poses() { return poses; }, get mesh() { return mesh; } };   // for scripted tests
+  (function loop() { requestAnimationFrame(loop); if (state.spin) { theta += 0.004; updateCamera(); } renderer.render(scene, camera); })();
+})();
+</script>
+</body>
+</html>

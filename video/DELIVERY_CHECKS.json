@@ -1,0 +1,61 @@
+{
+  "canonical_digests": "PASS",
+  "render_data_digest": "PASS",
+  "caption_timing_and_layout": "PASS",
+  "native_3d_source_frames_verified": 5700,
+  "movies": {
+    "r44_captioned.mp4": {
+      "decoded_frames": 7380,
+      "duration_seconds": 246,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "decode": "PASS",
+      "audio_tail": {
+        "decoded_seconds": 12.016,
+        "first_second_rms": 0.0387432724237442,
+        "last_tenth_second_rms": 0.0,
+        "fade": "PASS"
+      }
+    },
+    "r44_clean.mp4": {
+      "decoded_frames": 7380,
+      "duration_seconds": 246,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "decode": "PASS",
+      "audio_tail": {
+        "decoded_seconds": 12.016,
+        "first_second_rms": 0.0387432724237442,
+        "last_tenth_second_rms": 0.0,
+        "fade": "PASS"
+      }
+    },
+    "r44_teaser_40s.mp4": {
+      "decoded_frames": 1200,
+      "duration_seconds": 40,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "decode": "PASS",
+      "audio_tail": {
+        "decoded_seconds": 12.0,
+        "first_second_rms": 0.036243028938770294,
+        "last_tenth_second_rms": 0.0005230387323535979,
+        "fade": "PASS"
+      }
+    }
+  },
+  "delivery_file_digests": "PASS",
+  "production_source_digests": "PASS",
+  "end_card_and_teaser_layout": "PASS",
+  "required_context_labels_scheduled": "PASS",
+  "scope": "Technical delivery checks; visual review and mathematical theorem scope are recorded separately."
+}

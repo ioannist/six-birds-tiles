@@ -1,0 +1,18 @@
+{
+  "name": "R44",
+  "artifact_type": "3D Einstein proof submission",
+  "proposed_claim": "one rational unmarked polyhedral 3-ball; all Euclidean tilings have finite symmetry groups; reflections permitted",
+  "registered_result": "complete computer-assisted proof provided",
+  "unrestricted_alignment": "written proof plus complete independently replayed finite collision gates; external review pending",
+  "finite_checks": "PASS",
+  "mesh_angle_audit": "PASS",
+  "proof_assistant_kernel_verification": false,
+  "external_adversarial_review": false,
+  "novelty_priority_claim": false,
+  "discovery_scan": {
+    "choices_observed": 6561,
+    "12_dimensional_profiles": 6,
+    "4_dimensional_profiles": 6555,
+    "used_as_theorem_negative_evidence": false
+  }
+}

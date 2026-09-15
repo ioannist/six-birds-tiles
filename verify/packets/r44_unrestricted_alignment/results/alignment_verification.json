@@ -1,0 +1,442 @@
+{
+  "status": "PASS",
+  "unchanged_solid_sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+  "mesh_derived": {
+    "vertices": 2138,
+    "triangles": 4272,
+    "all_edges": 6408,
+    "sloping_triangles": 768,
+    "square_pyramids_extracted_without_patch_annotations": 192,
+    "feature_edges": 1536,
+    "unlisted_nonflat_angles": 0,
+    "angle_histogram": [
+      [
+        "base",
+        1,
+        -1,
+        32
+      ],
+      [
+        "base",
+        1,
+        1,
+        32
+      ],
+      [
+        "base",
+        2,
+        -1,
+        32
+      ],
+      [
+        "base",
+        2,
+        1,
+        32
+      ],
+      [
+        "base",
+        3,
+        -1,
+        32
+      ],
+      [
+        "base",
+        3,
+        1,
+        32
+      ],
+      [
+        "base",
+        4,
+        -1,
+        32
+      ],
+      [
+        "base",
+        4,
+        1,
+        32
+      ],
+      [
+        "base",
+        5,
+        -1,
+        32
+      ],
+      [
+        "base",
+        5,
+        1,
+        32
+      ],
+      [
+        "base",
+        6,
+        -1,
+        32
+      ],
+      [
+        "base",
+        6,
+        1,
+        32
+      ],
+      [
+        "base",
+        7,
+        -1,
+        32
+      ],
+      [
+        "base",
+        7,
+        1,
+        32
+      ],
+      [
+        "base",
+        8,
+        -1,
+        32
+      ],
+      [
+        "base",
+        8,
+        1,
+        32
+      ],
+      [
+        "base",
+        9,
+        -1,
+        32
+      ],
+      [
+        "base",
+        9,
+        1,
+        32
+      ],
+      [
+        "base",
+        10,
+        -1,
+        32
+      ],
+      [
+        "base",
+        10,
+        1,
+        32
+      ],
+      [
+        "base",
+        11,
+        -1,
+        32
+      ],
+      [
+        "base",
+        11,
+        1,
+        32
+      ],
+      [
+        "base",
+        12,
+        -1,
+        32
+      ],
+      [
+        "base",
+        12,
+        1,
+        32
+      ],
+      [
+        "carrier",
+        0,
+        -1,
+        243
+      ],
+      [
+        "carrier",
+        0,
+        1,
+        27
+      ],
+      [
+        "flat",
+        0,
+        0,
+        4602
+      ],
+      [
+        "ridge",
+        1,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        1,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        2,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        2,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        3,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        3,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        4,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        4,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        5,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        5,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        6,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        6,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        7,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        7,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        8,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        8,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        9,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        9,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        10,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        10,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        11,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        11,
+        1,
+        32
+      ],
+      [
+        "ridge",
+        12,
+        -1,
+        32
+      ],
+      [
+        "ridge",
+        12,
+        1,
+        32
+      ]
+    ],
+    "axis_planes": [
+      [
+        0,
+        "0",
+        "2492/625"
+      ],
+      [
+        0,
+        "1",
+        "623/625"
+      ],
+      [
+        0,
+        "2",
+        "1869/625"
+      ],
+      [
+        1,
+        "0",
+        "2492/625"
+      ],
+      [
+        1,
+        "1",
+        "623/625"
+      ],
+      [
+        1,
+        "2",
+        "1869/625"
+      ],
+      [
+        2,
+        "0",
+        "2492/625"
+      ],
+      [
+        2,
+        "1",
+        "623/625"
+      ],
+      [
+        2,
+        "2",
+        "1869/625"
+      ]
+    ]
+  },
+  "analytic_constants": {
+    "base_halfwidth": "1/100",
+    "height_unit": "1/10000",
+    "maximum_graph_slope": "3/25",
+    "8_L_squared": "72/625",
+    "63_L_squared": "567/625",
+    "three_feature_tangent_cones_cannot_coexist": true,
+    "pairwise_distinct_angle_deviations": 24,
+    "retained_core_margin": "1/100",
+    "minimum_demonstrated_core_overlap_width": "21/200",
+    "each_collision_contains_an_open_ball_of_radius_at_least": "21/400"
+  },
+  "complete_feature_mates": {
+    "raw": 6862,
+    "directly_core_colliding": 1545,
+    "isolated": 5317,
+    "fractional_isolated": 5234,
+    "integral_isolated": 83,
+    "rejected_with_exhaustive_companion_collision": 5273,
+    "companion_options_checked": 299975,
+    "survivors": 44,
+    "fractional_survivors": 0,
+    "improper_survivors": 0,
+    "same_as_registered_atlas_as_sets": true,
+    "option_count_histogram": [
+      [
+        7,
+        16
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        15,
+        3
+      ],
+      [
+        57,
+        4715
+      ],
+      [
+        58,
+        213
+      ],
+      [
+        59,
+        315
+      ]
+    ]
+  },
+  "independence": {
+    "imports_upstream_programs": false,
+    "imports_third_party_packages": false,
+    "feature_geometry_taken_from_actual_triangles": true,
+    "uses_flat_panel_filter_to_reject_placements": false,
+    "uses_existing_rejections_to_prune_companion_options": false,
+    "geometric_lemmas_proof_assistant_formalized": false,
+    "external_review": false
+  },
+  "inputs": {
+    "input/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+    "input/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "input/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2"
+  },
+  "seconds": 10.562337170005776
+}

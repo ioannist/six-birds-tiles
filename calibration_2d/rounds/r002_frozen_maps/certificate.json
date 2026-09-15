@@ -1,0 +1,129 @@
+{
+  "maps": [
+    {
+      "R": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "translation": [
+        0,
+        0
+      ],
+      "target_cells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "R": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "translation": [
+        1,
+        1
+      ],
+      "target_cells": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "R": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "translation": [
+        0,
+        4
+      ],
+      "target_cells": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "R": [
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "translation": [
+        4,
+        0
+      ],
+      "target_cells": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    }
+  ],
+  "similarity_ratio": "1/2",
+  "source_sha256": "1f661753af95e5834022c6d8d1fc8eb19a5c427fe358c2b8e2dfb886fd56bdc9",
+  "set_operator": "F(K)=union_i ((R_i K+t_i)/2)",
+  "fixed_point": "chair P",
+  "scope": "no alternative nonempty compact support for these frozen similarity maps"
+}

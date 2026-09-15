@@ -1,0 +1,18 @@
+{
+  "asset": "I09 \u2014 Verify Chair44 yourself",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "canonical_solid_sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+  "tile_render_sha256": "378fa0aef7e78b772bb8432f01e7770657ad21699f772550bf745d0440aace43",
+  "repository_target": "https://github.com/ioannist/six-birds-tiles#check-it-for-yourself",
+  "hosted_links": "Deferred; this version routes all five paths through the repository.",
+  "outputs": {
+    "media/output/verify/verify_chair44_portrait_1080x1350.png": {
+      "bytes": 140872,
+      "sha256": "d39a8380b1ad6226103e9e8c5d6b669a24f3f51e72aafbb4e7eb4f4497727df1"
+    },
+    "media/output/verify/verify_chair44_link_1200x630.png": {
+      "bytes": 130017,
+      "sha256": "0e4102a69578d28432a4596ebb3bb956909864fe2199a028bd547d9e7edd9fc8"
+    }
+  }
+}

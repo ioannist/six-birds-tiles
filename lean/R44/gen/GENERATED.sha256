@@ -1,0 +1,9 @@
+# sha256  path
+# canonical inputs
+b9eec9fd834abba4149bbf021026723499c4bb9e20553ebfab691c9ed3a9ed2d  ../../../solid/native_panels.csv
+f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55  ../../../solid/r44_solid.json
+44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2  ../../../certificates/candidate_certificate.json
+36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08  ../../../certificates/companion_collision_certificate.json
+# generated Lean sources
+f5dcdfd0cd4881101b6d457fb05e7b9412c06671245949256537a21a6d2b0d64  ../R44/Generated/CoreData.lean
+dd78a4dffd726ad581ddecc0e27d6e57cf1fb1a7de20d83d7c8c1b1bfa96bee3  ../R44/Generated/MateData.lean

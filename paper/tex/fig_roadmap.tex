@@ -1,0 +1,50 @@
+% fig_roadmap.tex — Fig. 1.2, proof roadmap (FIGURES.md 1.2; hat Figs 1.2/1.3 role).
+% Two flowcharts: existence (top) and universality (bottom). Each box carries its section and
+% the CLAIMS_LEDGER.md ids it stands on; tiers are those of the ledger rows at the pinned commit.
+\begin{tikzpicture}[
+  node distance=4mm and 5mm,
+  box/.style={draw, rounded corners=1.5pt, align=center, font=\footnotesize, inner sep=3pt,
+              minimum height=9mm, text width=27mm},
+  goal/.style={box, thick, fill=black!6},
+  lab/.style={font=\scriptsize\itshape, text=black!60},
+  arr/.style={-{Latex[length=2mm]}, thick}
+]
+  % --- existence ---
+  \node[lab] (exlab) {Existence (\cref{sec:finding}): a tiling of $\R^3$ by $\solid$};
+  \node[box, below=2mm of exlab.west, anchor=north west] (e1)
+    {\S\ref{sec:substitution} eight child poses partition $2\carrier$ \\ (O8)};
+  \node[box, right=of e1] (e2)
+    {\S\ref{sec:substitution} the $44$-contact atlas, $24$ frames \\ (R2, R3)};
+  \node[box, right=of e2] (e3)
+    {\S\ref{sec:existence} registered baseline tiling \\ (R10)};
+  \node[box, right=of e3] (e4)
+    {\S\ref{sec:existence} small-collar realization \\ (R10, A16)};
+  \node[goal, right=of e4] (e5)
+    {\cref{thm:full}(1) \\ a tiling exists (Lean spine; \cref{app:lean})};
+  \draw[arr] (e1) -- (e2); \draw[arr] (e2) -- (e3); \draw[arr] (e3) -- (e4); \draw[arr] (e4) -- (e5);
+
+  % --- universality ---
+  \node[lab, below=9mm of e1.south west, anchor=north west] (unlab)
+    {Universality (\cref{sec:companions,sec:registration,sec:hierarchy,sec:aperiodicity}): every tiling by $\solid$};
+  \node[box, below=2mm of unlab.west, anchor=north west] (u1)
+    {\S\ref{sec:companions} features force companions \\ (A1--A9)};
+  \node[box, right=of u1] (u2)
+    {\S\ref{sec:registration} only registered mates; the census \\ (A10--A12)};
+  \node[box, right=of u2] (u3)
+    {\S\ref{sec:registration} registration, \cref{thm:registration} \\ (A13--A15)};
+  \node[box, right=of u3] (u4)
+    {\S\ref{sec:hierarchy} unique parent, \cref{thm:parent} \\ (R4--R6)};
+  \node[box, right=of u4] (u5)
+    {\S\ref{sec:hierarchy} coarsening; the hierarchy \\ (R7, T8)};
+  \draw[arr] (u1) -- (u2); \draw[arr] (u2) -- (u3); \draw[arr] (u3) -- (u4); \draw[arr] (u4) -- (u5);
+
+  \node[goal, below=of u5] (u6)
+    {\cref{thm:full}(2): period halving, $\Per(T)=\{0\}$, $|\Sym(T)|\le 24$ \\ (T13, T2, T3)};
+  \node[goal, left=of u6] (u7)
+    {\cref{thm:full}(3): homochiral \\ (T6)};
+  \node[goal, left=of u7] (u8)
+    {\cref{thm:full}(4): unique hierarchy \\ (T8)};
+  \draw[arr] (u5) -- (u6);
+  \draw[arr] (u3.south) |- ([yshift=2mm]u7.north) -- (u7.north);
+  \draw[arr] (u5.south west) -- (u8.north east);
+\end{tikzpicture}

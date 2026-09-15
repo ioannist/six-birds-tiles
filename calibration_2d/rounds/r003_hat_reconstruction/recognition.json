@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "patches": 188,
+  "matches_reference_as_sets": true,
+  "root_role_counts": {
+    "H1": 36,
+    "H3": 36,
+    "H4": 31,
+    "F2": 12,
+    "P2": 8,
+    "H2": 39,
+    "FP1": 23,
+    "T1": 3
+  },
+  "labelled_tiles": 1391,
+  "between_checks": 516,
+  "author_matcher_passes": 188,
+  "scope": "separate arithmetic/declarative rule replay and frame-covariance tests; source enumeration replay is not a separately proved completeness theorem",
+  "hashes": {
+    "2patches.txt": "7d6e737980a1a9e49b1f087cad96ba861bc3940aac8c4c5649cca70e2377b693",
+    "matching.py": "392154f4c73298b16b89f3bc7450cc1cddf3d3b63ae9f517e0cdeeb1a77a6975",
+    "regenerated_2patches.txt": "0294040eb3d7e34dd3a19608973d2dfd4385905e23d0af86752944ad4d607e8d"
+  }
+}

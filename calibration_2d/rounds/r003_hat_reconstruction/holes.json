@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "matrix": [
+        1,
+        1,
+        2,
+        0,
+        -1,
+        -4
+      ],
+      "hole_kite_counts": [
+        1
+      ]
+    },
+    {
+      "matrix": [
+        0,
+        -1,
+        4,
+        -1,
+        0,
+        4
+      ],
+      "hole_kite_counts": [
+        1
+      ]
+    },
+    {
+      "matrix": [
+        -1,
+        0,
+        6,
+        1,
+        1,
+        -6
+      ],
+      "hole_kite_counts": [
+        1
+      ]
+    },
+    {
+      "matrix": [
+        -1,
+        0,
+        6,
+        1,
+        1,
+        0
+      ],
+      "hole_kite_counts": [
+        1
+      ]
+    }
+  ],
+  "scope": "each of the four excluded two-hat contacts traps fewer than eight kites, so cannot occur in a full aligned hat tiling; not a proof of every intermediate search pruning rule"
+}

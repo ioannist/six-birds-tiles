@@ -1,0 +1,327 @@
+\section{Introduction}\label{sec:intro}
+
+\subsection{The einstein problem in \texorpdfstring{$\R^3$}{R3}}\label{sec:problem}
+
+% ledger: Q1, Q2, Q23, T1, T3, O1, O4, O12 (Figure 1); source 1009.1419 L88; 2509.12216 L249-L253; form 2303.10798 L13, L43
+Socolar and Taylor, presenting the three-dimensional version of their hexagonal tile, set out
+what remained to be found: ``It is still interesting, however, to search for a single, simply
+connected 2D or 3D prototile that forces maximal nonperiodicity by shape alone, or one that does
+not permit any weakly nonperiodic tilings'' \cite{ST12}. Writing after the hat, Kaplan restated
+the demand from the other side: ``Some people regard this screw motion as uncomfortably close to
+translation, and demand a strongly aperiodic 3D monotile, one that admits tilings whose symmetries
+never include an infinite cyclic subgroup of any kind. Many of the ideas and algorithms we used to
+prove the hat's aperiodicity could be adapted to work in 3D space, but personally I am daunted by
+the prospect of deducing the behaviour of any candidate shapes that might be discovered there''
+\cite{Kap25}. The solid $\solid$ of \cref{fig:tile} is such a prototile: a closed polyhedral
+$3$-ball with rational vertex coordinates that admits tilings of $\R^3$ by congruent copies, and
+every tiling it admits has a finite symmetry group (\cref{thm:main,thm:full} below).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{print-preview/figure1-corrected.pdf}
+  \caption{The solid $\solid$, with feature bases enlarged $\times 5$ and signed heights
+  $\times 80$ for visibility. The seven-cube carrier, feature centres, polarities and relative
+  heights are preserved. The outlined panel~$13$ and its inset show the same eight features;
+  signed labels give $a$, whose true height is $a/10000$ (positive for a protrusion, negative
+  for a recess). The sections illustrate its $+9$ and $-9$ features. The true base side is
+  $1/50$; the drawing is not at true feature scale.}
+  \label{fig:tile}
+\end{figure}
+
+% ledger: Q21; source 2303.10798 L18-L24
+The study of aperiodic tilings begins with Wang's tiles and his conjecture that any set of
+Wang tiles admitting a tiling admits a periodic one \cite{Wan61}; Berger disproved it with an
+aperiodic set of $20{,}426$ Wang tiles and derived the undecidability of the domino problem
+\cite{Ber66}. Robinson gave a six-tile aperiodic construction \cite{Rob71} and Penrose a two-tile
+one \cite{Pen78}; these counts use different permitted motions and matching conventions from Wang
+tiles, for which Jeandel and Rao proved that the minimum is eleven \cite{JR21}. The natural endpoint
+of this reduction is a single shape that admits tilings but only non-periodic ones, an aperiodic
+monotile or ``einstein'' \cite{SMKGS24}.
+
+% ledger: Q12, Q8, Q21; source 2303.10798 L28-L35; 1903.01158 L11; 2211.15847 L28
+Every candidate before the hat conceded something. Gummelt's decagon covers the plane only with
+overlaps \cite{Gum96}; Penrose's $1+\varepsilon+\varepsilon^2$ set lets an arbitrarily high
+fraction of the area lie in one tile, but the other tiles remain necessary \cite{Pen97}; the
+Taylor--Socolar hexagon needs markings that let
+non-adjacent tiles exchange information, and a geometric version of the rule needs a disconnected
+tile, a tile with cutpoints, or a three-dimensional shape tiling a thickened plane
+\cite{Tay10,ST11,ST12}; the Walton--Whittaker tile uses orientational rules \cite{WW23}; and
+Mampusti and Whittaker say of their dendritic construction that ``the monotile we present here
+is not an einstein in the technical sense'' \cite{MW20}. In a different direction, Greenfeld and
+Tao disproved the periodic tiling conjecture with a single tile that tiles $\Z^d$ by translations
+only, for a dimension $d$ that ``will be extremely large'' and with a tile that need not be
+connected; whether $\Z^3$ admits such a tile they leave open \cite{GT24}, and Greenfeld and
+Kolountzakis showed that the tile can be taken connected \cite{GK23}.
+
+% ledger: Q9, Q10, Q25; source 2303.10798 L13, L43; 2305.17743 L45
+In the plane the question is settled. The hat, a polykite, is an aperiodic monotile whose tilings
+use both the tile and its mirror image \cite{SMKGS24}; the Spectre tiles aperiodically with a
+single handedness even when reflections are allowed \cite{SMKGS24b}. Both papers give a
+hierarchical, computer-assisted proof, and the hat paper a second, computer-free one. Simplified
+proofs and the structure of the tilings followed quickly \cite{AA25,BGS25,BGMM25,Soc23}.
+
+% ledger: Q7, Q6, Q13, Q2, Q24; source 2303.10798 L33, L37; 1009.1419 L14-L16, L30, L69-L72; 1003.4279 L171; 1003.4909 L45-L48
+Three dimensions have their own history. The second part of Hilbert's eighteenth problem asked
+whether anisohedral polyhedra exist in $\R^3$ \cite{Hil02}; Reinhardt found one \cite{Rei28},
+Heesch a planar one \cite{Hee35}. The Schmitt--Conway--Danzer biprism, a convex rhombic biprism
+going back to an unpublished 1988 example of Schmitt \cite{Sen96,Rad20}, admits, with reflections
+forbidden, only non-periodic tilings: its tilings are periodic layers stacked with a twist, and it
+admits a tiling whose symmetry group contains a screw motion; with reflections allowed it admits
+a periodic tiling; Socolar and Taylor call the structure ``heterogeneously periodic'' \cite{ST12}. Their own three-dimensional tile enforces the
+hexagonal matching rules by shape alone and can be made a topological sphere, but its tilings form
+``corrugated slabs of the limit-periodic pattern that stack periodically in the direction
+orthogonal to the nonperiodic tiling plane'' \cite{ST11}, which makes it ``a weakly nonperiodic
+tiling by Goodman-Strauss's definition'' \cite{ST12}. Fletcher turned \v{C}ul\'ik and Kari's set of
+$21$ Wang cubes \cite{CK95} into a single cubic prototile whose $21$ types are $21$ orientations,
+but the matching rules become an atlas of legal one-corona patches rather than the shape of the
+tile \cite{Fle10}. Kaplan's survey
+calls the biprism ``both an existence proof and a cautionary tale about the definition of
+aperiodicity in 3D space'' \cite{Kap25}.
+
+% ledger: Q3, Q4, Q5, Q26, T4, T5, N3; source 2303.10798 L33-L34, L64; 2409.15880 L43-L45, L88, L234, L236
+That definition is the point on which the three-dimensional problem turns. The hat paper,
+``following Mozes'', calls a set of tiles \emph{strongly aperiodic} if it admits tilings but none
+with any infinite cyclic symmetry, and \emph{weakly aperiodic} if it admits tilings but none with
+a cocompact discrete group of symmetries \cite{SMKGS24,Moz97}. In the Euclidean plane the two
+notions coincide for normal tiles \cite[Theorem~3.7.1]{GS16}; in the hyperbolic plane weak
+aperiodicity comes readily, as with B\"or\"oczky's monotile \cite{Bor74}, while Goodman-Strauss
+constructed a strongly aperiodic set there \cite{GS05}. In $\R^3$ the notions differ: with
+reflections forbidden, the biprism is weakly but not strongly aperiodic. We prove the strong form: every tiling by $\solid$ has a symmetry group of
+order at most $24$, and a finite group has no element of infinite order (\cref{cor:strong}). Coulbois, Gajardo,
+Guillon and Lutfalla use a finer taxonomy in which a tile all of whose tilings have finite
+symmetry group is \emph{mildly} aperiodic and ``strongly aperiodic'' is reserved for trivial
+stabilizers; in their terms the hat is mildly aperiodic, ``strongly aperiodic monotiles are
+unknown in all settings'', and their Question~32 asks for one \cite{CGGL24}. In their terms
+$\solid$ is mildly aperiodic and not strongly aperiodic: an explicit tiling by $\solid$ has
+symmetry group of order eight, and others have trivial symmetry group
+(\cref{sec:aperiodicity,sec:limitperiodic}).
+
+% ledger: O10, O1, O4, N4, T10
+$\solid$ is not convex, as the biprism is, and it is not simple: it is a seven-cube chair whose
+$24$ exposed unit panels each carry eight square pyramids of height between $1/10000$ and
+$12/10000$ (\cref{sec:solid}). It is, however, a closed topological $3$-ball with rational
+coordinates, and no matching rule of any kind is imposed: the tilings in \cref{thm:full} are all
+the ways congruent copies of the solid can fill space without overlapping.
+
+\subsection{Main result}\label{sec:main}
+
+% ledger: T1-T4, T6, T8, T10, D4, T12; form 2303.10798 L42-L43; 2305.17743 L45
+In this paper we prove the following, as a proof submission in the sense explained at the end of
+this subsection.
+
+\begin{theorem}\label{thm:main}
+The solid $\solid$ of \cref{fig:tile} is a strongly aperiodic monotile of $\R^3$: $\solid$ admits
+tilings of $\R^3$ by congruent copies, and no such tiling has a symmetry of infinite order.
+\end{theorem}
+
+\begin{theorem}\label{thm:full}
+Let $\solid$ be the rational polyhedral solid of \cref{sec:solid}. Then
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item there is a tiling of $\R^3$ by isometric copies of $\solid$;
+  \item for every tiling $T$ by isometric copies of $\solid$, $\Per(T)=\{0\}$ and $|\Sym(T)|\le 24$;
+  \item every tiling $T$ is homochiral;
+  \item in every tiling $T$ each tile lies in a unique infinite hierarchy of $2^n$-scaled chair
+    supertiles in registered poses, nested through the eight child poses.
+\end{enumerate}
+Isometries include reflections. No face-to-face, lattice, common-orientation,
+connected-contact-graph or local-finiteness hypothesis is imposed.
+\end{theorem}
+
+% ledger: T10, T11, D1, Q3; source 2303.10798 L58
+Here $\Per(T)$ is the set of translation vectors $v$ with $T+v=T$ and $\Sym(T)$ the group of
+isometries of $\R^3$ that permute the tiles of $T$ (\cref{sec:terminology}). The absence of
+hypotheses in \cref{thm:full} is deliberate. A tiling is any family of isometric copies of
+$\solid$ with pairwise disjoint interiors whose union is $\R^3$: the copies need not meet
+face-to-face, need not sit on a lattice, need not share an orientation, and their contact graph
+need not be connected. Local finiteness, which the hat paper notes is automatic for monohedral
+plane tilings by closed disks, is proved here from the geometry of $\solid$
+(\cref{sec:companions}) rather than assumed.
+
+% ledger: T6, T7, D5, D7, Q7; source 2305.17743 L22; 2303.10798 L52-L54; 1009.1419 L72
+Reflections are allowed in \cref{thm:full}, and clause (3) says what they do: nothing. By
+longstanding tradition in the tiling literature, ``shapes are considered congruent if they are
+equivalent under any Euclidean isometry, including those that reverse orientation''
+\cite{SMKGS24}, and the hat's status as a monotile depends on that convention, since every hat
+tiling uses both handednesses. $\solid$ needs no such caveat. Its tilings are \emph{homochiral}
+in the Spectre paper's sense, ``for every pair $T_i,T_j\in\mathcal{T}$, there is an
+orientation-preserving isometry mapping $T_i$ to $T_j$'' \cite{SMKGS24b}: a tiling by $\solid$ is
+wholly left-handed or wholly right-handed, and a reflected and an unreflected copy never occur in
+the same tiling. By the same paper's definition, a tile that admits only homochiral non-periodic
+tilings is a \emph{strictly chiral aperiodic monotile}; $\solid$ is one, in $\R^3$
+(\cref{cor:chiral}). The
+Schmitt--Conway--Danzer biprism, by contrast, is chiral but admits a periodic tiling once
+reflections are allowed \cite{ST12}.
+
+% ledger: T8, T9, N1, N2, A15, R7; source 2305.17743 L43, L45; 2303.10798 L253
+Clause (4) is the mechanism. After one ambient isometry every tile of every tiling occupies one
+of $24$ proper cubic frames at an integer position (\cref{sec:registration}); the seven-cube
+chairs so placed group uniquely into $2$-scaled chairs, those into $4$-scaled chairs, and so on
+without end (\cref{sec:hierarchy}). The hierarchy is unique at every level, and that is what
+forces non-periodicity, as in the Spectre paper \cite{SMKGS24b}. We do not claim that the
+supertiles of one tile exhaust space: as in the hat paper, tilings in which a tile sits at a
+corner of its supertile at every level, along ``fault lines'', are not excluded
+(\cref{sec:hierarchy}).
+
+% ledger: D4, T12, M1, M2, N8; source README wording (proof submission)
+\emph{Proof submission.} The finite parts of the argument, the enumerations of
+\cref{sec:computer}, the written geometric lemmas, and the logical assembly from those lemmas to
+\cref{thm:full} are theorems checked by the Lean~4 proof assistant, modulo the named compiler
+hooks of \cref{app:lean}. The written lemmas concern the tube construction, feature companions,
+global coverage and registration, carrier recovery, and small-collar realization. They are new,
+written out in full, independently reviewed, and listed by name with the Lean theorems that
+prove them in \cref{tab:hypotheses}; there are $19$ of them. Until the development and this
+manuscript have been refereed we present the theorem as a proof submission.
+
+\subsection{What an aperiodic monotile is, and how that found \texorpdfstring{$\solid$}{Q}}\label{sec:reading}
+
+% ledger: H1, O5, A15; Lean registration_of_tiling, period_grid_from_registered_poses, period_halving
+The proof below follows a reading of the phenomenon that we state first, because it is what
+produced the solid. Consider a labelling $x\colon\Z^3\to A$ of the cubic lattice by a finite
+alphabet. For a nonzero $p\in\Z^3$, $x$ is $p$-periodic exactly when it factors through
+$\Z^3\to\Z^3/\langle p\rangle$; this quotient is infinite. For tilings by $\solid$ the connection
+to labellings is
+registration (\cref{sec:registration}): after one ambient isometry every tile of every tiling
+sits in one of $24$ proper cubic frames at an integer position, and, because $\solid$ has no
+self-isometry, every translational period of the tiling is then an integer vector
+(\cref{sec:aperiodicity}). We use only this direction; the paper does not identify the periods of
+a tiling with those of a labelling in any packaged form. For $\solid$, we prove existence and
+exclude every nonzero translational period directly, using registration and period halving. The
+obstruction is productive: the local pieces do fit together globally; what fails is fitting them
+together periodically.
+
+% ledger: H3, Q11; source 1608.07165 L80, L308; 2305.17743 L43
+A hierarchy certifies aperiodicity only when it is forced. Grouping the tiles of a tiling into
+supertiles proves nothing by itself: on the cubic grid an observer may group cells into
+$2\times2\times2$ blocks in eight ways, and the grouping adds information the tiling does not
+carry. What proves non-periodicity is a grouping that the tiling determines and that every
+symmetry of the tiling therefore preserves. Then a symmetry of the tiling is a symmetry of the
+grouped tiling at every level, so a translation that was a symmetry would survive coarsening to
+every scale; if each coarsening halves it, it was never there. This is the recognizability,
+unique-composition and period-halving mechanism used here \cite{GS18,SMKGS24b}, and we use it as
+a design target.
+
+% ledger: H4; source packets P3-P5 SOURCE_AUDIT (structural interpretation); history/cascade/findings.md L44
+With marked tiles the rule that decides which neighbours are legal is external to the pieces; a
+geometric monotile has to put that rule into what can physically fit. For a marked system with a
+forced hierarchy to become one bare solid, three things must hold: a solid realizing the marked
+system exists; every tiling by the solid decodes into a legal configuration of the marked
+system; and a period of the tiling is a period of the decoded configuration. The second is the
+one that is easy to lose. It is not enough that the intended tilings survive: every tiling
+admitted by the bare solid must decode into the intended admissible marked system. One shape does
+not mean one role: copies of a
+single solid occupy different positions in the forced structure, and the diversity that a set of
+marked tiles carries in its catalogue is carried here by the relations between congruent copies.
+
+% ledger: H5, R7; Lean parent_atlas_eq_fine
+This reading yields a finite test. Write the legal contacts between neighbouring copies of the
+solid as a language of contacts, and decode a tiling into the tiling by its parents. The halving
+argument needs the parent tiling to be again a legal tiling of the same solid, that is, the
+language of contacts among decoded parents must lie inside the language of contacts among the
+tiles themselves. Equality of the two languages is the form we check, and it is sufficient for
+the argument, not necessary: a strictly smaller decoded language would also do. When the decoded
+language is strictly larger the argument fails, and whether a periodic parent tiling then exists
+must be checked case by case; for the first bare solid we built, it did (\cref{sec:found}). For
+$\solid$ the test is one finite identity, verified by machine: the halved parent atlas equals the
+fine atlas of $44$ legal contacts (\cref{sec:designtest}).
+
+% ledger: H2, H6, H11 (pointer sentence only; framework vocabulary confined to sec:found)
+The reading was reached with the Six Birds emergence calculus \cite{Tsi26F6,Tsi26F4,Tsi26NDO};
+\cref{sec:found} quotes its statement of the phenomenon and relates it, clause by clause and at
+each clause's level of verification, to the theorems proved here. Nothing in that section is used
+in the proofs.
+
+% ledger: H11, N7, O8, R10, A7, A11, A15, R6, R7, T13; source 2303.10798 L51; figure roadmap
+The proof is the discharge of that reading, and \cref{fig:roadmap} shows its shape. Existence
+comes from a substitution: eight rotated copies of the chair form a doubled chair, and iterating
+the dissection gives a registered tiling of the chair which the features accept
+(\cref{sec:finding}). Universality comes from the features: each pyramid forces a companion
+pyramid of the opposite polarity on a neighbouring tile, the companion forces the neighbour's pose
+into a discrete set, and an exhaustive census reduces that set to the $44$ legal contacts
+(\cref{sec:companions}); from there every tiling is registered (\cref{sec:registration}), every
+registered tiling has a unique parent tiling at every level (\cref{sec:hierarchy}), and a
+translational period would have to halve at every level, hence vanish (\cref{sec:aperiodicity}).
+As in the hat paper, the computer-assisted census is needed only to show that all tilings follow
+the hierarchy; it is not needed to show that a tiling exists.
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\linewidth}{!}{\input{fig_roadmap}}
+  \caption{Roadmap of the proof. Each box names its section and the rows of the claims ledger
+  (\cref{app:lean}) it rests on.}
+  \label{fig:roadmap}
+\end{figure}
+
+\subsection{Computer assistance and verification}\label{sec:computer}
+
+% ledger: M1-M5, M7, T12, Q14, Q20, R2, R4, R6, R7, A11, L1; source 2303.10798 L51, L158; 1808.07768 L51, L253; 1506.06492 L94
+Several steps of the proof are exhaustive finite enumerations, listed in \cref{tab:census}: the
+$2{,}388$ candidate contact poses of which exactly $44$ are legal; the $33$ first shells and $28$
+parent conflicts behind the unique-parent theorem; the $697\to116\to44$ parent contacts of the
+coarsening; the companion census of $6{,}862$ mate poses reduced to $44$ through $299{,}975$
+collision boxes; and the $168$-label substitution with its primitivity exponent and modular
+coincidence depth. The companion census, the largest of these, was checked by two independent
+Python implementations. Every enumeration is stated as a
+theorem in Lean~4 and checked by its kernel: those that decide directly by \lean{decide}, and
+those too large for the kernel's evaluator by \lean{native\_decide}, which adds, per theorem, one
+named compiler trust hook that we list in \cref{app:lean}. No floating-point number enters any
+checked statement: certificates are integers and exact rationals, the Python replay uses exact
+arithmetic, and Lean decides integer literals. The logical assembly from the enumerations and the
+named written lemmas to \cref{thm:full} is itself a Lean theorem, and the written lemmas of
+\cref{sec:solid,sec:finding,sec:companions,sec:registration} are themselves Lean theorems, so that
+the main theorem is kernel-checked modulo the named compiler hooks listed in \cref{app:lean}; the
+written proofs remain as exposition. Negative
+controls (must-fail variants of the inputs and of the formal statements, each checked to fail as
+expected) accompany the positive build. A one-command replay of the enumerations from the Python
+standard library runs in about a minute (\cref{app:data}). The only comparable formalization we
+know of is Myers's staging repository for the hat and Spectre, still in progress
+\cite{Mye24lean,Lean4}. \emph{Code.} The repository is given in \cref{app:data}; its release tag is
+\texttt{paper-v1} (intended; tag creation and licensing remain pending owner actions).
+
+\subsection{Terminology}\label{sec:terminology}
+
+% ledger: D1, D2, D3, D9; source 2303.10798 L25, L57-L58, L61; 1003.4909 L25
+Terminology follows Grünbaum and Shephard as the hat paper uses it \cite{GS16,SMKGS24}, with
+``closed topological disk'' replaced by ``closed topological $3$-ball''. A tile is a closed set;
+a tiling by a set of tiles is a collection of images of tiles under isometries with pairwise
+disjoint interiors whose union is the whole space; the set, or the single tile, \emph{admits} the
+tiling. A tiling is monohedral if all its tiles are congruent, congruences including mirror
+reflections, and locally finite if every ball meets only finitely many tiles. A \emph{monotile}
+is a tile admitting a monohedral tiling; adapting the hat paper's reservation of the terms to the
+present setting, an \emph{aperiodic monotile} or \emph{einstein} here is a closed topological
+$3$-ball admitting tilings but only non-periodic ones, by geometry alone, without any
+non-geometric matching rule constraining tile adjacencies. \emph{Registered} tilings, the \emph{atlas} of legal contacts,
+and the \emph{features}, \emph{panels} and \emph{carrier} of $\solid$ are our own terms, defined
+in \cref{sec:solid,sec:finding}; a \emph{supertile of level $n$} is a $2^n$-scaled chair in a
+registered pose (\cref{sec:hierarchy}). Here a patch means a finite subfamily of a packing;
+unlike the hat paper's disk-patch convention \cite{SMKGS24}, we impose no topological-ball
+condition. A $1$-corona consists of the tiles touching the chosen tile \cite{Fle10}. The notation
+is collected in \cref{app:notation}, \cref{tab:notation}.
+
+% ledger: D1 (symmetry), Q3, T5, Q5, O5; source 2303.10798 L34, L64; 2409.15880 L43-L45, L73-L76
+We quote the hat paper's definitions. ``The symmetry group of a tiling is the group of those
+isometries that act as a permutation on the tiles of the tiling. A tiling is weakly periodic if
+its symmetry group has an element of infinite order \dots\ A tiling is strongly periodic if the
+symmetry group has a discrete subgroup with cocompact action on the space tiled \dots\ A set of
+tiles (or a single tile) is weakly aperiodic if it admits a tiling but does not admit a strongly
+periodic tiling, and strongly aperiodic if it admits a tiling but does not admit a weakly periodic
+tiling.'' And: ``Following Mozes [Moz97], we say a set of tiles is strongly aperiodic if it admits
+tilings but none with any infinite cyclic symmetry'' \cite{SMKGS24,Moz97}. Since a finite group
+has no element of infinite order, ``strongly aperiodic'' in this sense is what
+\cref{thm:full}(2) gives. In the finer taxonomy of Coulbois, Gajardo, Guillon
+and Lutfalla \cite[\S2.1]{CGGL24} a tile all of whose tilings have finite symmetry group is
+\emph{mildly} aperiodic, and \emph{strongly} aperiodic is reserved for trivial stabilizers; in
+their terms $\solid$ is mildly aperiodic, and it is not strongly aperiodic in that stricter
+sense, since an explicit tiling has symmetry group of order eight (\cref{sec:aperiodicity}).
+They also distinguish the symmetry group of a tiling from the
+stabilizer of its family of placements; the two coincide when the tile has no self-isometry, as
+$\solid$ has none (\cref{sec:solid}), and we write $\Sym(T)$ throughout.
+
+% ledger: D5, Q10; source 2305.17743 L22, L43
+From the Spectre paper we take, verbatim, that ``a monohedral tiling $\mathcal{T}$ is a
+homochiral tiling if for every pair $T_i,T_j\in\mathcal{T}$, there is an orientation-preserving
+isometry mapping $T_i$ to $T_j$'' and that a strictly chiral aperiodic monotile is ``a tile that
+admits only homochiral non-periodic tilings''; and that ``a set of tiles is hierarchical if, in
+every tiling admitted by those tiles, every tile is nested within an infinite hierarchy of
+ever-larger supertiles. If these hierarchies are uniquely determined, then the tilings that
+contain them must be non-periodic'' \cite{SMKGS24b}. Fault lines are defined in
+\cref{sec:hierarchy}, following the hat paper.

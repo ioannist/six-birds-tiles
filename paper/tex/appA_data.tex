@@ -1,0 +1,99 @@
+\section{Data and replay}\label{app:data}
+
+% ledger: M3, M4, M6, M7, Q22; source APPENDIX_DATA.md §1-§4, §6; verify/replay.py; viewer/README.md
+\emph{Inputs.} The theorem is about one solid, \file{solid/r44_solid.json}: its $2{,}138$
+vertices as exact rationals, its $4{,}272$ triangles, the $192$ features with their signed
+coefficients, and the eight child poses. Two certificate files carry the finite data the proof
+uses: \file{certificates/candidate_certificate.json} (the contact closure and profile, the
+$44$-contact atlas, the $33$ first shells, the completions and conflicts, the parent census) and
+\file{certificates/companion_collision_certificate.json} (the $5{,}273$ rejection records with
+their $299{,}975$ collision witnesses, the boxes themselves in a companion file). Their sha256
+digests are in \cref{tab:hashes}. The replay entrypoint checks that the four canonical inputs are
+byte-identical to the packet copies and checks the fixed solid digest before invoking the
+checkers.
+
+\begin{table}[ht]
+  \centering
+  \caption{Input hashes and tool versions, computed at the state of the repository described in
+  this paper (FIGURES.md, Table 6).}
+  \label{tab:hashes}
+  \small
+  \input{generated/appendix_data_table}
+\end{table}
+
+% ledger: M3, M4, M5, M6; source APPENDIX_DATA.md §2-§4; paper/review/REPLAY_FROM_PAPER.md
+\emph{Replay in one minute.} From the repository root,
+\begin{verbatim}
+python3 verify/replay.py
+\end{verbatim}
+runs, with the Python standard library only and no network, the checker of the registered
+theorem (the first implementation), the alignment checker and the integer-only replay of the
+collision boxes (the second implementation), the mesh check \file{verify/boundary_sphere.py},
+the tube-formula controls, \file{verify/substitution_modular_coincidence.py} and the
+block-language closure \file{verify/seed_language_closure.py}; it asserts the
+input digests first and writes \file{verify/replay_report.json}. In the recorded clean-clone run
+at the pinned commit (\file{paper/review/REPLAY_FROM_PAPER.md}, 2026-09-10) the replay
+completed in about half a minute ($28.316$
+seconds wall time) on the machine that ran the Lean builds; its hardware is not otherwise
+specified; hardware specifications and Lean build time and peak memory are not reported for this
+version. Three
+further commands complete the README's one-minute list:
+\begin{verbatim}
+(cd lean/R44 && python3 gen/extract.py --check)
+python3 -m unittest discover simulations/tests
+cd verify/packets/r44_unrestricted_alignment
+python3 src/test_mutations.py
+\end{verbatim}
+The first checks that the Lean literals generated from the JSON inputs match those inputs. The
+unit-test command reported $10$ tests with six skipped by optional-dependency guards; it does not
+establish that those six tests passed. The last command rejects six corrupted inputs (a missing triangle, a reversed triangle, a moved apex, a
+missing rejection witness, a wrong companion quantifier, a missing registered contact) and states
+its own scope: it checks that malformed inputs are rejected and does not validate the continuous
+proof.
+
+\emph{Paper-lane scripts.} The standard-library scripts cited in the text as \tier{T2} live in
+\file{paper/scripts/}: the exact closure of the block language and the fixed seeds
+(\file{seed_language_closure.py}, \cref{sec:limitperiodic}), the planar areas of \cref{sec:solid}
+(\file{planar_areas.py}) and the non-convexity witness; each reads the repository data and
+prints \texttt{STATUS: PASS}.
+
+\emph{Figures.} \Cref{fig:tile,fig:panel} are drawn by \file{figures/print-preview/build\_preview.py}
+from \file{solid/r44\_solid.json} with the exaggerations stated in their captions: the carrier and
+the $192$ feature centres keep their coordinates, every feature base is widened $\times 5$ about
+its centre and every signed height is multiplied by $80$, so polarities and relative heights
+are preserved and nothing is added, omitted or moved. The script checks all $192$ feature records
+against the mesh and the native panel table in rational arithmetic, and a second script reads the
+display mesh back and reconstructs its $768$ feature triangles independently; the outputs and their
+digests are in \file{figures/print-preview/}. \Cref{fig:cluster,fig:patch} are the renders of
+\file{figures/render\_r44.py}. No figure is verification.
+
+\emph{Exact arithmetic.} Every certificate is integer or rational data; the only decimal literals
+in the certificates are two timing fields. The checkers use Python integers and
+\texttt{fractions.Fraction}; the only floating-point conversion in the repository's verification
+code is the export of the mesh to a rendering format. The verification scripts named in the ``Paper-lane scripts'' paragraph
+also use exact rationals only; the planar-area checker bounds each non-axis facet's
+area $\sqrt q/2$ by $(q+m^2)/(4m)$ with an integer-square-root witness $m$, exactly. Collision
+boxes are stored in integer units of $1/400$. The Lean theorems decide integer and rational
+literals.
+
+\emph{Lean.} The development is \file{lean/R44}, built with \texttt{lake build} under the
+toolchain of \cref{tab:hashes} (the build is capped at four parallel jobs and the Mathlib cache is
+pre-seeded); \file{lean/R44/scripts/controls.sh} runs the positive build, then every must-fail
+file against its expected diagnostic, the scope regressions and the admission count, in one
+command. The axiom lines of \cref{tab:axioms} are produced by the build itself
+(\file{build_axioms.log}).
+
+% ledger: Q22, M7, O12; source viewer/README.md; figures/print-preview/README.md
+\emph{Viewer.} \file{viewer/index.html} shows the solid, the eight-child cluster and the
+$64$-, $512$- and $4{,}096$-copy patches in the browser without a server. It
+is generated from the canonical rational data with the source hashes recorded; its features are
+drawn exaggerated by default, with a switch to true heights; colours are annotation. It also
+offers a period test on finite patches, which, as its own caption says, proves nothing.
+
+
+\emph{Code.} Repository: \url{https://github.com/ioannist/six-birds-tiles}. The Lean statements,
+hypothesis record and axiom lists reproduced in this paper refer to commit
+\texttt{d90313a717}, and the recorded clean-clone replay was run at that commit (an earlier
+recorded run at \texttt{bdc6d3b957}, before the block-language closure joined the replay, gave
+the same digests and outcomes). The intended paper-release tag is \texttt{paper-v1};
+tag creation and licensing remain pending owner actions.

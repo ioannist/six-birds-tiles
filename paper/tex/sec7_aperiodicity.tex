@@ -1,0 +1,84 @@
+\section{Aperiodicity and homochirality}\label{sec:aperiodicity}
+
+% ledger: T13, T2, T3, T4, T5, N3; source PROOFS_registered.md R§10; Lean period_halving, all_periods_grid, no_period, sym_card_le_24, r44_einstein (spine); 1711.03401 L8 register
+\begin{theorem}[no periods; R\S10; \tier{T1n}, unconditional:
+\lean{r44\_einstein}, using \lean{period\_halving} and
+\lean{all\_periods\_grid}; terminal arithmetic lemma
+\lean{no\_period}: \tier{T1}]\label{thm:noperiod}
+Every tiling $T$ by $\solid$ has $\Per(T)=\{0\}$.
+\end{theorem}
+
+\begin{proof}
+Let $p$ be a translational period of $T$. Registration (\cref{thm:registration}) and the absence
+of self-isometries (\cref{sec:solid}) make $p$ an integer vector: the translation by $p$ carries
+a registered tile to a registered tile in the same frame, and the difference of two integer
+shifts is an integer vector. The parent partition is translation-covariant (\cref{thm:parent}),
+so $D(T+p)=D(T)+p/2$ by \cref{thm:coarsening}; since $T+p=T$, $p/2$ is a period of $D(T)$, which
+is again a registered tiling by $\solid$. Iterating, $p/2^n$ is a period of $D^n(T)$ and hence an
+integer vector for every $n$, so $p\in\bigcap_n 2^n\Z^3=\{0\}$.
+\end{proof}
+
+This is the classical argument that a unique hierarchy forbids periods, in the form the Spectre
+paper states \cite{SMKGS24b} and in the form Robinson's tilings first exhibited: a period would
+have to be a period of every level, and the levels grow without bound.
+
+\begin{theorem}[finite symmetry; R\S10; \tier{T1n}, unconditional:
+\lean{r44\_einstein}; conditional bound
+\lean{sym\_card\_le\_24}: \tier{T1}]\label{thm:sym}
+Every tiling $T$ by $\solid$ has $|\Sym(T)|\le24$.
+\end{theorem}
+
+\begin{proof}
+After registration every tile's frame lies in one coset of the $24$-element proper cubic group,
+and $\solid$ has no self-isometry, so a symmetry of $T$ is determined by where it sends one
+chosen tile: its linear part is one of at most $24$ frames, and, that being fixed, its
+translation part is determined as well. The map from $\Sym(T)$ to linear parts has kernel the
+translational symmetries, which are trivial by \cref{thm:noperiod}; hence it is injective into a
+set of at most $24$ elements.
+\end{proof}
+
+\begin{corollary}[strong aperiodicity; a deduction from the two theorems above]\label[corollary]{cor:strong}
+No tiling by $\solid$ has a symmetry of infinite order. Hence $\solid$ is a strongly aperiodic
+monotile of $\R^3$ in the sense of Mozes and of the hat paper, and \cref{thm:main} holds.
+\end{corollary}
+
+\begin{proof}
+A finite group has no element of infinite order; existence is \cref{thm:existence}.
+\end{proof}
+
+In the taxonomy of Coulbois, Gajardo, Guillon and Lutfalla, \cref{thm:sym} says that $\solid$
+is mildly aperiodic. Strong aperiodicity in their sense would require every tiling to have
+trivial symmetry group, and $\solid$ does not have that property: the substitution fixed points
+of \cref{prop:seedsym} include tilings whose symmetry group has order $8$, as well as tilings
+with trivial symmetry group. In particular no screw motion, rational or
+irrational, is a symmetry of any tiling by $\solid$, which is the property the biprism lacks.
+
+% ledger: T6, T7, D5; Lean tiling_homochiral, tiling_chirality_corollary (spine); source 2305.17743 L22
+\begin{theorem}[homochirality; \lean{tiling\_homochiral}, \lean{tiling\_chirality\_corollary}:
+\tier{T1n}, unconditional]\label{thm:homochiral}
+In every tiling $T$ by $\solid$ all placements have the same handedness: the determinants of
+their linear parts are all $+1$ or all $-1$. Consequently a reflected and an unreflected copy of
+$\solid$ never occur in the same tiling, and every tiling is homochiral.
+\end{theorem}
+
+\begin{proof}
+After the ambient isometry of \cref{thm:registration}, every placement is a proper cubic frame
+followed by a translation, so all placements have determinant $+1$ relative to that isometry;
+undoing it multiplies all determinants by the same sign. For two tiles $g\solid$ and $h\solid$
+the relative motion $hg^{-1}$ then has determinant $+1$, which is the Spectre paper's definition
+of a homochiral tiling.
+\end{proof}
+
+\begin{corollary}[strictly chiral aperiodic monotile; a deduction at the same verification
+boundary]\label[corollary]{cor:chiral}
+$\solid$ is a strictly chiral aperiodic monotile of $\R^3$ in the sense of the Spectre paper: it
+admits tilings, and every tiling it admits is homochiral and non-periodic.
+\end{corollary}
+
+Reflections were never excluded by convention: all $48$ signed frames were admitted as candidate
+poses in \cref{sec:companions,sec:registration}, and the $44$ legal contacts turned out proper.
+A tiling may be reflected as a whole; what the geometry forbids is a mixture. The
+Schmitt--Conway--Danzer biprism, by contrast, needs reflections forbidden for its aperiodicity
+\cite{ST12}. The four clauses of \cref{thm:full} are now proved: (1) is \cref{thm:existence},
+(2) is \cref{thm:noperiod,thm:sym}, (3) is \cref{thm:homochiral}, and (4) is
+\cref{thm:hierarchy}.

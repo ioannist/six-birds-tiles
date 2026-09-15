@@ -1,0 +1,57 @@
+{
+  "immutable_artifacts": {
+    "ALIGNMENT_PROOF.md": {
+      "bytes": 26256,
+      "sha256": "e786461aaaf1afd08fb9f190570733cfbbf903cb437237c0b5011b6cb7d05f0a"
+    },
+    "CLAIM_LEDGER.md": {
+      "bytes": 2395,
+      "sha256": "955961086755a787fcccadc3411d0e238f4335076582d4b40229acd0aa816c2c"
+    },
+    "README.md": {
+      "bytes": 2640,
+      "sha256": "aeea77357ff45ccbe9c5d776739659cf99eca20fe94e41568d647ec3d5120e2d"
+    },
+    "SOURCE_AUDIT.md": {
+      "bytes": 4045,
+      "sha256": "c9a61bb2638c16c97f59f3b211a16e060bc4de81f01010e4d9a7d848ad1223dc"
+    },
+    "input/candidate_certificate.json": {
+      "bytes": 141294,
+      "sha256": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2"
+    },
+    "input/companion_collision_certificate.json": {
+      "bytes": 650685,
+      "sha256": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08"
+    },
+    "input/r44_solid.json": {
+      "bytes": 407737,
+      "sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55"
+    },
+    "results/collision_core_witnesses.jsonl.gz": {
+      "bytes": 1812429,
+      "sha256": "ae64a5283400c61e15f4a8758d949f3ad8428645cb3691e0b5cdb539161f8a45"
+    },
+    "src/replay.py": {
+      "bytes": 2032,
+      "sha256": "2b2af8dde26b13e8da57a0d777f69bae5258fd677e16629a65630ad85999526e"
+    },
+    "src/replay_core_boxes.py": {
+      "bytes": 2800,
+      "sha256": "2a22fde726b400697a1edafb9ba5203b090c28a5a763169ddd831d1150c189f4"
+    },
+    "src/test_mutations.py": {
+      "bytes": 2431,
+      "sha256": "e57d86f4eab46107b51c1524a77aa03b0a056103306d82472b18e374f70d7cd0"
+    },
+    "src/verify_alignment.py": {
+      "bytes": 19596,
+      "sha256": "b092539f23d1e43607e200f995f55b5b49e09fe68481bd3ee159e63f120a804b"
+    },
+    "upstream/einstein_r44_proof_submission.zip": {
+      "bytes": 606078,
+      "sha256": "ec2185fda29034a4581fafd308f8866ff1cb91beaaf85ccbf9e26803febe7f45"
+    }
+  },
+  "note": "Replay logs contain timing-dependent output and are not immutable inputs. The solid is unchanged."
+}

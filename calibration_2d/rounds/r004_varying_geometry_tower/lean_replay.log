@@ -1,0 +1,3 @@
+'EinsteinCalibration.period_lifts' does not depend on any axioms
+'EinsteinCalibration.tower_forces_trivial_stabilizers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EinsteinCalibration.nonempty_tower_landing' depends on axioms: [propext, Classical.choice, Quot.sound]

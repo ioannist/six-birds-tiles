@@ -1,0 +1,7 @@
+__pycache__/
+review/
+generated/
+
+# Generated reader bundles are attached to a GitHub/Zenodo release. They are
+# rebuilt from, and pinned to, the public release commit.
+downloads/

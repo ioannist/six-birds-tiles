@@ -1,0 +1,55 @@
+# Local Python environment and caches.
+.venv/
+__pycache__/
+
+# Raw renderer intermediates. The selected public images below are sufficient
+# for the repository; print masters and alternate crops belong in releases.
+source/press_exact_raw/
+source/numbered_views_raw/
+source/hierarchy/
+source/**/*.log
+
+# Keep a small public web set and its receipts; ignore the rest of the campaign
+# output without deleting it from the working tree.
+output/*
+!output/hero/
+output/hero/*
+!output/hero/hero_github_1280x640.png
+!output/hero/hero_open_graph_1200x630.png
+!output/hero_receipt.json
+
+!output/comparison/
+output/comparison/*
+!output/comparison/comparison_landscape_1920x1080.png
+!output/comparison_receipt.json
+
+!output/growth/
+output/growth/*
+!output/growth/growth_landscape_1920x1080.png
+!output/growth_receipt.json
+
+!output/infographic/
+output/infographic/*
+!output/infographic/why_chair44_wide_2400x1350.png
+!output/infographic_receipt.json
+
+!output/period_argument/
+output/period_argument/*
+!output/period_argument/why_translation_period_fails_square_1080x1080.png
+!output/period_argument/period_argument_receipt.json
+
+!output/verify/
+output/verify/*
+!output/verify/verify_chair44_link_1200x630.png
+!output/verify/verify_card_receipt.json
+
+!output/reconstruction/
+output/reconstruction/*
+!output/reconstruction/chair44_visual_reconstruction_plate_r2.svg
+!output/reconstruction/chair44_visual_reconstruction_plate_r2_web_4000.png
+!output/reconstruction/chair44_visual_reconstruction_plate_r2_receipt.json
+
+!output/press/
+output/press/*
+!output/press/PRESS_COPY.md
+!output/press/press_kit_receipt.json

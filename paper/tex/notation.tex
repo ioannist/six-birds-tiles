@@ -1,0 +1,35 @@
+\section{Notation}\label{app:notation}
+
+% ledger: D1, D3, D5, O1, A11; the definitions of sec:solid, sec:substitution, sec:companions, sec:registration, sec:hierarchy
+\begin{table}[ht]
+  \centering
+  \caption{Notation used throughout, with the section that defines it.}
+  \label{tab:notation}
+  \small
+  \begin{tabular}{l L{0.62\linewidth}}
+    \toprule
+    symbol & meaning \\
+    \midrule
+    $\carrier$ & the seven-cube chair carrier, volume $7$ (\cref{sec:solid}) \\
+    panel & one of the $24$ exposed unit squares of $\carrier$ (\cref{sec:solid}) \\
+    feature & one of the $192$ square pyramids, eight per panel (\cref{sec:solid}) \\
+    $\eta$, $\rho$ & base half-width $1/100$ of a feature; tube half-height and retained-core margin $1/100$ (\cref{sec:solid}) \\
+    $\solid$ & the solid: the carrier with its $192$ features (\cref{sec:solid}) \\
+    role, profile & a feature position indexed by panel and mark; the vector of $192$ signed feature coefficients (\cref{sec:solid}) \\
+    $t_j$, $\alpha_j$, $\beta_j$ & slope $j/100$ of a feature of magnitude $j$; its base-edge and ridge deviation angles (\cref{lem:dihedral}) \\
+    $E(F)$ & the closed edge graph of a feature $F$: four base edges and four ridges (\cref{sec:companions}) \\
+    frame & a signed permutation of the coordinate axes; registered frames are the $24$ proper ones (\cref{sec:substitution}) \\
+    registered pose & a proper cubic frame followed by an integer translation (\cref{sec:substitution}) \\
+    $\atlas$ & the $44$ legal neighbour poses relative to a root chair in the identity pose (\cref{sec:substitution}) \\
+    $F_0$, $F_1$, $\mathrm{Partners}(u)$ & the $6{,}862$ complete-feature companion poses; those not overlapping the root; those in $F_1$ matching the root feature $u$ (\cref{sec:registration}) \\
+    $T$, $\Per(T)$, $\Sym(T)$ & a tiling; its translation periods; its symmetry group (\cref{sec:terminology}) \\
+    handedness & the determinant $\pm1$ of the linear part of a placement (\cref{sec:aperiodicity}) \\
+    supertile of level $n$ & a $2^n$-scaled chair in a registered pose (\cref{sec:hierarchy}) \\
+    coarsening $D$ & grouping into unique parents, halving parent origins and scale, and realizing fresh copies of $\solid$ (\cref{thm:coarsening}) \\
+    \tier{T1} & kernel-checked Lean proof using only standard axioms \\
+    \tier{T1n} & kernel-checked Lean proof with the recorded native compiler hooks \\
+    \tier{T2} & exact finite Python replay \\
+    \tier{T3} & written proof or cited external import \\
+    \bottomrule
+  \end{tabular}
+\end{table}

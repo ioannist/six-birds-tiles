@@ -1,0 +1,50 @@
+\section{Remarks and open problems}\label{sec:remarks}
+
+% ledger: P1-P8, H12, N3, N4, N5, N6, Q5; source COMMUNITY_PAPER_PROFILE.md §10; 2303.10798 L253, L262; 2409.15880 L49, L236; 2305.17743 L115, L118
+We close with questions, in the hat paper's manner, and we phrase each as a question.
+
+\begin{enumerate}[label=\textup{(\arabic*)}, leftmargin=*]
+  \item \emph{Symmetry.} The fixed-point construction (\cref{prop:seedsym}) yields tilings with
+    symmetry groups of orders $1$ and $8$. Is the bound $|\Sym(T)|\le24$ attained, and which
+    other finite symmetry groups occur? Question~32 of Coulbois, Gajardo, Guillon and Lutfalla
+    asks for a geometric monotile whose tilings all have trivial stabilizer \cite{CGGL24};
+    $\solid$ is not one (\cref{sec:aperiodicity}).
+  \item \emph{Fault surfaces and the tiling space.} The ancestors of one fixed tile can fail to
+    cover space (\cref{sec:hierarchy}). Which non-exhausting hierarchies occur, and does every
+    tiling lie in the substitution hull? The hat paper asks the latter of hats \cite{SMKGS24}; for
+    $\solid$ the question is also where a hull-level version of \cref{cor:limitperiodic}
+    (\cref{sec:limitperiodic}) would
+    have to be settled.
+  \item \emph{Convexity.} Is there a convex strongly aperiodic monotile in $\R^3$? With
+    reflections forbidden, the biprism is convex and weakly but not strongly aperiodic; with
+    reflections allowed it admits periodic tilings; $\solid$ is strongly aperiodic and not convex;
+    and for translations alone convex tiles cannot be aperiodic \cite{CGGL24}.
+  \item \emph{Achirality.} Is there a strongly aperiodic monotile of $\R^3$ with a mirror symmetry,
+    or one whose tilings mix both handednesses? The Spectre paper poses the einstein problem for
+    each isometry group $G$ \cite{SMKGS24b}; $\solid$ answers it for the full isometry group of
+    $\R^3$ and, being strictly chiral, for the group of proper motions at the same time.
+  \item \emph{Simplicity.} What is the smallest number of faces, or of vertices, of a strongly
+    aperiodic monotile in $\R^3$? $\solid$ has $4{,}272$ triangles because each of its $192$ features
+    is a pyramid; within the twelve-parameter family of \cref{sec:solid} the proof does not
+    change, and we do not know how far the architecture can be simplified.
+  \item \emph{Heesch and isohedral numbers; decidability.} What Heesch numbers and isohedral
+    numbers occur for polyhedra in $\R^3$, and is it decidable whether a given polyhedron tiles
+    $\R^3$? We prove nothing in this direction.
+  \item \emph{A shorter proof.} Simplified proofs of the hat's aperiodicity appeared within
+    months \cite{AA25}. The universality half of our proof, \cref{sec:companions,sec:registration},
+    is the part we would most like to see shortened; the finite half is a census that a different
+    argument might avoid.
+  \item \emph{The mechanism elsewhere.} The construction puts small features on a periodic
+    carrier so that the features force a registered lattice substitution whose parent language is
+    its own fine language. Does the same design yield einsteins in other dimensions, on other
+    lattices, or in other crystallographic settings, and is there a version in the plane with a
+    different carrier?
+\end{enumerate}
+
+% ledger: O1, N4; source 2303.10798 L262 (deflationary close)
+The features of $\solid$ have height unit $1/10000$ and maximum height $12/10000$, measured in
+carrier-cell units. Everything the theorem says about tilings by $\solid$, that they exist, that
+they are hierarchical, that they have no period and no symmetry of infinite order, and that they
+never mix a tile with its mirror image, is decided by those pyramids. We do not know whether
+fewer or larger features, or a fundamentally simpler solid, can enforce the same conclusions;
+$\solid$ may be far from the simplest example.

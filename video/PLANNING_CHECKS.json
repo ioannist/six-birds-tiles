@@ -1,0 +1,86 @@
+{
+  "date": "2026-09-11",
+  "scope": "Exact planning checks completed before review. No rendering, global aperiodicity proof, or fresh Lean build.",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "canonical_sha256": {
+    "solid/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+    "certificates/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "certificates/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "certificates/collision_core_witnesses.jsonl.gz": "ae64a5283400c61e15f4a8758d949f3ad8428645cb3691e0b5cdb539161f8a45"
+  },
+  "canonical_hash_check": "PASS",
+  "periodic_chair": {
+    "basis": [
+      [
+        -2,
+        1,
+        0
+      ],
+      [
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0,
+        2
+      ]
+    ],
+    "determinant": 7,
+    "residue_function": "(x+2*y+4*z) mod 7",
+    "carrier_residues": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "basis_residues": [
+      0,
+      0,
+      0
+    ]
+  },
+  "restored_feature_overlap": {
+    "frames": "identity",
+    "first_translation": [
+      0,
+      0,
+      0
+    ],
+    "second_translation": [
+      2,
+      -1,
+      0
+    ],
+    "first_outward_normal": [
+      1,
+      0,
+      0
+    ],
+    "feature_centre": [
+      "2",
+      "1/4",
+      "3/8"
+    ],
+    "outward_heights": [
+      "3/2500",
+      "1/5000"
+    ],
+    "central_axial_overlap": "7/5000",
+    "predicate": "Fraction comparisons using canonical panel data; carrier cells disjoint",
+    "volumetric_overlap_box": "not yet selected; production may show exact section instead"
+  },
+  "nested_patches": {
+    "counts": [
+      1,
+      64,
+      4096
+    ],
+    "same_pose_set_inclusion": "PASS A0 subset A1 subset A2"
+  },
+  "method": "Existing simulations.r44, simulations.patches and simulations.periodicity_search Tile/FramedTile/Placed data; only exact integer/Fraction predicates. SAT was not run."
+}

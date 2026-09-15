@@ -1,0 +1,38 @@
+{
+  "assembly_all_settled_poses": "PASS at 115, 116, 120, 122.99 seconds",
+  "growth_visible_counts": [
+    [
+      123,
+      1
+    ],
+    [
+      127,
+      64
+    ],
+    [
+      131,
+      64
+    ],
+    [
+      138,
+      4096
+    ],
+    [
+      143,
+      4096
+    ],
+    [
+      159.99,
+      4096
+    ]
+  ],
+  "nested_world_poses_unchanged": "PASS",
+  "displayed_handedness": [
+    1,
+    -1
+  ],
+  "signed_permutation_convention": "PASS",
+  "overlay_projection_max_error_pixels": 0.0016210549545121467,
+  "projection_scope": "Graphics alignment only; tolerance is not a geometric validity predicate.",
+  "scope": "Rendering-state audit of exact integer poses; no new global tiling proof."
+}

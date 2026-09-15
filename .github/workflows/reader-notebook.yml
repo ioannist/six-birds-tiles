@@ -1,0 +1,26 @@
+name: Reader notebook
+on:
+  push:
+    paths: ['notebook/**', 'reader/**', '.github/workflows/reader-notebook.yml']
+  pull_request:
+    paths: ['notebook/**', 'reader/**', '.github/workflows/reader-notebook.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  python-notebook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r notebook/requirements.txt
+      - run: python notebook/build.py --check
+      - name: Run every Python cell against the pinned archive
+        env:
+          R44_SOURCE_REPO: ${{ github.workspace }}
+        run: jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=600 --output=/tmp/r44-executed.ipynb notebook/r44_notebook.ipynb

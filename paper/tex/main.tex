@@ -1,0 +1,113 @@
+% main.tex — A strongly aperiodic monotile in three dimensions
+% WRITING_PLAN.md step 10: skeleton. Class amsart until the venue class (Combinatorial Theory)
+% is confirmed. Text is placeholders from paper/OUTLINE.md; only the abstract and the two
+% headline theorem statements (paper/STATEMENT.md §2) are prose.
+\documentclass[11pt,reqno]{amsart}
+\input{macros}
+\hypersetup{
+  pdftitle={A strongly aperiodic monotile in three dimensions},
+  pdfauthor={Ioannis Tsiokos}
+}
+
+\begin{document}
+
+\title[A strongly aperiodic monotile in three dimensions]{A strongly aperiodic monotile in three dimensions}
+
+\author{Ioannis Tsiokos}
+\address{}
+
+\subjclass[2020]{Primary 05B45; Secondary 52C22, 52C23}
+\keywords{Aperiodic monotile, einstein problem, strongly aperiodic tilings, tilings of three-dimensional space, polyhedral tiles, substitution tilings, hierarchical tilings, limit-periodic model sets, computer-assisted proof, Lean 4 formalization, Six Birds Theory, emergence calculus}
+\date{15 September 2026 (review version; mathematical baseline commit \texttt{d90313a717}; intended release tag \texttt{paper-v1})}
+
+% ledger: Q1, Q6, Q7, T1, T2, T3, T4, T6, T8, O1, O4, H5, H6, M1, M2, M3, D4, Q23 (abstract; OUTLINE.md); Q-G author's account (the provenance sentence)
+\begin{abstract}
+Socolar and Taylor asked for a single, simply connected three-dimensional prototile that forces
+nonperiodicity by shape alone, admitting no weakly nonperiodic tiling; the Schmitt--Conway--Danzer
+biprism and the three-dimensional Socolar--Taylor tile admit screw motions or a periodic stacking
+direction. We exhibit a rational polyhedral $3$-ball $Q$, which we call Chair44 (R44): a
+seven-cube chair whose $24$ exposed unit
+panels carry tiny square-pyramid features, and prove, as a proof submission, that $Q$ admits tilings
+of $\R^3$ by congruent copies, reflections allowed, and that every such tiling has no translational
+period and a symmetry group of order at most $24$; every tiling is homochiral and carries a unique
+infinite hierarchy of nested supertiles. The solid was designed to a reading of the
+aperiodic-monotile phenomenon reached with the Six Birds emergence calculus (Section~3.3), and
+the construction turns on a single finite test, checked by machine: the tile's own contact rule
+survives coarsening, so that the decoded parent tiling obeys the tile's rule and no other. The
+proof combines a written geometric argument, that the features force
+every tiling onto a registered lattice, with exhaustive finite enumerations; the companion census is
+replayed by two independent implementations, every finite gate is kernel-checked in Lean~4 (modulo a
+named compiler hook per \texttt{native\_decide} theorem), and the written geometric lemmas and the
+logical assembly are Lean theorems as well, so that the theorem is kernel-checked modulo the named
+compiler hooks; the written proofs remain as exposition.
+\end{abstract}
+
+\maketitle
+
+\frontmatternote
+\begin{center}
+  {\small\copyright\ 2026 Ioannis Tsiokos. Licensed under
+  \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.}
+\end{center}
+% The repository PDF displays its Zenodo DOI.  The arXiv source builder
+% deliberately omits this local include, so the arXiv version has no DOI line.
+\IfFileExists{publication_doi.tex}{\input{publication_doi}}{}
+
+\input{sec1_intro}
+\input{sec2_solid}
+\input{sec3_finding}
+\input{sec4_companions}
+\input{sec5_registration}
+\input{sec6_hierarchy}
+\input{sec7_aperiodicity}
+\input{sec8_mechanization}
+\clearpage
+\input{sec9_context}
+\input{sec9_remarks}
+
+\section*{Acknowledgements}
+% ledger: D6, H13, M8; reviewers and tools by role; the framework is cited in sec:found only
+The repository archives two external adversarial review rounds of the development and one of
+this manuscript; the latter corrected the count of fixed seeds and supplied the first
+non-exhausting and the first symmetric fixed points (\cref{sec:hierarchy,sec:limitperiodic}),
+and its report is filed with the paper's review record. Automated reasoning agents also
+checked the development, certificates and manuscript under the recorded review protocol. The
+remaining errors are ours. We thank the authors of the hat and Spectre papers for the form of
+the definitions, of the theorems and of the disclosure that this paper follows, and the authors
+of Lean~4 and Mathlib.
+
+\section*{Use of AI systems}
+% ledger: H13, H14, M8, D4; source LINEAGE.md (packet table), provenance/HASH_CHAIN.md, lean/R44/MECHANIZATION_PLAN.md (agent roles), paper/review/PROTOCOL.md; owner statement 2026-09-09
+This paper and the work it reports were produced with artificial-intelligence systems under the
+author's direction; the author takes responsibility for every statement, and no AI system is an
+author. \emph{The discovery.} The solid was found by an OpenAI reasoning model (ChatGPT, Astra)
+that was given the Six Birds framework, the author's emergence calculus
+\cite{Tsi26F6,Tsi26F4,Tsi26NDO}, together with the construction record of the repository, and
+that worked from the reading of the aperiodic-monotile phenomenon described in
+\cref{sec:reading,sec:found}: the framework was the input, the solid the output. Its six
+hash-chained packets (\cref{sec:found}, \texttt{provenance/}) contain the periodic control, the
+frame change, the $44$-contact atlas and the written alignment proof; the construction record that
+preceded them was likewise produced by automated agents under the author's direction. \emph{The
+verification.} The Lean formalization, the finite certificates and the negative controls were
+implemented by automated coding agents (OpenAI Codex) and reviewed by agents of a different
+model family (xAI Grok; OpenAI Codex on a second model) under the protocols recorded in the
+repository, and the two external adversarial review rounds of \cref{sec:lean} and the external
+review of this manuscript were carried out by such agents. \emph{The manuscript.} This text was largely written by Claude Fable~5.1
+(Anthropic) from the author's plan, the repository's proofs and certificates and the literature
+corpus, and was reviewed step by step by an independent automated reviewer (OpenAI Codex,
+gpt-6-astra) whose verdicts are archived with the review package; the author directed, read and
+edited every part.
+
+\appendix
+\input{appA_data}
+\input{appB_census}
+\input{appC_lean}
+\input{appD_calibration}
+\clearpage
+\input{notation}
+\clearpage
+
+\bibliographystyle{plainnat}
+\bibliography{../refs}
+
+\end{document}

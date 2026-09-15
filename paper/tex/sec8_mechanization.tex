@@ -1,0 +1,221 @@
+\section{Mechanization and the limit-periodic corollary}\label{sec:mechanization}
+
+\subsection{What is checked by machine}\label{sec:lean}
+
+% ledger: M1, M2, T12, D4, N8; source lean/R44/AXIOMS.md, HYPOTHESES.md, THEOREM.md at the pinned commit; profile §7
+The finite parts of the proof are theorems of a Lean~4 development written for this paper, with
+Mathlib as its library, and the logical assembly of the whole argument is a Lean theorem as
+well. \Cref{tab:finite} lists the $23$ finite theorems with their statements and the method by
+which each is decided: by the kernel's evaluator (\lean{decide}) where that is feasible, and
+otherwise by \lean{native\_decide}, which compiles the decision procedure and trusts its result
+through one named axiom per theorem. Those axioms are the only non-standard ones in the
+development: \cref{tab:axioms} gives, for every finite theorem and for the main theorems, the
+output of Lean's \lean{\#print axioms}, which for the main theorem consists of the three standard
+axioms of classical Mathlib and the $21$ named hooks of the finite checks it uses. No theorem in
+the development depends on \lean{sorryAx}, and no admission remains.
+
+% ledger: T12, M2b (closed), D4; the honest sentence; the Hypotheses record (empty)
+The assembly is the theorem \lean{r44\_einstein}, which takes no hypothesis: it states that a
+tiling exists, that every tiling has $\Per(T)=\{0\}$, and that $|\Sym(T)|\le24$; the theorems
+\lean{tiling\_homochiral} and \lean{carrier\_hierarchy}, with
+\lean{geometric\_hierarchy\_unique}, state clauses (3) and (4) of \cref{thm:full}. The
+development was written with a record \lean{Hypotheses} of named written lemmas as its
+verification boundary, and the written lemmas of this paper are the fields that record had: the
+tube construction and carrier recovery in \cref{sec:solid}, realization in \cref{sec:existence},
+and the companion and registration arguments in \cref{sec:companions,sec:registration}. Every one
+of them is now a Lean theorem of the pinned development (\cref{tab:hypotheses} lists the $19$
+theorems, with their tiers by their own axiom lines), the record is empty, and the conditional
+form survives under the name \lean{r44\_einstein\_of\_hypotheses} over the empty record
+(\cref{app:lean}). Everything else, including the period-halving tower, the symmetry bound, local
+finiteness, the unique parent, the coarsening and the hierarchy with its uniqueness among
+arbitrary geometrically nested registered families (\cref{thm:hierarchy}), is proved inside
+Lean. The honest summary is therefore this: the theorem is kernel-checked modulo the named
+compiler hooks; the written proofs of \cref{sec:solid,sec:existence} and
+\cref{sec:companions,sec:registration} remain as exposition, independently reviewed, and four of
+the formal proofs argue differently from the written ones, as noted where those lemmas appear
+(carrier recovery, containment rigidity, the covering by a component's solids, and small-collar
+realization). The same pipeline was exercised on the hat as a calibration of the tooling
+(\cref{app:calibration}). The hat and Spectre papers rely on no proof assistant; the nearest comparator is Myers's
+in-progress formalization of those papers \cite{Mye24lean}, and we claim no coverage by Mathlib
+itself \cite{Lean4}.
+
+% ledger: M3, M4, M5, M8; source APPENDIX_DATA.md; verify/replay.py; controls.sh
+Independently of Lean, every enumeration is replayed from the Python standard library by one
+command in about a minute (\cref{app:data}), and the companion census was checked by two
+independent Python implementations; the second extracts the features from the actual
+triangulated mesh rather than from their annotation table. No floating-point value enters any
+checked statement: certificates are integers and exact rationals, the checkers use exact
+arithmetic, and the Lean theorems decide integer literals. Negative controls accompany the
+positive build. The diagonal audit distinguishes assertions about distinct companion tiles from
+relations with legitimate reflexive cases; the controls exercise the repaired diagonal
+application, corrupted finite inputs, mixed-handedness claims, a second-hierarchy claim and a
+claim that a raw geometric hierarchy has a noncanonical level-one pose, each
+checked to fail with its expected diagnostic. Six corrupted inputs to the replay are rejected. The
+development was reviewed adversarially twice before this paper was written; the
+first round found the hypothesis record inconsistent (one field admitted comparing a tile with
+itself), which was repaired and controlled, and the second round found no blocking or major
+issue, while noting that the reviewer could not run Lean. A third round, on the closed record with
+the empty hypothesis record, was requested on 2026-09-10; as of that date its verdict is
+pending. We make no claim of simplicity, and we
+have one route to the theorem: the continuous argument of \cref{sec:companions} is written for
+checking by hand with its arithmetic in Lean, and the finite part is where the computer does
+the work.
+
+\emph{Code.} The repository containing the solid, the certificates, the replay, the Lean
+development and the viewer accompanies this paper (\cref{app:data}); its mathematical baseline is commit
+\texttt{d90313a717}, the intended release tag is \texttt{paper-v1}, and tag creation and licensing
+remain pending owner actions.
+
+% ledger: D4, T12, M2, M6, M7; the freeze (step 18) and the re-pin (step 19)
+\emph{Version freeze.} This review version uses commit \texttt{d90313a717} (2026-09-10) as its
+mathematical and Lean baseline. The $19$ theorems of \cref{tab:hypotheses}, the empty record, and
+the recorded axiom dependencies of \cref{tab:axioms} refer to that baseline; the geometric
+certificate data and Lean statements refer to that baseline, and the bibliography and replay
+measurements have the separately identified sources recorded in the paper. The intended
+paper-release tag is \texttt{paper-v1}, to be placed on the paper-release commit; tag creation
+and licensing remain pending owner actions. The theorem, the written proof and the finite
+certificates are unchanged since the earlier baseline \texttt{dd2735d9bd} (2026-09-08), at which
+$16$ of the $19$ written lemmas were still hypotheses of the Lean assembly.
+
+% ledger: N9; simulations/periodicity_search.py; simulations/periodicity_search_report.json (commit d90313a717); simulations/review/2026-09-09_periodicity_search_r1_eddy.md (controls run)
+\emph{Evidence, not proof.} Independently of the proof, and used nowhere in it, a theorem-free
+search was run over grid-registered copies of $\solid$ (all $48$ signed frames, reflections
+included; copies compatible when their carrier cells are disjoint and the features on every
+shared unit panel are exact opposites, in rational arithmetic;
+\file{simulations/periodicity\_search.py}). A SAT solver was asked, for every full-rank sublattice
+$L\subset\Z^3$ of index at most $40$, whether the torus $\R^3/L$ can be tiled by such copies;
+all $43{,}981$ instances are unsatisfiable, so no tiling by registered copies has a full-rank
+period lattice of index at most $40$. Heesch-style coronas were grown around one copy to radius
+$5$ of $5$ tried, with $251$ copies at radius $5$. The positive controls of the same script find
+the unit cube periodic at index $1$ and the featureless chair carrier periodic at index $7$,
+as recorded in \file{simulations/review/2026-09-09_periodicity_search_r1_eddy.md}.
+The torus and corona receipt is \file{simulations/periodicity\_search\_report.json}
+(wall time $108{,}682$ s). This is
+evidence in the sense of a sanity check on the finite data: it concerns registered copies and
+full-rank lattices only, whereas \cref{thm:noperiod} excludes every period of every tiling.
+
+\input{generated/finite_theorems_table}
+
+\input{generated/hypotheses_table}
+
+\input{generated/axioms_table}
+
+\subsection{The limit-periodic corollary}\label{sec:limitperiodic}
+
+% ledger: L1, L2, L3, L4, L5, L6, L7, Q15, Q16, Q17, Q18, Q19, N1; DECISIONS Q-A (fixed-point wording), Q-B (seed); Lean substitution_modular_coincidence (T1n); verify/substitution_modular_coincidence.py (T2); paper/scripts/seed_language_closure.py (T2)
+The substitution of \cref{sec:substitution} is a lattice substitution in the sense of Lee and
+Moody \cite{LM01}. Label each unit cell of a registered tiling by the frame of the chair that
+covers it and by which of the seven cells of that chair it is: $24\times7=168$ labels. The
+refinement replaces each labelled cell by its eight labelled children at twice the scale, so the
+labelling is a substitution on $\Z^3$ with inflation $2$ and $168$ symbols, and its $168\times168$
+substitution matrix has constant column sum $8=|\det 2I|$.
+
+\begin{theorem}[modular coincidence; \tier{T1n}, replayed in Python]\label{thm:coincidence}
+The $168$-label substitution is total and primitive, with least primitive exponent $N=3$, and it
+has a modular coincidence of least depth $M=3$: at the address $a=(0,0,2)$ modulo $2^3$, the
+level-$3$ descendant of every one of the $168$ labels has label $i=78$.
+\end{theorem}
+
+The Lean theorem is \lean{substitution\_modular\_coincidence}. The check tracks the full set of
+$168$ labels from the root, so the coincidence is over all labels, not along a single orbit; the integers $N$ and $M$ are independent and happen to
+coincide.
+
+% ledger: L3, L4, L9, L10, N1, T9; DECISIONS Q-B; Lean seed_language_closure (T1n); verify/replay.py step seed_language_closure (T2); paper/scripts/seed_language_closure.py (T2); external review of the manuscript 2026-09-09, findings B1 and M1 (paper/review/EXTERNAL_RULING_2026-09-09.md)
+A legal fixed point on the whole of $\Z^3$ exists. A substitution-legal fixed labelling of
+$\Z^3$ is determined by its seed on $\{-1,0\}^3$: the cell $-\delta$, $\delta\in\{0,1\}^3$, has
+parent $-\delta$ and residue $\delta$, so its eight labels satisfy their fixed-residue equations;
+conversely, a seed in the substitution language satisfying those equations yields such a
+labelling, whereas a block satisfying the equations but outside the language need not (one such
+block encodes inconsistent whole-chair labels). The substitution language
+contains $27$ fixed seed blocks on $\{-1,0\}^3$, in proper-rotation orbits of sizes $24$ and $3$;
+iterating any one gives a legal substitution-fixed labelling of $\Z^3$ (\cref{fig:coincidence}).
+The count is by exact closure of the language of legal $2\times2\times2$ blocks, which grows
+through $168$, $600$, $1{,}278$, $1{,}398$ and $1{,}410$ blocks under successive substitution and
+then is stable, and every seed is checked to reproduce itself in place under iteration (the
+theorem \lean{seed\_language\_closure}, \tier{T1n}, whose statement lists the five closure sizes,
+the count $27$, the orbit sizes $24$ and $3$, the stabilizer histogram, in-place reproduction and
+commutation with the $24$ frames; the replay step of the same name in \file{verify/replay.py};
+and, independently, \file{paper/scripts/seed\_language\_closure.py}, standard library,
+\cref{app:data}); a bounded
+search inside level-$3$ patches, which an earlier draft reported as the count $24$, misses the
+three seeds of the small orbit, and the external review of the manuscript found them. Every
+finite patch of a fixed labelling occurs in some $\sigma^n(j)$ and hence, by primitivity, inside
+a refinement of the native chair, that is, inside the tiling of \cref{thm:existence}; so the
+chair poses the labelling encodes form a registered chair tiling of $\R^3$ all of whose contacts
+lie in $\atlas$, and small-collar realization (\cref{sec:existence}) turns it into a tiling by
+$\solid$ at those poses. We write $T_w$ for the tiling determined by the seed $w$.
+
+\begin{proposition}[symmetries of the fixed points; finite data \tier{T1n}
+(\lean{seed\_language\_closure}) and \tier{T2}, the deduction
+written]\label[proposition]{prop:seedsym}
+Let $G$ be the $24$-element proper cubic group, acting on the seed cube by moving the cells and
+composing the frames in the labels. For each of the $27$ fixed seeds $w$, $\Sym(T_w)$ is the
+stabilizer of $w$ in $G$. The stabilizers have order $1$ for the $24$ seeds of the large orbit
+and order $8$ for the three seeds of the small orbit; for the seed $(28,84,91,35,98,42,49,105)$,
+in the repository's label order, the stabilizer is generated by $(x,y,z)\mapsto(z,y,-x)$ and
+$(x,y,z)\mapsto(-x,-y,z)$. Hence some tilings by $\solid$ have trivial symmetry group and some
+have symmetry group of order $8$.
+\end{proposition}
+
+\begin{proof}
+Let $g=(R,t)$, $x\mapsto Rx+t$, be a symmetry of $T_w$. As in the proof of \cref{thm:sym},
+registration and the absence of self-isometries give $R\in G$ and $t\in\Z^3$. The parent
+partition is read from the tiling alone, and the children of a rotated pose are the rotated
+children (a finite check over $G$ in the same script), so by the uniqueness of parents
+(\cref{thm:parent}) the parents of $RT$ are the rotated parents of $T$; with the translation
+clause of \cref{thm:coarsening}, $D(gT)=(R,t/2)\,D(T)$. The seed being fixed in place,
+$D(T_w)=T_w$, so $(R,t/2)$ is again a symmetry of $T_w$ and $t/2\in\Z^3$; iterating,
+$t\in\bigcap_n2^n\Z^3=\{0\}$. Thus $\Sym(T_w)=\{R\in G: RT_w=T_w\}$. The substitution commutes
+with the action of $G$ on labelled cells (the same finite check), so $RT_w$ is the fixed point
+with seed $Rw$; a fixed point is determined by its seed, so $RT_w=T_w$ exactly when $Rw=w$. The
+orders and the generators are read off the $27$ seeds.
+\end{proof}
+
+The seed $(6,0,4,5,2,3,0,1)$ of the large orbit is the one whose ancestors fill only an octant
+(\cref{sec:hierarchy}); its tiling has trivial symmetry group. The three seeds of the small orbit
+each consist of eight whole tiles at the origin, one in each octant, each its own child $000$ at
+every level.
+
+% ledger: D9, Q16; source math0002019 L102-L107 (Lee-Moody definitions)
+We recall the definitions the corollary uses, from Lee and Moody \cite{LM01}. A cut-and-project
+scheme consists of a lattice $\widetilde L\subset\R^3\times G$, where $G$ is a locally compact
+abelian group, such that the physical projection $\pi_1$ is injective on $\widetilde L$ and the
+internal projection $\pi_2$ has dense image in $G$. A model set is, up to translation,
+$\{\pi_1(\ell):\ell\in\widetilde L,\ \pi_2(\ell)\in W\}$, where the window $W\subset G$ has
+nonempty interior and compact closure; it is regular when $\partial W$ has Haar measure zero.
+Here the internal group is $\varprojlim_n\Z^3/2^n\Z^3$, the $2$-adic completion. A modular
+coincidence occurs when, at some substitution depth and residue address, all substitution maps
+at that address have the same output label.
+
+% ledger: L1, L2, L3, L4, L5, L6, L7, Q15, Q16, Q17, Q18, Q19, N1; DECISIONS Q-A (fixed-point wording); the corollary and the paragraph after it
+\begin{corollary}[limit-periodic structure of the fixed point; the cited imports are \tier{T3}]\label[corollary]{cor:limitperiodic}
+By Lee and Moody's Theorem 3 \cite{LM01}, applied in the direction (iv)~$\Rightarrow$~(ii) with
+its hypotheses verified as above (\cref{thm:coincidence}: primitivity; Perron--Frobenius eigenvalue $8=|\det 2I|$; the
+label classes of the fixed point partition $\Z^3$), the $168$ label classes of the substitution
+fixed point are regular model sets for the $2$-adic cut-and-project scheme of \cite{LM01}; by
+Schlottmann's theorem, in the form stated by Lee, Moody and Solomyak
+\cite[Theorem~5.11]{LMS03}, each is pure point diffractive; in the terminology of Baake, Moody and
+Schlottmann and of Baake and Grimm \cite{BMS98,BG10,BG13} the structure is limit-periodic.
+\end{corollary}
+
+The corollary is a statement about the fixed point, not about every tiling by $\solid$: whether
+every tiling lies in the substitution hull is the fault-line question left open in
+\cref{sec:hierarchy}, and Lee and Moody's own passage from the substitution to every tiling
+obeying the Taylor--Socolar matching rules is a separate three-part argument \cite{LM13}, not
+an application of their Theorem 3. In Socolar's words about the hat, whose structure ``is
+qualitatively different from the limit-periodic structure of the hexagonal Taylor--Socolar
+monotile tiling, which has Bragg diffraction peaks at wavelengths of the form $2^{-n}k_0$ for
+arbitrarily large $n$'' \cite{Soc23}, the fixed-point label-class structure established here is
+limit-periodic with a $2$-adic internal space, rather than quasicrystalline in the sense
+contrasted by Socolar.
+Akiyama and Lee verified pure point spectrum for a $168$-prototile Taylor--Socolar substitution by
+an overlap coincidence \cite{AL14}, and Lee and Moody checked the sphinx's modular coincidence by
+computer at depth $8$ \cite{LM01}; ours is checked at depth $3$ in Lean and replayed in Python.
+
+\begin{figure}[ht]
+  \centering
+  \input{generated/fig_coincidence}
+  \caption{The modular-coincidence address and the all-address distributions of label-set sizes
+  at depths $1$--$3$.}
+  \label{fig:coincidence}
+\end{figure}

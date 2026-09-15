@@ -1,0 +1,109 @@
+{
+  "existence": {
+    "dissection_children": 8,
+    "dissection_unit_cubes": 56,
+    "all_child_rotations_proper": true,
+    "same_frame_grandchild": [
+      2,
+      2,
+      2
+    ],
+    "nested_patch_tile_counts": [
+      64,
+      4096
+    ],
+    "exhausting_cube_formula": "[-2(4^n-1)/3,(4^n+2)/3]^3"
+  },
+  "local_geometry": {
+    "hierarchy_contact_counts": [
+      21,
+      30
+    ],
+    "hierarchy_equations": 372,
+    "independent_feature_modes": 12,
+    "raw_registered_contacts": 2388,
+    "admitted_contacts": 44,
+    "distinct_relative_rotations": 19,
+    "generated_rotation_group": 24,
+    "improper_relative_contacts": 0,
+    "native_symmetry_order": 1
+  },
+  "forced_partition": {
+    "first_shell_arrangements": 33,
+    "independent_enumeration_nodes": 123,
+    "every_shell_has_one_proposed_parent": true,
+    "outer_shells_with_central_completion": 14,
+    "unextendable_outer_shells": 18,
+    "wrong_center_completions": 0,
+    "central_shells": 1,
+    "incompatible_parent_pairs": 28,
+    "every_registered_tiling_has_unique_parents": true
+  },
+  "renormalization_fixed_point": {
+    "candidate_parent_contacts": 697,
+    "nonoverlapping_parent_contacts": 116,
+    "admissible_parent_contacts": 44,
+    "odd_parent_shifts": 0,
+    "coarse_contact_atlas_equals_fine_contact_atlas": true
+  },
+  "solid": {
+    "vertices": 2138,
+    "edges": 6408,
+    "triangles": 4272,
+    "exact_volume": "7",
+    "surface_verified_triangle_by_triangle": true,
+    "disjoint_face_collars_verified": true,
+    "polyhedral_3_ball_proof": "explicit normal-tube homeomorphism in PROOFS.md",
+    "compactness_full_dimensionality_connected_interior": true
+  },
+  "negative_controls": {
+    "changed_native_height_violates_hierarchy": true,
+    "missing_shell_is_detected": true,
+    "missing_parent_contact_is_detected": true,
+    "missing_triangle_is_detected": true
+  },
+  "scope": {
+    "all_congruent_copies_rotations_and_reflections_allowed": true,
+    "unrestricted_alignment_claim": "proved by geometric lemmas plus the finite atlas above; not externally reviewed",
+    "unrestricted_aperiodicity_claim": "follows from alignment and recurring unique decomposition",
+    "tiling_nonempty": true,
+    "tiling_full_symmetry_groups_finite": true,
+    "external_adversarial_review_completed": false,
+    "proof_assistant_kernel_completed": false
+  },
+  "unrestricted_alignment_finite_gates": {
+    "distinct_nonzero_base_deviations": 12,
+    "distinct_nonzero_ridge_deviations": 12,
+    "base_vs_ridge_angle_equalities": 0,
+    "all_feature_dihedrals_strictly_between_3pi_over4_and_5pi_over4": true,
+    "feature_Lipschitz_bound": "3/25",
+    "63_L_squared": "567/625",
+    "feature_solid_angle_strictly_greater_than_7pi_over4": true,
+    "baseline_core_margin": "1/100",
+    "eighth_grid_overlap_survives_core_erosion": true,
+    "full_feature_relative_poses": 6862,
+    "baseline_disjoint_poses": 5317,
+    "noninteger_disjoint_poses": 5234,
+    "all_marker_consistent_poses": 44,
+    "noninteger_survivors": 0,
+    "surviving_mates_exactly_registered_44_atlas": true,
+    "rejected_pairs_with_complete_companion_collision_proof": 5273,
+    "exact_companion_collisions_checked": 299975,
+    "geometric_lemmas_not_proof_assistant_formalized": [
+      "generic-edge angle balance",
+      "no branching of feature partners",
+      "full square-pyramid rigidity",
+      "finite forced-companion elimination (replayed, not an extra flat-panel assumption)",
+      "marker component covers all grid cells"
+    ]
+  },
+  "input_hashes": {
+    "candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55"
+  },
+  "status": "PASS",
+  "seconds": 6.180789420031942,
+  "external_dependencies": [],
+  "solver_calls": 0,
+  "proof_assistant_kernel_claim": false
+}

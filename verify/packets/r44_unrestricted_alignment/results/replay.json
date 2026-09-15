@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "steps": [
+    {
+      "checker": "verify_alignment.py",
+      "status": "PASS",
+      "seconds": 10.611724602989852
+    },
+    {
+      "checker": "replay_core_boxes.py",
+      "status": "PASS",
+      "seconds": 2.6044238440226763
+    },
+    {
+      "checker": "unchanged upstream replay",
+      "status": "PASS",
+      "details": {
+        "status": "PASS",
+        "steps": [
+          {
+            "checker": "verify.py",
+            "status": "PASS",
+            "seconds": 6.502957729040645
+          },
+          {
+            "checker": "edge_audit.py",
+            "status": "PASS",
+            "seconds": 0.3887088008923456
+          }
+        ],
+        "seconds": 6.8916724810842425,
+        "external_dependencies": [],
+        "formal_proof_assistant_verification": false,
+        "external_adversarial_review_completed": false,
+        "scope": "Exact finite and mesh gates replayed; unrestricted geometric lemmas supplied in PROOFS.md."
+      },
+      "seconds": 6.923538852017373
+    }
+  ],
+  "seconds": 20.154615943902172,
+  "source_archive_sha256": "ec2185fda29034a4581fafd308f8866ff1cb91beaaf85ccbf9e26803febe7f45",
+  "scope": "Exact finite and actual-mesh gates replayed; continuous alignment theorem in ALIGNMENT_PROOF.md.",
+  "external_dependencies": [],
+  "external_adversarial_review": false,
+  "proof_assistant_formalization": false
+}

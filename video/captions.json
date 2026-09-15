@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "start": 0,
+    "end": 6,
+    "text": "One solid shape."
+  },
+  {
+    "id": 2,
+    "start": 6,
+    "end": 13,
+    "text": "It can fill three-dimensional space."
+  },
+  {
+    "id": 3,
+    "start": 13,
+    "end": 21,
+    "text": "Yet none of its tilings repeats by translation.\nMeet Chair44 (R44)."
+  },
+  {
+    "id": 4,
+    "start": 21,
+    "end": 28,
+    "text": "First, remove its tiny surface features."
+  },
+  {
+    "id": 5,
+    "start": 28,
+    "end": 36,
+    "text": "What remains is a chair made from seven cubes."
+  },
+  {
+    "id": 6,
+    "start": 36,
+    "end": 44,
+    "text": "This plain chair also fills space."
+  },
+  {
+    "id": 7,
+    "start": 44,
+    "end": 53,
+    "text": "Slide the outlined strip by this vector.\nIt lands on identical chairs."
+  },
+  {
+    "id": 8,
+    "start": 53,
+    "end": 58,
+    "text": "The same translation works again. And again."
+  },
+  {
+    "id": 9,
+    "start": 58,
+    "end": 66,
+    "text": "One repeating tiling is enough:\nthis chair is not an aperiodic monotile."
+  },
+  {
+    "id": 10,
+    "start": 66,
+    "end": 74,
+    "text": "Now restore Chair44’s 192 tiny bumps and dents."
+  },
+  {
+    "id": 11,
+    "start": 74,
+    "end": 82,
+    "text": "These bumps and dents change\nwhich placements fit together."
+  },
+  {
+    "id": 12,
+    "start": 82,
+    "end": 93,
+    "text": "Keep the chairs in that repeating arrangement.\nThese copies now overlap."
+  },
+  {
+    "id": 13,
+    "start": 93,
+    "end": 100,
+    "text": "So that arrangement fails.\nBut ruling out one arrangement is not enough."
+  },
+  {
+    "id": 14,
+    "start": 100,
+    "end": 107,
+    "text": "Can Chair44 fill space at all?"
+  },
+  {
+    "id": 15,
+    "start": 107,
+    "end": 115,
+    "text": "Yes. Here are actual copies\nin compatible positions."
+  },
+  {
+    "id": 16,
+    "start": 115,
+    "end": 123,
+    "text": "Eight copies form a cluster\nshaped like a doubled plain chair."
+  },
+  {
+    "id": 17,
+    "start": 123,
+    "end": 131,
+    "text": "Larger compatible patches grow\naround a fixed tile."
+  },
+  {
+    "id": 18,
+    "start": 131,
+    "end": 139,
+    "text": "The construction extends to fill all of space.\nThe screen shows only a finite part."
+  },
+  {
+    "id": 19,
+    "start": 139,
+    "end": 146,
+    "text": "Every copy is the same shape.\nColours only help us follow the construction."
+  },
+  {
+    "id": 20,
+    "start": 146,
+    "end": 153,
+    "text": "The claim concerns every tiling of Chair44—\nnot just the one being built here."
+  },
+  {
+    "id": 21,
+    "start": 153,
+    "end": 160,
+    "text": "Local patterns can recur.\nThe whole tiling cannot repeat by translation."
+  },
+  {
+    "id": 22,
+    "start": 160,
+    "end": 168,
+    "text": "Why? The geometry forces a unique hierarchy."
+  },
+  {
+    "id": 23,
+    "start": 168,
+    "end": 176,
+    "text": "Chairs group into larger chairs,\nthen larger chairs again."
+  },
+  {
+    "id": 24,
+    "start": 176,
+    "end": 184,
+    "text": "The proof recovers a valid Chair44 tiling\nafter each grouping and rescaling."
+  },
+  {
+    "id": 25,
+    "start": 184,
+    "end": 192,
+    "text": "A translation period would survive each step,\nwith its vector halved every time."
+  },
+  {
+    "id": 26,
+    "start": 192,
+    "end": 200,
+    "text": "At every level a period has integer coordinates\nin that level’s registered unit grid."
+  },
+  {
+    "id": 27,
+    "start": 200,
+    "end": 207,
+    "text": "Only the zero vector can keep being halved\nand still have integer coordinates forever."
+  },
+  {
+    "id": 28,
+    "start": 207,
+    "end": 214,
+    "text": "Rotations and reflections were allowed.\nNo colouring or matching rules were imposed."
+  },
+  {
+    "id": 29,
+    "start": 214,
+    "end": 221,
+    "text": "Even so, a tiling cannot mix the tile\nwith its mirror image."
+  },
+  {
+    "id": 30,
+    "start": 221,
+    "end": 228,
+    "text": "Every tiling has at most 24 symmetries.\nNone is a screw motion with a nonzero slide."
+  },
+  {
+    "id": 31,
+    "start": 228,
+    "end": 234,
+    "text": "One connected solid. Shape alone.\nAn aperiodic monotile in three dimensions."
+  },
+  {
+    "id": 32,
+    "start": 234,
+    "end": 240,
+    "text": "Explore the tile. Run the notebook.\nAsk your own AI to check the proof."
+  }
+]

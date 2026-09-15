@@ -1,0 +1,1164 @@
+{
+  "result": "PASS",
+  "features_read_back": 192,
+  "matching_feature_triangles": 768,
+  "flat_panels_checked": 24,
+  "flat_area_per_panel": ".92",
+  "selected_panel": 13,
+  "selected_features_checked": 8,
+  "scope": "Display-mesh geometry and source-derived labels; not a theorem check. Width x5 and height x80 are intentional illustration distortions.",
+  "records": [
+    {
+      "role": 0,
+      "panel": 0,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 1,
+      "panel": 0,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 2,
+      "panel": 0,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 3,
+      "panel": 0,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 4,
+      "panel": 0,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 5,
+      "panel": 0,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 6,
+      "panel": 0,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 7,
+      "panel": 0,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 8,
+      "panel": 1,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 9,
+      "panel": 1,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 10,
+      "panel": 1,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 11,
+      "panel": 1,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 12,
+      "panel": 1,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 13,
+      "panel": 1,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 14,
+      "panel": 1,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 15,
+      "panel": 1,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 16,
+      "panel": 2,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 17,
+      "panel": 2,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 18,
+      "panel": 2,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 19,
+      "panel": 2,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 20,
+      "panel": 2,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 21,
+      "panel": 2,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 22,
+      "panel": 2,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 23,
+      "panel": 2,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 24,
+      "panel": 3,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 25,
+      "panel": 3,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 26,
+      "panel": 3,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 27,
+      "panel": 3,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 28,
+      "panel": 3,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 29,
+      "panel": 3,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 30,
+      "panel": 3,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 31,
+      "panel": 3,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 32,
+      "panel": 4,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 33,
+      "panel": 4,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 34,
+      "panel": 4,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 35,
+      "panel": 4,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 36,
+      "panel": 4,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 37,
+      "panel": 4,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 38,
+      "panel": 4,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 39,
+      "panel": 4,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 40,
+      "panel": 5,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 41,
+      "panel": 5,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 42,
+      "panel": 5,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 43,
+      "panel": 5,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 44,
+      "panel": 5,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 45,
+      "panel": 5,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 46,
+      "panel": 5,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 47,
+      "panel": 5,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 48,
+      "panel": 6,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 49,
+      "panel": 6,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 50,
+      "panel": 6,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 51,
+      "panel": 6,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 52,
+      "panel": 6,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 53,
+      "panel": 6,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 54,
+      "panel": 6,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 55,
+      "panel": 6,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 56,
+      "panel": 7,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 57,
+      "panel": 7,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 58,
+      "panel": 7,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 59,
+      "panel": 7,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 60,
+      "panel": 7,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 61,
+      "panel": 7,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 62,
+      "panel": 7,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 63,
+      "panel": 7,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 64,
+      "panel": 8,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 65,
+      "panel": 8,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 66,
+      "panel": 8,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 67,
+      "panel": 8,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 68,
+      "panel": 8,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 69,
+      "panel": 8,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 70,
+      "panel": 8,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 71,
+      "panel": 8,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 72,
+      "panel": 9,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 73,
+      "panel": 9,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 74,
+      "panel": 9,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 75,
+      "panel": 9,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 76,
+      "panel": 9,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 77,
+      "panel": 9,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 78,
+      "panel": 9,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 79,
+      "panel": 9,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 80,
+      "panel": 10,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 81,
+      "panel": 10,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 82,
+      "panel": 10,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 83,
+      "panel": 10,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 84,
+      "panel": 10,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 85,
+      "panel": 10,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 86,
+      "panel": 10,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 87,
+      "panel": 10,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 88,
+      "panel": 11,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 89,
+      "panel": 11,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 90,
+      "panel": 11,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 91,
+      "panel": 11,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 92,
+      "panel": 11,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 93,
+      "panel": 11,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 94,
+      "panel": 11,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 95,
+      "panel": 11,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 96,
+      "panel": 12,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 97,
+      "panel": 12,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 98,
+      "panel": 12,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 99,
+      "panel": 12,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 100,
+      "panel": 12,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 101,
+      "panel": 12,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 102,
+      "panel": 12,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 103,
+      "panel": 12,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 104,
+      "panel": 13,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 105,
+      "panel": 13,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 106,
+      "panel": 13,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 107,
+      "panel": 13,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 108,
+      "panel": 13,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 109,
+      "panel": 13,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 110,
+      "panel": 13,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 111,
+      "panel": 13,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 112,
+      "panel": 14,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 113,
+      "panel": 14,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 114,
+      "panel": 14,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 115,
+      "panel": 14,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 116,
+      "panel": 14,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 117,
+      "panel": 14,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 118,
+      "panel": 14,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 119,
+      "panel": 14,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 120,
+      "panel": 15,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 121,
+      "panel": 15,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 122,
+      "panel": 15,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 123,
+      "panel": 15,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 124,
+      "panel": 15,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 125,
+      "panel": 15,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 126,
+      "panel": 15,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 127,
+      "panel": 15,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 128,
+      "panel": 16,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 129,
+      "panel": 16,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 130,
+      "panel": 16,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 131,
+      "panel": 16,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 132,
+      "panel": 16,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 133,
+      "panel": 16,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 134,
+      "panel": 16,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 135,
+      "panel": 16,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 136,
+      "panel": 17,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 137,
+      "panel": 17,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 138,
+      "panel": 17,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 139,
+      "panel": 17,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 140,
+      "panel": 17,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 141,
+      "panel": 17,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 142,
+      "panel": 17,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 143,
+      "panel": 17,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 144,
+      "panel": 18,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 145,
+      "panel": 18,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 146,
+      "panel": 18,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 147,
+      "panel": 18,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 148,
+      "panel": 18,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 149,
+      "panel": 18,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 150,
+      "panel": 18,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 151,
+      "panel": 18,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 152,
+      "panel": 19,
+      "coefficient": -7,
+      "triangles_match": 4
+    },
+    {
+      "role": 153,
+      "panel": 19,
+      "coefficient": -5,
+      "triangles_match": 4
+    },
+    {
+      "role": 154,
+      "panel": 19,
+      "coefficient": -8,
+      "triangles_match": 4
+    },
+    {
+      "role": 155,
+      "panel": 19,
+      "coefficient": -6,
+      "triangles_match": 4
+    },
+    {
+      "role": 156,
+      "panel": 19,
+      "coefficient": -3,
+      "triangles_match": 4
+    },
+    {
+      "role": 157,
+      "panel": 19,
+      "coefficient": -1,
+      "triangles_match": 4
+    },
+    {
+      "role": 158,
+      "panel": 19,
+      "coefficient": -4,
+      "triangles_match": 4
+    },
+    {
+      "role": 159,
+      "panel": 19,
+      "coefficient": -2,
+      "triangles_match": 4
+    },
+    {
+      "role": 160,
+      "panel": 20,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 161,
+      "panel": 20,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 162,
+      "panel": 20,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 163,
+      "panel": 20,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 164,
+      "panel": 20,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 165,
+      "panel": 20,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 166,
+      "panel": 20,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 167,
+      "panel": 20,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 168,
+      "panel": 21,
+      "coefficient": 3,
+      "triangles_match": 4
+    },
+    {
+      "role": 169,
+      "panel": 21,
+      "coefficient": 4,
+      "triangles_match": 4
+    },
+    {
+      "role": 170,
+      "panel": 21,
+      "coefficient": 1,
+      "triangles_match": 4
+    },
+    {
+      "role": 171,
+      "panel": 21,
+      "coefficient": 2,
+      "triangles_match": 4
+    },
+    {
+      "role": 172,
+      "panel": 21,
+      "coefficient": 7,
+      "triangles_match": 4
+    },
+    {
+      "role": 173,
+      "panel": 21,
+      "coefficient": 8,
+      "triangles_match": 4
+    },
+    {
+      "role": 174,
+      "panel": 21,
+      "coefficient": 5,
+      "triangles_match": 4
+    },
+    {
+      "role": 175,
+      "panel": 21,
+      "coefficient": 6,
+      "triangles_match": 4
+    },
+    {
+      "role": 176,
+      "panel": 22,
+      "coefficient": 9,
+      "triangles_match": 4
+    },
+    {
+      "role": 177,
+      "panel": 22,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 178,
+      "panel": 22,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 179,
+      "panel": 22,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 180,
+      "panel": 22,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 181,
+      "panel": 22,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 182,
+      "panel": 22,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 183,
+      "panel": 22,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 184,
+      "panel": 23,
+      "coefficient": -12,
+      "triangles_match": 4
+    },
+    {
+      "role": 185,
+      "panel": 23,
+      "coefficient": -11,
+      "triangles_match": 4
+    },
+    {
+      "role": 186,
+      "panel": 23,
+      "coefficient": -10,
+      "triangles_match": 4
+    },
+    {
+      "role": 187,
+      "panel": 23,
+      "coefficient": -9,
+      "triangles_match": 4
+    },
+    {
+      "role": 188,
+      "panel": 23,
+      "coefficient": 12,
+      "triangles_match": 4
+    },
+    {
+      "role": 189,
+      "panel": 23,
+      "coefficient": 10,
+      "triangles_match": 4
+    },
+    {
+      "role": 190,
+      "panel": 23,
+      "coefficient": 11,
+      "triangles_match": 4
+    },
+    {
+      "role": 191,
+      "panel": 23,
+      "coefficient": 9,
+      "triangles_match": 4
+    }
+  ]
+}

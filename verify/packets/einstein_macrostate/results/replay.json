@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "steps": [
+    {
+      "checker": "verify.py",
+      "status": "PASS",
+      "seconds": 6.338113887002692
+    },
+    {
+      "checker": "edge_audit.py",
+      "status": "PASS",
+      "seconds": 0.37106812896672636
+    }
+  ],
+  "seconds": 6.709187094937079,
+  "external_dependencies": [],
+  "formal_proof_assistant_verification": false,
+  "external_adversarial_review_completed": false,
+  "scope": "Exact finite and mesh gates replayed; unrestricted geometric lemmas supplied in PROOFS.md."
+}

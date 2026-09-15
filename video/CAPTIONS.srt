@@ -1,0 +1,150 @@
+1
+00:00:00,000 --> 00:00:06,000
+One solid shape.
+
+2
+00:00:06,000 --> 00:00:13,000
+It can fill three-dimensional space.
+
+3
+00:00:13,000 --> 00:00:21,000
+Yet none of its tilings repeats by translation.
+Meet Chair44 (R44).
+
+4
+00:00:21,000 --> 00:00:28,000
+First, remove its tiny surface features.
+
+5
+00:00:28,000 --> 00:00:36,000
+What remains is a chair made from seven cubes.
+
+6
+00:00:36,000 --> 00:00:44,000
+This plain chair also fills space.
+
+7
+00:00:44,000 --> 00:00:53,000
+Slide the outlined strip by this vector.
+It lands on identical chairs.
+
+8
+00:00:53,000 --> 00:00:58,000
+The same translation works again. And again.
+
+9
+00:00:58,000 --> 00:01:06,000
+One repeating tiling is enough:
+this chair is not an aperiodic monotile.
+
+10
+00:01:06,000 --> 00:01:14,000
+Now restore Chair44’s 192 tiny bumps and dents.
+
+11
+00:01:14,000 --> 00:01:22,000
+These bumps and dents change
+which placements fit together.
+
+12
+00:01:22,000 --> 00:01:33,000
+Keep the chairs in that repeating arrangement.
+These copies now overlap.
+
+13
+00:01:33,000 --> 00:01:40,000
+So that arrangement fails.
+But ruling out one arrangement is not enough.
+
+14
+00:01:40,000 --> 00:01:47,000
+Can Chair44 fill space at all?
+
+15
+00:01:47,000 --> 00:01:55,000
+Yes. Here are actual copies
+in compatible positions.
+
+16
+00:01:55,000 --> 00:02:03,000
+Eight copies form a cluster
+shaped like a doubled plain chair.
+
+17
+00:02:03,000 --> 00:02:11,000
+Larger compatible patches grow
+around a fixed tile.
+
+18
+00:02:11,000 --> 00:02:19,000
+The construction extends to fill all of space.
+The screen shows only a finite part.
+
+19
+00:02:19,000 --> 00:02:26,000
+Every copy is the same shape.
+Colours only help us follow the construction.
+
+20
+00:02:26,000 --> 00:02:33,000
+The claim concerns every tiling of Chair44—
+not just the one being built here.
+
+21
+00:02:33,000 --> 00:02:40,000
+Local patterns can recur.
+The whole tiling cannot repeat by translation.
+
+22
+00:02:40,000 --> 00:02:48,000
+Why? The geometry forces a unique hierarchy.
+
+23
+00:02:48,000 --> 00:02:56,000
+Chairs group into larger chairs,
+then larger chairs again.
+
+24
+00:02:56,000 --> 00:03:04,000
+The proof recovers a valid Chair44 tiling
+after each grouping and rescaling.
+
+25
+00:03:04,000 --> 00:03:12,000
+A translation period would survive each step,
+with its vector halved every time.
+
+26
+00:03:12,000 --> 00:03:20,000
+At every level a period has integer coordinates
+in that level’s registered unit grid.
+
+27
+00:03:20,000 --> 00:03:27,000
+Only the zero vector can keep being halved
+and still have integer coordinates forever.
+
+28
+00:03:27,000 --> 00:03:34,000
+Rotations and reflections were allowed.
+No colouring or matching rules were imposed.
+
+29
+00:03:34,000 --> 00:03:41,000
+Even so, a tiling cannot mix the tile
+with its mirror image.
+
+30
+00:03:41,000 --> 00:03:48,000
+Every tiling has at most 24 symmetries.
+None is a screw motion with a nonzero slide.
+
+31
+00:03:48,000 --> 00:03:54,000
+One connected solid. Shape alone.
+An aperiodic monotile in three dimensions.
+
+32
+00:03:54,000 --> 00:04:00,000
+Explore the tile. Run the notebook.
+Ask your own AI to check the proof.

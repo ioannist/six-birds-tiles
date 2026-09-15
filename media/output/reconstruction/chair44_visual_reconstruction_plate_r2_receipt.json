@@ -1,0 +1,35 @@
+{
+  "plate": "Chair44 visual reconstruction plate R2",
+  "generated": "2026-09-11 UTC",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "canonical_sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+  "all_192_features_marked_exactly_once": true,
+  "all_24_panels_shown_exactly_once": true,
+  "view_feature_counts": {
+    "px": 32,
+    "nx": 32,
+    "py": 32,
+    "ny": 32,
+    "pz": 32,
+    "nz": 32
+  },
+  "outputs": {
+    "media/output/reconstruction/chair44_visual_reconstruction_plate_r2.svg": {
+      "bytes": 4205403,
+      "sha256": "8c686614722f230db883d2ce76e0a2087259cca439f207dac0ca788f2e02dc73"
+    },
+    "media/output/reconstruction/chair44_visual_reconstruction_plate_r2.pdf": {
+      "bytes": 2434865,
+      "sha256": "d7105732f6eb3163be0c8e53de5c6b4721304f00466e37e9336d90e449583efb"
+    },
+    "media/output/reconstruction/chair44_visual_reconstruction_plate_r2_web_4000.png": {
+      "bytes": 1969037,
+      "sha256": "8b7327a0193b89d027a407e5e49e22891e3057ea7d6922a5a9eb3d36f899edf2"
+    },
+    "media/output/reconstruction/chair44_visual_reconstruction_plate_r2_9933x7016.png": {
+      "bytes": 5414574,
+      "sha256": "d5ada32c4f2b827c195512a66a3ee47f21ae7ec57fe0b7acf524322386c027f6"
+    }
+  },
+  "pdf_note": "Vector A1 PDF generated from SVG; PDF/A conformance is not certified."
+}

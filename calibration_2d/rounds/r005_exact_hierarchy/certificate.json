@@ -1,0 +1,671 @@
+{
+  "status": "PASS",
+  "levels": [
+    {
+      "level": 0,
+      "metatiles": [
+        {
+          "type": "H",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              0,
+              10
+            ],
+            [
+              -2,
+              10
+            ],
+            [
+              -2,
+              2
+            ]
+          ],
+          "area2": 132,
+          "hats": 4,
+          "kites": 32,
+          "boundary_edges": 30,
+          "covered_disk_center_in_first_hat_frame": [
+            "-11/4",
+            "2"
+          ],
+          "covered_disk_radius_squared": "109/16"
+        },
+        {
+          "type": "T",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              6
+            ]
+          ],
+          "area2": 36,
+          "hats": 1,
+          "kites": 8,
+          "boundary_edges": 14,
+          "covered_disk_center_in_first_hat_frame": [
+            "5/4",
+            "0"
+          ],
+          "covered_disk_radius_squared": "13/16"
+        },
+        {
+          "type": "P",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              -4,
+              4
+            ]
+          ],
+          "area2": 64,
+          "hats": 2,
+          "kites": 16,
+          "boundary_edges": 22,
+          "covered_disk_center_in_first_hat_frame": [
+            "-5/4",
+            "0"
+          ],
+          "covered_disk_radius_squared": "49/16"
+        },
+        {
+          "type": "F",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              -4,
+              4
+            ]
+          ],
+          "area2": 60,
+          "hats": 2,
+          "kites": 16,
+          "boundary_edges": 22,
+          "covered_disk_center_in_first_hat_frame": [
+            "-5/4",
+            "0"
+          ],
+          "covered_disk_radius_squared": "49/16"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "metatiles": [
+        {
+          "type": "H",
+          "polygon": [
+            [
+              "-52/73",
+              "-124/73"
+            ],
+            [
+              "20",
+              "-4"
+            ],
+            [
+              "1490/73",
+              "-52/73"
+            ],
+            [
+              "2",
+              "20"
+            ],
+            [
+              "-124/73",
+              "1490/73"
+            ],
+            [
+              "-4",
+              "2"
+            ]
+          ],
+          "area2": "49284/73",
+          "hats": 25,
+          "kites": 200,
+          "boundary_edges": 78,
+          "covered_disk_center_in_first_hat_frame": [
+            "-35/4",
+            "27/4"
+          ],
+          "covered_disk_radius_squared": "973/16"
+        },
+        {
+          "type": "T",
+          "polygon": [
+            [
+              "1628/73",
+              "1052/73"
+            ],
+            [
+              "386/73",
+              "1190/73"
+            ],
+            [
+              "1490/73",
+              "-52/73"
+            ]
+          ],
+          "area2": "19044/73",
+          "hats": 4,
+          "kites": 32,
+          "boundary_edges": 30,
+          "covered_disk_center_in_first_hat_frame": [
+            "-11/4",
+            "2"
+          ],
+          "covered_disk_radius_squared": "109/16"
+        },
+        {
+          "type": "P",
+          "polygon": [
+            [
+              "12",
+              "-16"
+            ],
+            [
+              "2388/73",
+              "-1336/73"
+            ],
+            [
+              "20",
+              "-4"
+            ],
+            [
+              "-52/73",
+              "-124/73"
+            ]
+          ],
+          "area2": "38976/73",
+          "hats": 14,
+          "kites": 112,
+          "boundary_edges": 64,
+          "covered_disk_center_in_first_hat_frame": [
+            "-13/4",
+            "10"
+          ],
+          "covered_disk_radius_squared": "361/64"
+        },
+        {
+          "type": "F",
+          "polygon": [
+            [
+              "36",
+              "-22"
+            ],
+            [
+              "54",
+              "-24"
+            ],
+            [
+              "52",
+              "-16"
+            ],
+            [
+              "44",
+              "-10"
+            ],
+            [
+              "1700/73",
+              "-562/73"
+            ]
+          ],
+          "area2": "40220/73",
+          "hats": 16,
+          "kites": 128,
+          "boundary_edges": 70,
+          "covered_disk_center_in_first_hat_frame": [
+            "-3/4",
+            "10"
+          ],
+          "covered_disk_radius_squared": "361/64"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "metatiles": [
+        {
+          "type": "H",
+          "polygon": [
+            [
+              "-36/19",
+              "-176/19"
+            ],
+            [
+              "52",
+              "-16"
+            ],
+            [
+              "1010/19",
+              "-150/19"
+            ],
+            [
+              "6",
+              "46"
+            ],
+            [
+              "-62/19",
+              "896/19"
+            ],
+            [
+              "-10",
+              "0"
+            ]
+          ],
+          "area2": "84396/19",
+          "hats": 169,
+          "kites": 1352,
+          "boundary_edges": 258,
+          "covered_disk_center_in_first_hat_frame": [
+            "-91/4",
+            "67/4"
+          ],
+          "covered_disk_radius_squared": "7069/16"
+        },
+        {
+          "type": "T",
+          "polygon": [
+            [
+              "1116/19",
+              "592/19"
+            ],
+            [
+              "268/19",
+              "698/19"
+            ],
+            [
+              "1010/19",
+              "-150/19"
+            ]
+          ],
+          "area2": "33708/19",
+          "hats": 25,
+          "kites": 200,
+          "boundary_edges": 78,
+          "covered_disk_center_in_first_hat_frame": [
+            "-35/4",
+            "27/4"
+          ],
+          "covered_disk_radius_squared": "973/16"
+        },
+        {
+          "type": "P",
+          "polygon": [
+            [
+              "32",
+              "-48"
+            ],
+            [
+              "1632/19",
+              "-1040/19"
+            ],
+            [
+              "52",
+              "-16"
+            ],
+            [
+              "-36/19",
+              "-176/19"
+            ]
+          ],
+          "area2": "70656/19",
+          "hats": 96,
+          "kites": 768,
+          "boundary_edges": 216,
+          "covered_disk_center_in_first_hat_frame": [
+            "-28",
+            "123/4"
+          ],
+          "covered_disk_radius_squared": "733/16"
+        },
+        {
+          "type": "F",
+          "polygon": [
+            [
+              "94",
+              "-64"
+            ],
+            [
+              "142",
+              "-70"
+            ],
+            [
+              "136",
+              "-48"
+            ],
+            [
+              "114",
+              "-32"
+            ],
+            [
+              "1142/19",
+              "-480/19"
+            ]
+          ],
+          "area2": "74164/19",
+          "hats": 112,
+          "kites": 896,
+          "boundary_edges": 250,
+          "covered_disk_center_in_first_hat_frame": [
+            "-115/4",
+            "36"
+          ],
+          "covered_disk_radius_squared": "409/16"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "metatiles": [
+        {
+          "type": "H",
+          "polygon": [
+            [
+              "-17504/3529",
+              "-106224/3529"
+            ],
+            [
+              "136",
+              "-48"
+            ],
+            [
+              "490744/3529",
+              "-95142/3529"
+            ],
+            [
+              "16",
+              "114"
+            ],
+            [
+              "-28586/3529",
+              "413106/3529"
+            ],
+            [
+              "-26",
+              "-6"
+            ]
+          ],
+          "area2": "106807716/3529",
+          "hats": 1156,
+          "kites": 9248,
+          "boundary_edges": 930,
+          "covered_disk_center_in_first_hat_frame": [
+            "-235/4",
+            "42"
+          ],
+          "covered_disk_radius_squared": "44617/16"
+        },
+        {
+          "type": "T",
+          "polygon": [
+            [
+              "543112/3529",
+              "264888/3529"
+            ],
+            [
+              "130714/3529",
+              "317256/3529"
+            ],
+            [
+              "490744/3529",
+              "-95142/3529"
+            ]
+          ],
+          "area2": "42850116/3529",
+          "hats": 169,
+          "kites": 1352,
+          "boundary_edges": 258,
+          "covered_disk_center_in_first_hat_frame": [
+            "-91/4",
+            "67/4"
+          ],
+          "covered_disk_radius_squared": "7069/16"
+        },
+        {
+          "type": "P",
+          "polygon": [
+            [
+              "84",
+              "-132"
+            ],
+            [
+              "793884/3529",
+              "-528996/3529"
+            ],
+            [
+              "136",
+              "-48"
+            ],
+            [
+              "-17504/3529",
+              "-106224/3529"
+            ]
+          ],
+          "area2": "90140736/3529",
+          "hats": 658,
+          "kites": 5264,
+          "boundary_edges": 784,
+          "covered_disk_center_in_first_hat_frame": [
+            "-339/4",
+            "83/4"
+          ],
+          "covered_disk_radius_squared": "7237/16"
+        },
+        {
+          "type": "F",
+          "polygon": [
+            [
+              "246",
+              "-174"
+            ],
+            [
+              "372",
+              "-190"
+            ],
+            [
+              "356",
+              "-132"
+            ],
+            [
+              "298",
+              "-90"
+            ],
+            [
+              "554194/3529",
+              "-254442/3529"
+            ]
+          ],
+          "area2": "94857500/3529",
+          "hats": 770,
+          "kites": 6160,
+          "boundary_edges": 922,
+          "covered_disk_center_in_first_hat_frame": [
+            "-96",
+            "125/4"
+          ],
+          "covered_disk_radius_squared": "2689/16"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "metatiles": [
+        {
+          "type": "H",
+          "polygon": [
+            [
+              "-34916/2689",
+              "-228668/2689"
+            ],
+            [
+              "356",
+              "-132"
+            ],
+            [
+              "978858/2689",
+              "-207012/2689"
+            ],
+            [
+              "42",
+              "292"
+            ],
+            [
+              "-56572/2689",
+              "806762/2689"
+            ],
+            [
+              "-68",
+              "-22"
+            ]
+          ],
+          "area2": "557337444/2689",
+          "hats": 7921,
+          "kites": 63368,
+          "boundary_edges": 3438,
+          "covered_disk_center_in_first_hat_frame": [
+            "-611/4",
+            "110"
+          ],
+          "covered_disk_radius_squared": "299089/16"
+        },
+        {
+          "type": "T",
+          "polygon": [
+            [
+              "1083564/2689",
+              "510972/2689"
+            ],
+            [
+              "260874/2689",
+              "615678/2689"
+            ],
+            [
+              "978858/2689",
+              "-207012/2689"
+            ]
+          ],
+          "area2": "223741764/2689",
+          "hats": 1156,
+          "kites": 9248,
+          "boundary_edges": 930,
+          "covered_disk_center_in_first_hat_frame": [
+            "-235/4",
+            "42"
+          ],
+          "covered_disk_radius_squared": "44617/16"
+        },
+        {
+          "type": "P",
+          "polygon": [
+            [
+              "220",
+              "-352"
+            ],
+            [
+              "1583780/2689",
+              "-1072808/2689"
+            ],
+            [
+              "356",
+              "-132"
+            ],
+            [
+              "-34916/2689",
+              "-228668/2689"
+            ]
+          ],
+          "area2": "470916160/2689",
+          "hats": 4510,
+          "kites": 36080,
+          "boundary_edges": 2904,
+          "covered_disk_center_in_first_hat_frame": [
+            "-235/4",
+            "-156"
+          ],
+          "covered_disk_radius_squared": "51421/16"
+        },
+        {
+          "type": "F",
+          "polygon": [
+            [
+              "644",
+              "-462"
+            ],
+            [
+              "974",
+              "-504"
+            ],
+            [
+              "932",
+              "-352"
+            ],
+            [
+              "780",
+              "-242"
+            ],
+            [
+              "1105220/2689",
+              "-524458/2689"
+            ]
+          ],
+          "area2": "495742524/2689",
+          "hats": 5280,
+          "kites": 42240,
+          "boundary_edges": 3430,
+          "covered_disk_center_in_first_hat_frame": [
+            "-333/4",
+            "-160"
+          ],
+          "covered_disk_radius_squared": "20089/16"
+        }
+      ]
+    }
+  ],
+  "scope": "exact finite physical packing and covered-disk checks; infinite existence and all-tilings recognition require their stated proofs"
+}

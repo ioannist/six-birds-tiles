@@ -1,0 +1,163 @@
+{
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "mathematical_baseline_commit": "d90313a717994936f254990f88d2624bbcce5bcd",
+  "canonical_sha256": {
+    "solid/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+    "certificates/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "certificates/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "certificates/collision_core_witnesses.jsonl.gz": "ae64a5283400c61e15f4a8758d949f3ad8428645cb3691e0b5cdb539161f8a45"
+  },
+  "canonical_identity": "PASS",
+  "nested_patches": [
+    {
+      "tile_count": 1,
+      "baseline_cell_count": 7,
+      "cells_disjoint": true,
+      "face_adjacent_tile_pairs": 0,
+      "shared_baseline_faces": 0,
+      "all_face_contacts_in_44_atlas": true,
+      "contact_graph_components": 1
+    },
+    {
+      "tile_count": 64,
+      "baseline_cell_count": 448,
+      "cells_disjoint": true,
+      "face_adjacent_tile_pairs": 183,
+      "shared_baseline_faces": 576,
+      "all_face_contacts_in_44_atlas": true,
+      "contact_graph_components": 1
+    },
+    {
+      "tile_count": 4096,
+      "baseline_cell_count": 28672,
+      "cells_disjoint": true,
+      "face_adjacent_tile_pairs": 14079,
+      "shared_baseline_faces": 46080,
+      "all_face_contacts_in_44_atlas": true,
+      "contact_graph_components": 1
+    }
+  ],
+  "inclusions": [
+    {
+      "from_level": 0,
+      "to_level": 1,
+      "c_from": 0,
+      "c_to": 2,
+      "embedded_pose_count": 1
+    },
+    {
+      "from_level": 1,
+      "to_level": 2,
+      "c_from": 2,
+      "c_to": 10,
+      "embedded_pose_count": 64
+    }
+  ],
+  "periodic": {
+    "determinant": 7,
+    "carrier_residues": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "basis": [
+      [
+        -2,
+        1,
+        0
+      ],
+      [
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0,
+        2
+      ]
+    ],
+    "buffered_motif_two_translations": "PASS"
+  },
+  "restored_contact": {
+    "solid_overlap": "7/5000",
+    "section": [
+      [
+        "-1/40",
+        "0",
+        "0"
+      ],
+      [
+        "-1/100",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "3/2500",
+        "-1/5000"
+      ],
+      [
+        "1/100",
+        "0",
+        "0"
+      ],
+      [
+        "1/40",
+        "0",
+        "0"
+      ]
+    ],
+    "note": "The two solids overlap; the positive pyramid portions need not overlap each other."
+  },
+  "render_data_sha256": "f77b4a973a38080e44d6a671366f9d9bb8730493ec70dc98587c71eab0ee2b6a",
+  "archived_source_sha256": {
+    "certificates/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "certificates/collision_core_witnesses.jsonl.gz": "ae64a5283400c61e15f4a8758d949f3ad8428645cb3691e0b5cdb539161f8a45",
+    "certificates/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "paper/tex/.gitignore": "803f9cd8aeb1dc23ddd2760efcdabe5ea1927871f33c36a11acf1dc71c8b3544",
+    "paper/tex/Makefile": "828d43342a307d2b086cb368bae04432493de08a29fe707e35dc592cef6e9a3b",
+    "paper/tex/appA_data.tex": "0b1b94d1d4870a73f36727f67f6980093995ca0d1fd75975d8bbc8699c0f777e",
+    "paper/tex/appB_census.tex": "9bf45e4bc02575fbd1c9503ac399ad0ea2e7744152e320aa0c89ad8284534afa",
+    "paper/tex/appC_lean.tex": "4b4ecc732e1da0ef36fd0e343a28314a65413c1c99e87555bcc2da5b900b2e4b",
+    "paper/tex/appD_calibration.tex": "c307ec368b5ea18f3886a8fa94923a86541e63d955219281c57ec87d47f97126",
+    "paper/tex/check_log.py": "a9ef793d5f3979dc17853436da73bfbe2d0e2ed9384555b540304cdd471f3966",
+    "paper/tex/fig_collision_box.tex": "fa5c4363c6e30d53a95687c0c1305651d10720a2eb9718ee3a94b74d47eaca6e",
+    "paper/tex/fig_companion_sectors.tex": "d8f5d038c21e17e10caae5a1fbd05b5c48121ee274356a85b1a4467c4a57eba0",
+    "paper/tex/fig_feature_geometry.tex": "a0744e9b03519b0c79b09fec4b895e32c7ad094ba33a4601f3787f109bcc5d93",
+    "paper/tex/fig_roadmap.tex": "6a9c10d92638ac45f6842861198578aa8c839a265696dab8f02d26057654de6e",
+    "paper/tex/generated/appendix_data_table.tex": "2c64c3efb52da75bdd32ce0adde2d53f8be1c75b83b7b3215ccbdf52f7b865ad",
+    "paper/tex/generated/atlas_44_table.tex": "bb1ee7d0306b3bdf6814806ac7d76fc30982f5f5734be3edb01f09e9d221e9e1",
+    "paper/tex/generated/axioms_table.tex": "4fb3ed58193e0e78a7432c81729efd8879e2ded5320fb5e4c8e53469aa9ee8f9",
+    "paper/tex/generated/census_table.tex": "865ee13cfe4a51577deb8fa7cb40cf39bf647748454e5bcefe77ceb7a35d1588",
+    "paper/tex/generated/fig_carrier_panels.tex": "197042ea36c2e25fe3dfa27595d1196e14c2c559132db78320ee67c7ba7fe7ff",
+    "paper/tex/generated/fig_coincidence.tex": "3074a8fba6298e12f5071aebcde6c8b72f1902877fb5a9e8276903effd6d0c7f",
+    "paper/tex/generated/fig_nesting_slice.tex": "c577ef09dd9d527902858eb739f142530e34470a0973b2ed19a31394cfa7bb92",
+    "paper/tex/generated/finite_theorems_table.tex": "0dcf9d94d49a3797eb4458a62bb6dc1ab96157f0109f834930ba2b555d728b1c",
+    "paper/tex/generated/first_shells_table.tex": "2e0b4792e4b695c1d19dbebbbd3244fc2cbb1e1e6d99c87d4f6f5c17203be88f",
+    "paper/tex/generated/hypotheses_record.tex": "11282eb1d419edede0bdcefee4b5eca2b5b3b2573095512935471540c1186815",
+    "paper/tex/generated/hypotheses_table.tex": "c6fd5c08dc946a68c56571b6003c1517f0fe94c3dccc6a13b32eabb216e2cf7d",
+    "paper/tex/generated/mesh_table.tex": "86e1e2c397ba557911c29a1ad88e3bea4e6799c0a30527b46dfd40f30e421939",
+    "paper/tex/generated/parameter_family_table.tex": "570016fa5bc586f08286d49cf224281902182ac81cb393a6afb2768ac7f36292",
+    "paper/tex/macros.tex": "683d95e7e701ccd9b5489c6957d09f43c97861829f31154436f426124e3cd14e",
+    "paper/tex/main.tex": "7564c49ca424c2a4820ee5d2bbdb2d3563ee30702923935c944c7d430030b6c0",
+    "paper/tex/notation.tex": "f1750396e2654ed3c0b2bc8c6f9b153e9f64ca6903c12b5fcb098fc8caebfcf6",
+    "paper/tex/sec1_intro.tex": "2d5c213ba218e2bc7385373b5e73005f604fe23d0790cb3fec172ff84d2f68b0",
+    "paper/tex/sec2_solid.tex": "32efc1d3c36c1e6b8d18b367ea7b19332f37c2583ea71febaab70695c7e7b2dc",
+    "paper/tex/sec3_finding.tex": "ce09115f29da621dbfb7308669f1c680354c5b5c04a4c5f41ae434d4ce3b7ce8",
+    "paper/tex/sec4_companions.tex": "66f6fd398e425f2ee2ba216ec8927b37afd4605e6818cfff3df559bbe6e8eee0",
+    "paper/tex/sec5_registration.tex": "6b42fe6414d6b8a67c7e939ff3558b1a6c6a09b4151f204ccf1b9b00b182967e",
+    "paper/tex/sec6_hierarchy.tex": "0d527f42479ab2a4289ef315acd852bbce9bd1d2bd10813c4e44b323fa4331fb",
+    "paper/tex/sec7_aperiodicity.tex": "2a456ac67d11f7129ee19bb9426b63d429f8f0ef046955512cc8fccd036314aa",
+    "paper/tex/sec8_mechanization.tex": "2bd58d2d5dcbedb6d8894c9c71167cb3e058819c653861280f1a2e2e37cec9b9",
+    "paper/tex/sec9_remarks.tex": "dad8cdb06bb47997a6cdce91c0b488e4cfd8d52fdf8a28ba2f5c0b3038b4d45b",
+    "simulations/patches.py": "dd4c73fd70c77498901fb7c1438e34e8987be7165e3c3fe2e203a1704d30d3ef",
+    "simulations/r44.py": "0aec8be19c315e908173a2018c8f0d5827af28249958a79eb9795ee0c74f8849",
+    "solid/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55"
+  },
+  "scope": "Finite exact fixture and contact-atlas checks, not a new global theorem verification."
+}

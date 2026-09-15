@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "rejected_pose_records": 5273,
+  "physical_collision_boxes": 299975,
+  "coordinate_denominator": 400,
+  "minimum_box_width_numerator": 42,
+  "each_box_contains_open_Euclidean_ball_radius": "21/400",
+  "imports_other_verifier": false,
+  "arithmetic": "integer only",
+  "scope": "Checks all exported positive-volume collision boxes. Mate-list completeness is a separate gate.",
+  "seconds": 2.5723228079732507
+}

@@ -1,0 +1,24 @@
+{
+  "canonical_sha256": {
+    "solid/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+    "certificates/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "certificates/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "certificates/collision_core_witnesses.jsonl.gz": "ae64a5283400c61e15f4a8758d949f3ad8428645cb3691e0b5cdb539161f8a45"
+  },
+  "steps": [
+    {
+      "packet": "einstein_macrostate",
+      "cmd": "python3 src/replay.py",
+      "returncode": 0,
+      "tail": "{\n  \"status\": \"PASS\",\n  \"steps\": [\n    {\n      \"checker\": \"verify.py\",\n      \"status\": \"PASS\",\n      \"seconds\": 6.4148387250024825\n    },\n    {\n      \"checker\": \"edge_audit.py\",\n      \"status\": \"PASS\",\n      \"seconds\": 0.3650187239982188\n    }\n  ],\n  \"seconds\": 6.779863782110624,\n  \"external_dependencies\": [],\n  \"formal_proof_assistant_verification\": false,\n  \"external_adversarial_review_completed\": false,\n  \"scope\": \"Exact finite and mesh gates replayed; unrestricted geometric lemmas supplied in PROOFS.md.\"\n}\n"
+    },
+    {
+      "packet": "r44_unrestricted_alignment",
+      "cmd": "python3 src/replay.py",
+      "returncode": 0,
+      "tail": "{\n  \"status\": \"PASS\",\n  \"steps\": [\n    {\n      \"checker\": \"verify_alignment.py\",\n      \"status\": \"PASS\",\n      \"seconds\": 10.569341006921604\n    },\n    {\n      \"checker\": \"replay_core_boxes.py\",\n      \"status\": \"PASS\",\n      \"seconds\": 2.6815358239691705\n    },\n    {\n      \"checker\": \"unchanged upstream replay\",\n      \"status\": \"PASS\",\n      \"details\": {\n        \"status\": \"PASS\",\n        \"steps\": [\n          {\n            \"checker\": \"verify.py\",\n            \"status\": \"PASS\",\n            \"seconds\": 6.435800157021731\n          },\n          {\n            \"checker\": \"edge_audit.py\",\n            \"status\": \"PASS\",\n            \"seconds\": 0.37003976001869887\n          }\n        ],\n        \"seconds\": 6.805844726972282,\n        \"external_dependencies\": [],\n        \"formal_proof_assistant_verification\": false,\n        \"external_adversarial_review_completed\": false,\n        \"scope\": \"Exact finite and mesh gates replayed; unrestricted geometric lemmas supplied in PROOFS.md.\"\n      },\n      \"seconds\": 6.842226177919656\n    }\n  ],\n  \"seconds\": 20.120689305011183,\n  \"source_archive_sha256\": \"ec2185fda29034a4581fafd308f8866ff1cb91beaaf85ccbf9e26803febe7f45\",\n  \"scope\": \"Exact finite and actual-mesh gates replayed; continuous alignment theorem in ALIGNMENT_PROOF.md.\",\n  \"external_dependencies\": [],\n  \"external_adversarial_review\": false,\n  \"proof_assistant_formalization\": false\n}\n"
+    }
+  ],
+  "seconds": 27.0,
+  "status": "PASS"
+}

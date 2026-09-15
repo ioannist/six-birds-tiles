@@ -1,0 +1,431 @@
+{
+  "scope": "Conservative projected mesh bounding boxes; macro intentionally fills the screen; travel is illustrative.",
+  "checkpoints": [
+    {
+      "shot": "hero",
+      "time": 0,
+      "bounds_pixels": [
+        720.1,
+        245.0,
+        1199.9,
+        803.5
+      ]
+    },
+    {
+      "shot": "hero",
+      "time": 3,
+      "bounds_pixels": [
+        709.2,
+        239.5,
+        1210.8,
+        809.0
+      ]
+    },
+    {
+      "shot": "hero",
+      "time": 5.99,
+      "bounds_pixels": [
+        702.8,
+        236.3,
+        1217.2,
+        812.2
+      ]
+    },
+    {
+      "shot": "opening_patch",
+      "time": 6,
+      "bounds_pixels": [
+        712.2,
+        241.9,
+        1212.9,
+        823.6
+      ]
+    },
+    {
+      "shot": "opening_patch",
+      "time": 9,
+      "bounds_pixels": [
+        718.6,
+        251.6,
+        1204.4,
+        814.5
+      ]
+    },
+    {
+      "shot": "opening_patch",
+      "time": 12.99,
+      "bounds_pixels": [
+        729.0,
+        266.1,
+        1191.3,
+        800.8
+      ]
+    },
+    {
+      "shot": "plain_hero",
+      "time": 24,
+      "bounds_pixels": [
+        720.4,
+        245.3,
+        1199.6,
+        803.1
+      ]
+    },
+    {
+      "shot": "plain_hero",
+      "time": 27.99,
+      "bounds_pixels": [
+        706.9,
+        238.5,
+        1213.1,
+        810.0
+      ]
+    },
+    {
+      "shot": "cells",
+      "time": 28,
+      "bounds_pixels": [
+        767.6,
+        305.4,
+        1152.4,
+        752.3
+      ]
+    },
+    {
+      "shot": "cells",
+      "time": 32,
+      "bounds_pixels": [
+        712.7,
+        242.9,
+        1207.3,
+        814.8
+      ]
+    },
+    {
+      "shot": "cells",
+      "time": 35.99,
+      "bounds_pixels": [
+        767.0,
+        305.1,
+        1153.0,
+        752.6
+      ]
+    },
+    {
+      "shot": "periodic",
+      "time": 40,
+      "bounds_pixels": [
+        573.5,
+        275.2,
+        1316.2,
+        840.7
+      ]
+    },
+    {
+      "shot": "periodic",
+      "time": 48,
+      "bounds_pixels": [
+        573.5,
+        275.2,
+        1316.2,
+        840.7
+      ]
+    },
+    {
+      "shot": "periodic",
+      "time": 57,
+      "bounds_pixels": [
+        573.5,
+        275.2,
+        1316.2,
+        840.7
+      ]
+    },
+    {
+      "shot": "restore",
+      "time": 66,
+      "bounds_pixels": [
+        638.7,
+        352.5,
+        1281.5,
+        727.7
+      ]
+    },
+    {
+      "shot": "restore",
+      "time": 73.99,
+      "bounds_pixels": [
+        635.4,
+        338.6,
+        1284.8,
+        741.6
+      ]
+    },
+    {
+      "shot": "contact_pair",
+      "time": 82,
+      "bounds_pixels": [
+        759.3,
+        270.7,
+        1160.7,
+        788.9
+      ]
+    },
+    {
+      "shot": "contact_pair",
+      "time": 85.99,
+      "bounds_pixels": [
+        784.9,
+        271.3,
+        1135.1,
+        788.3
+      ]
+    },
+    {
+      "shot": "assembly",
+      "time": 100,
+      "bounds_pixels": [
+        843.3,
+        387.2,
+        1076.7,
+        664.2
+      ]
+    },
+    {
+      "shot": "assembly",
+      "time": 107,
+      "bounds_pixels": [
+        838.5,
+        384.4,
+        1081.5,
+        666.9
+      ]
+    },
+    {
+      "shot": "assembly",
+      "time": 111,
+      "bounds_pixels": [
+        790.9,
+        254.8,
+        1129.2,
+        760.7
+      ]
+    },
+    {
+      "shot": "assembly",
+      "time": 115,
+      "bounds_pixels": [
+        769.2,
+        309.1,
+        1150.8,
+        748.8
+      ]
+    },
+    {
+      "shot": "assembly",
+      "time": 122.99,
+      "bounds_pixels": [
+        716.6,
+        243.1,
+        1203.4,
+        808.3
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 123,
+      "bounds_pixels": [
+        703.8,
+        238.3,
+        1216.2,
+        841.7
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 124,
+      "bounds_pixels": [
+        893.9,
+        465.1,
+        1019.1,
+        612.5
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 127,
+      "bounds_pixels": [
+        713.5,
+        246.9,
+        1215.4,
+        836.9
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 131,
+      "bounds_pixels": [
+        711.7,
+        246.5,
+        1215.0,
+        837.4
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 132,
+      "bounds_pixels": [
+        895.6,
+        465.8,
+        1019.3,
+        611.0
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 135,
+      "bounds_pixels": [
+        786.8,
+        337.7,
+        1128.5,
+        738.2
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 138,
+      "bounds_pixels": [
+        713.2,
+        250.9,
+        1209.3,
+        832.5
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 143,
+      "bounds_pixels": [
+        711.9,
+        250.8,
+        1208.4,
+        832.6
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 150,
+      "bounds_pixels": [
+        711.3,
+        250.8,
+        1207.8,
+        832.6
+      ]
+    },
+    {
+      "shot": "growth",
+      "time": 159.99,
+      "bounds_pixels": [
+        711.3,
+        250.8,
+        1207.8,
+        832.6
+      ]
+    },
+    {
+      "shot": "hierarchy",
+      "time": 160,
+      "bounds_pixels": [
+        708.2,
+        235.7,
+        1213.2,
+        823.9
+      ]
+    },
+    {
+      "shot": "hierarchy",
+      "time": 164,
+      "bounds_pixels": [
+        707.3,
+        235.6,
+        1212.6,
+        824.0
+      ]
+    },
+    {
+      "shot": "hierarchy",
+      "time": 178,
+      "bounds_pixels": [
+        706.9,
+        236.7,
+        1208.3,
+        822.8
+      ]
+    },
+    {
+      "shot": "hierarchy",
+      "time": 182,
+      "bounds_pixels": [
+        707.4,
+        237.2,
+        1206.5,
+        822.1
+      ]
+    },
+    {
+      "shot": "hierarchy",
+      "time": 183.99,
+      "bounds_pixels": [
+        707.8,
+        237.6,
+        1205.4,
+        821.6
+      ]
+    },
+    {
+      "shot": "mirrors",
+      "time": 207,
+      "bounds_pixels": [
+        663.7,
+        392.0,
+        1256.3,
+        688.0
+      ]
+    },
+    {
+      "shot": "mirrors",
+      "time": 220.99,
+      "bounds_pixels": [
+        656.7,
+        367.9,
+        1263.3,
+        712.1
+      ]
+    },
+    {
+      "shot": "outro",
+      "time": 228,
+      "bounds_pixels": [
+        720.1,
+        245.0,
+        1199.9,
+        803.5
+      ]
+    },
+    {
+      "shot": "outro",
+      "time": 233.99,
+      "bounds_pixels": [
+        702.8,
+        236.3,
+        1217.2,
+        812.2
+      ]
+    }
+  ],
+  "safe_vertical_interval_pixels": [
+    225,
+    890
+  ],
+  "failed_checkpoints": [],
+  "status": "PASS"
+}

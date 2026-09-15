@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "all_mutations_rejected": true,
+  "tests": [
+    {
+      "mutation": "missing_triangle",
+      "rejected": true,
+      "last_error_line": "ValueError: nonmanifold mesh edge",
+      "seconds": 0.19099443696904927
+    },
+    {
+      "mutation": "reversed_triangle",
+      "rejected": true,
+      "last_error_line": "ValueError: unpaired oriented edge",
+      "seconds": 0.1914149959338829
+    },
+    {
+      "mutation": "changed_geometric_apex",
+      "rejected": true,
+      "last_error_line": "ValueError: wrong feature height",
+      "seconds": 0.21596657007467002
+    },
+    {
+      "mutation": "missing_rejection_witness",
+      "rejected": true,
+      "last_error_line": "ValueError: duplicate/missing rejection witness",
+      "seconds": 2.123474930995144
+    },
+    {
+      "mutation": "wrong_companion_quantifier",
+      "rejected": true,
+      "last_error_line": "ValueError: incomplete partner quantifier",
+      "seconds": 2.1112127350643277
+    },
+    {
+      "mutation": "missing_registered_contact",
+      "rejected": true,
+      "last_error_line": "ValueError: survivors not identical to registered 44 atlas",
+      "seconds": 10.663044699002057
+    }
+  ],
+  "scope": "Checks selected malformed inputs are rejected. Does not validate the continuous proof."
+}

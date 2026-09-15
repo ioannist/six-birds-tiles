@@ -1,0 +1,10 @@
+{
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "mathematical_baseline_commit": "d90313a717994936f254990f88d2624bbcce5bcd",
+  "canonical_sha256": {
+    "solid/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+    "certificates/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "certificates/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "certificates/collision_core_witnesses.jsonl.gz": "ae64a5283400c61e15f4a8758d949f3ad8428645cb3691e0b5cdb539161f8a45"
+  }
+}

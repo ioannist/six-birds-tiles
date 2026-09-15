@@ -1,0 +1,122 @@
+\section{Finite admissibility and contextual distinctions}\label{sec:context}
+
+% ledger: C1--C6 (2026-09-13 supplement); these are written deductions, not new Lean claims.
+The results above give a concrete instance of a distinction in the Six Birds (SBT)
+calculus \cite{Tsi26F4}: a rule can survive composition while its realizations require
+successively finer contextual distinctions. This complementary reading proceeds from
+a local obstruction to the intrinsic hierarchy, then asks what the construction
+suggests about descriptions of collective systems. The deductions below are written
+proofs; no new Lean verification is claimed.
+
+\emph{A distinction that cannot be erased.}
+Let $C(x,y,z)=(y,z,x)$. Since $C\carrier=\carrier$, the nine pairs
+$(C^a\solid,C^b\solid+(1,1,1))$, for $a,b\in\{0,1,2\}$, have the same ordered
+pair of bare carriers. Their feature profiles match precisely when $a=b$.
+The exact checker \file{paper/scripts/contextual_frames.py} reconstructs the $24$
+opposed feature centres in each pair from the solid's rational feature records:
+every off-diagonal pair mismatches all $24$ coefficients and has an interior overlap.
+For example, $\solid$ and $C\solid+(1,1,1)$ both contain
+$(5/4,11/8,1)$ in their interiors: there the root's role $188$ protrudes in $+z$
+by $12/10000$, and the neighbour's role $4$ protrudes in $-z$ by $5/10000$.
+The diagonal pairs are rotated copies of the $000$/central subdivision pair.
+In SBT terminology this is a \emph{descent obstruction}: admissibility is not a
+function of the erased carrier description. Testing the neighbour against each
+of the three root frames requires retaining all three neighbour-frame distinctions.
+
+\emph{Two different closure questions.}
+SBT's \emph{sufficiency closure} (F7 of \cite{Tsi26F4}) asks whether each declared
+readout factors through an observation. It does not assert that an operation
+preserves legal configurations. Here the latter is the separate geometric statement
+$D(X_Q)\subseteq X_Q$, where $X_Q$ is the space of tilings by $\solid$
+(\cref{thm:coarsening}). This permits repeated recognition and restandardization
+under the same rule. The observations of position in that hierarchy behave differently.
+
+\begin{proposition}[phase distinctions]\label{prop:phases}
+Fix a registered tiling $T$ in integer coordinates. Its level-$n$ parent anchors
+lie in a unique coset $\alpha_n(T)+2^n\Z^3$, with
+$\alpha_{n+1}(T)\equiv\alpha_n(T)\pmod{2^n}$. The observations
+\[
+ q_n^T(v)=v-\alpha_n(T)\pmod{2^n},\qquad v\in\Z^3,
+\]
+have $8^n$ values. Writing $\ker q=\{(v,w):q(v)=q(w)\}$,
+\[
+ \ker q_n^T=\{(v,w):w-v\in2^n\Z^3\},\qquad
+ \ker q_{n+1}^T\subsetneq\ker q_n^T,\qquad
+ \bigcap_{n\ge0}\ker q_n^T=\Delta,
+\]
+where $\Delta=\{(v,v):v\in\Z^3\}$.
+\end{proposition}
+
+\begin{proof}
+The common-parent parity argument of \cref{thm:coarsening}, applied at every
+level and expressed in the original coordinates, gives the cosets. Each parent
+has child $000$ at its own anchor, so the anchor sets are nested and the cosets
+are coherent. Reduction modulo $2^n$ is onto and has the displayed kernel.
+The pair $v,v+2^ne_1$ lies in that kernel but not the next; their intersection
+is $\Delta$ because $\bigcap_n2^n\Z^3=\{0\}$.
+\end{proof}
+
+The phases are read from the intrinsic hierarchy, locally at each fixed level
+with a neighbourhood growing with the level. In particular, for $p\in\Z^3$,
+$\alpha_n(T+p)=\alpha_n(T)+p\pmod{2^n}$. A period must therefore vanish modulo
+every $2^n$, recovering \cref{thm:noperiod}. This uses the global partitions,
+not exhaustion by one tile's ancestors. Equal phases need not give equal patches:
+$8^n$ counts phase states, not patch types or entropy. Each next level requires
+eight times as many phase states, while each fixed phase observation has the
+lawful translation update $q_n^T(v+u)=q_n^T(v)+u$.
+
+\emph{Exact contextual sufficiency.}
+Let $\ell:\Z^3\to A$ be the $168$-label cell encoding of $T$
+(\cref{sec:limitperiodic}). It is faithful: a cell's position, native frame
+and native cell identify its owner's whole pose. Declare the readouts to be
+all translated labels, $v\mapsto\ell(v+u)$ for $u\in\Z^3$. Their common
+equivalence, the \emph{predictive quotient} for this spatial probe, satisfies
+\[
+ v\equiv w\ \Longleftrightarrow\
+ \forall u\in\Z^3,\ \ell(v+u)=\ell(w+u)
+ \ \Longleftrightarrow\ w-v\in\Per(\ell).
+\]
+Indeed, put $u=z-v$; the reverse implication is the definition of a period.
+Faithfulness gives $\Per(\ell)=\Per(T)=\{0\}$. Thus any observation sufficient
+for all these readouts must distinguish every probe origin. This consequence
+holds for any faithful aperiodic lattice labeling; Chair44 additionally supplies
+the intrinsic phase hierarchy organizing such distinctions.
+
+This sufficiency requirement concerns the declared probes. It excludes neither
+finite descriptions nor useful coarse models. The coherent phases give a $2$-adic
+coordinate, but need not determine the whole tiling; the hull and diffraction
+questions retain the scope stated in \cref{sec:limitperiodic}.
+
+\emph{Collective descriptions and their limits.}
+These results suggest a broader question: which relationships must a description
+retain for a collective to support its declared operations? An inventory of parts
+can identify arrangements that behave differently when placed in a further context.
+The appropriate criterion is therefore relative to a specified family of contexts
+$\mathcal C$ and their observable outcomes:
+\[
+ q(x)=q(y)\quad\Longrightarrow\quad
+ \operatorname{Outcome}(C[x])=\operatorname{Outcome}(C[y])
+ \quad\text{for every }C\in\mathcal C.
+\]
+Here the outcome includes whether the composition is admissible at all. The
+coarsest equivalence satisfying this criterion identifies exactly those states
+that all declared contexts fail to distinguish. It specifies the relational
+information required by those tests, rather than a complete microscopic inventory.
+
+In SBT terms, a separating context witnesses a descent obstruction. Enlarging the
+context family can only refine its observational equivalence, but strict refinement
+at arbitrarily large depths requires a separate argument. Recursive composition
+alone does not supply one. For Chair44, \cref{prop:phases} supplies that argument:
+each phase level identifies positions separated by some nonzero translations,
+while no such identification survives every level. Independently, coarsening
+preserves the geometric admissibility law that makes the hierarchy repeatable.
+
+The philosophical consequence is precise and limited: a finite, recursively stable
+law can require a realization to preserve relational distinctions at arbitrarily
+large scales. The infinite arrangement carries those distinctions; the law
+constrains their organization. This suggests a question for other collective
+systems: which permitted interaction reveals information erased by a proposed
+description, and does retaining that information suffice after further composition?
+An answer requires identifying that system's own states, operations and separating
+contexts. Chair44 provides a geometric instance in which both lawful recursion and
+unbounded contextual differentiation can be established.

@@ -1,0 +1,21 @@
+{
+  "asset": "I08 \u2014 Why a translation period fails",
+  "source_commit": "838bca514679b2531d31f4e0dfd66641269e2a8c",
+  "canonical_solid_sha256": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+  "render_sources": {
+    "media/source/feature_map/000090.png": "378fa0aef7e78b772bb8432f01e7770657ad21699f772550bf745d0440aace43",
+    "media/source/hierarchy/parent8/003600.png": "0b81154e4e50dde94d04200f7273beb0de170d1df4351fa16665c1a8df24afba",
+    "media/source/hierarchy/level64/003810.png": "03e4778545df9b70d4a006359b77b5c321e5ede8c7bc9ff950a4da911f90bf94"
+  },
+  "diagram_scope": "Finite exact patches illustrate the hierarchy; the period descent is the theorem argument.",
+  "outputs": {
+    "media/output/period_argument/why_translation_period_fails_portrait_1080x1350.png": {
+      "bytes": 180978,
+      "sha256": "57cb109f139aac4930537e461a2e29a371c3eabf3a4c3eafdb0c39e84322d231"
+    },
+    "media/output/period_argument/why_translation_period_fails_square_1080x1080.png": {
+      "bytes": 136521,
+      "sha256": "61127c068e98dc19ffc531a88adcae42b171eea456914bbec1ee1cedb9649ee5"
+    }
+  }
+}

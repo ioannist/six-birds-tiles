@@ -1,0 +1,71 @@
+% macros.tex — packages, theorem environments, placeholder and tier macros
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% --- unicode characters that may occur in generated tables and Lean listings ---
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\to}}
+\DeclareUnicodeCharacter{21A6}{\ensuremath{\mapsto}}
+\DeclareUnicodeCharacter{03C7}{\ensuremath{\chi}}
+\DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
+\DeclareUnicodeCharacter{2227}{\ensuremath{\wedge}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\graphicspath{{../../figures/}}
+
+% --- theorem environments, numbered within sections (hat/Spectre convention) ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% --- notation ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Per}{\operatorname{Per}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\solid}{Q}
+\newcommand{\carrier}{P}
+\newcommand{\atlas}{\mathcal{A}_{44}}
+% File paths in prose: typewriter, breakable at / . _ (url package; NOT inside macro arguments)
+\DeclareUrlCommand\file{\urlstyle{tt}}
+% Lean declaration names: typewriter, breakable after each underscore (robust inside arguments)
+\newcommand{\lean}[1]{\begingroup\def\_{\char`\_\allowbreak}\texttt{#1}\endgroup}
+
+% --- trust tiers (README/THEOREM.md vocabulary) ---
+\newcommand{\tier}[1]{\textsc{\small #1}}
+% Paragraph-width table columns should not stretch sparse lines across the
+% full measure; this is especially conspicuous for broken Lean identifiers.
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% --- placeholders from OUTLINE.md: visible in the skeleton, removed as prose lands ---
+\definecolor{outlinegray}{gray}{0.40}
+\newcommand{\outline}[1]{\par\noindent{\color{outlinegray}\small[Outline] #1}\par}
+
+% --- figure placeholder for figures listed TODO in FIGURES.md ---
+\newcommand{\figtodo}[2]{\fbox{\parbox[c][#1][c]{0.9\linewidth}{\centering\color{outlinegray}\small #2}}}
+
+% --- the front-matter sentence (STATEMENT.md D4): proof-submission qualifier ---
+\newcommand{\frontmatternote}{\noindent{\small\emph{Proof submission.} The finite checks, the
+nineteen former hypothesis statements, and the logical assembly of the four tiling clauses are
+Lean theorems, kernel-checked modulo the named compiler hooks. \Cref{app:lean} records the empty
+hypothesis structure and the dependencies; the written proofs remain as exposition.}\par\medskip}

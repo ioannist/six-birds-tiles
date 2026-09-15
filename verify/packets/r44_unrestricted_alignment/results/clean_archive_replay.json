@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "clean_extraction": true,
+  "immutable_files_hash_checked": 13,
+  "archive_tested_sha256": "a2e77d7646af67dee08628ae5fef5ed1010e2bed4618cfd9c8d24f3f2bd38a0a",
+  "replay": {
+    "status": "PASS",
+    "steps": [
+      {
+        "checker": "verify_alignment.py",
+        "status": "PASS",
+        "seconds": 7.067626677000021
+      },
+      {
+        "checker": "replay_core_boxes.py",
+        "status": "PASS",
+        "seconds": 2.4357514129999345
+      },
+      {
+        "checker": "unchanged upstream replay",
+        "status": "PASS",
+        "details": {
+          "status": "PASS",
+          "steps": [
+            {
+              "checker": "verify.py",
+              "status": "PASS",
+              "seconds": 6.069949962999999
+            },
+            {
+              "checker": "edge_audit.py",
+              "status": "PASS",
+              "seconds": 0.8737874669999428
+            }
+          ],
+          "seconds": 6.943744028999959,
+          "external_dependencies": [],
+          "formal_proof_assistant_verification": false,
+          "external_adversarial_review_completed": false,
+          "scope": "Exact finite and mesh gates replayed; unrestricted geometric lemmas supplied in PROOFS.md."
+        },
+        "seconds": 7.540743282999983
+      }
+    ],
+    "seconds": 17.053692385999966,
+    "source_archive_sha256": "ec2185fda29034a4581fafd308f8866ff1cb91beaaf85ccbf9e26803febe7f45",
+    "scope": "Exact finite and actual-mesh gates replayed; continuous alignment theorem in ALIGNMENT_PROOF.md.",
+    "external_dependencies": [],
+    "external_adversarial_review": false,
+    "proof_assistant_formalization": false
+  },
+  "seconds": 17.638166313999932
+}

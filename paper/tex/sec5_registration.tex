@@ -1,0 +1,158 @@
+\section{Every tiling is registered}\label{sec:registration}
+
+% ledger: A10-A15, R9, M3, E6; source proof/ALIGNMENT_PROOF.md A§5-A§6; Lean retained_core_overlap_holds (T1), mates_census (T1n), registration_of_tiling (spine)
+Let $F_0$ be the finite set of poses given by \cref{cor:discrete}: for every ordered pair of
+native features of opposite signed height and every signed permutation $G$ with $n_u=-Gn_v$, the
+pose $(G,\,c_u-Gc_v)$. There are $6{,}862$ of them, with translations in eighth units, and for
+each pose we retain the list of root features it can fully accompany. Each is a candidate for the
+pose of a tile sharing a feature with the root; the task is to show that only $44$ of them, all
+integral and proper, can occur in a tiling.
+
+\begin{lemma}[eighth-grid overlaps penetrate the cores; A-L5.1; the overlap implication is the
+Lean theorem \lean{retained\_core\_overlap\_holds} (\tier{T1}), the quantitative bound the written
+estimate in the proof]\label[lemma]{lem:core}
+If two poses in $F_0$ have baseline chairs overlapping in positive volume, the corresponding
+copies of $\solid$ overlap in positive volume; more precisely, an overlapping pair of unit cubes
+yields an open box of side at least $21/200$ inside both interiors, hence a ball of radius
+$21/400$.
+\end{lemma}
+
+\begin{proof}
+Cube endpoints are eighth-integral, so each positive coordinate overlap has length at least
+$1/8$; eroding both cubes by $\rho=1/100$ leaves at least $1/8-2/100=21/200$, and the eroded cubes
+lie in the interiors of the solids (\cref{sec:solid}).
+\end{proof}
+
+% ledger: A11, M3; the census table -> Appendix B; two independent implementations; Lean mates_census
+Let $F_1$ be the poses in $F_0$ whose baseline chair does not overlap the root's, and for a root
+feature $u$ let $\mathrm{Partners}(u)$ be \emph{all} poses in $F_1$ matching $u$; no other
+rejection enters these lists. The census is summarized in \cref{tab:census} and
+\cref{app:census}: of the $6{,}862$ poses, $1{,}545$ collide with the root directly, leaving
+$5{,}317$ in $F_1$, of which $5{,}234$ have a non-integral translation and $83$ are integral. The
+remaining step rejects $5{,}273$ of the $5{,}317$ by the following finite statement, leaving $44$.
+
+\begin{proposition}[collision witnesses; A-FS5.2, \tier{T1n} \lean{mates\_census}, and two
+independent replays]\label[proposition]{prop:census}
+For each of the $5{,}273$ rejected poses $V\in F_1$ the certificate names a feature $u$ of either
+the root $U$ or of $V$, and, in its owner's coordinates: (i) the other tile of the pair is not in
+$\mathrm{Partners}(u)$; (ii) $\mathrm{Partners}(u)$ is nonempty; (iii) every $W\in\mathrm{Partners}(u)$
+has a positive-volume baseline overlap with the other tile of the pair. There are $299{,}975$ such
+option collisions in all.
+\end{proposition}
+
+The verifier regenerates $F_0$ and every $\mathrm{Partners}(u)$ from the actual mesh and checks
+the three clauses; it uses no flat-panel consistency filter and no already-rejected pose when
+building the option sets, so the conclusion is not used to prune its own options. For every
+option it exports one pair of overlapping native cubes with their intersection box, and a
+second, integer-only checker verifies all $299{,}975$ boxes in units of $1/400$; every box has
+sides at least $42/400$ (\cref{fig:collision}).
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{0.9\linewidth}{!}{\input{fig_collision_box}}
+  \caption{Schematic of the retained-core overlap estimate used in \cref{prop:census}; this is
+  not a selected certificate witness.}
+  \label{fig:collision}
+\end{figure}
+
+% ledger: A12; Lean only_registered_mates_holds (T1)
+\begin{lemma}[only the 44 survivors occur; A-L5.3, written; Lean \tier{T1}
+\lean{only\_registered\_mates\_holds}]\label[lemma]{lem:44}
+No rejected pose is a feature companion in any tiling. The $44$ surviving poses are integral and
+proper, and they are exactly the atlas $\atlas$ of \cref{sec:substitution}.
+\end{lemma}
+
+\begin{proof}
+Suppose tiles $U$ and $V$ occur in a tiling in a rejected relative pose. The named feature $u$ has
+a complete companion $W$ by \cref{thm:companion,lem:equal}, whose pose lies in
+$\mathrm{Partners}(u)$ because the list of complete-feature poses is exhaustive
+(\cref{cor:discrete}) and an overlap with the owner is forbidden; by clause (i) $W$ is not the
+other tile already placed. Clause (iii) says $W$'s baseline overlaps that other tile's, and
+\cref{lem:core} turns this into an overlap of interiors, a contradiction. The verifier compares
+the set of $44$ survivors, not merely its size, with the atlas computed from the profile in
+\cref{sec:substitution}; they are equal.
+\end{proof}
+
+This is a bounded local obstruction with a complete geometric carrier theorem behind it. It is
+not a search for periodic cells, not a timeout, not a sample of surface points, and not an
+inference that a partial gap between misaligned tiles cannot be filled by a third tile: every
+possible filler of the missing companion is exhibited as colliding with a whole tile.
+
+% ledger: A13; Lean baseline_component_covers_grid_holds (T1n)
+\begin{lemma}[a component's baseline cells exhaust the grid; A-L6.1, written; Lean \tier{T1n}
+\lean{baseline\_component\_covers\_grid\_holds}]\label[lemma]{lem:grid}
+Choose any root tile in a tiling and normalize its pose to $(I,0)$. In the graph whose edges join
+tiles sharing a complete feature companion, let $\mathcal{C}$ be the root's component. Every tile
+in $\mathcal{C}$ has an integer translation and a proper cubic frame, and the baseline chairs of
+$\mathcal{C}$ tile the lattice of unit cubes.
+\end{lemma}
+
+\begin{proof}
+Every edge of the graph has a relative pose in $\atlas$ (\cref{lem:44}), and compositions preserve
+integrality and properness. Two baseline chairs of $\mathcal{C}$ cannot share a cell, since their
+retained cores would overlap. Let $W$ be the set of unit cells covered by the chairs of
+$\mathcal{C}$. Take a cell $a\in W$ and a face-adjacent cell $b$. If $b$ lies in the same chair it is
+in $W$. Otherwise the common face is an exposed panel of $a$'s chair, carrying eight features;
+the companion of any one of them lies in $\mathcal{C}$ with an integral pose, its base normal is
+opposite, and its centre coincides with the root feature's centre at a point strictly inside an
+integral unit panel; two integral unit squares in that plane whose relative interiors share the
+point are the same square, so the companion owns $b$. Thus $W$ is closed under lattice steps, and
+$W=\Z^3$, with exactly one owner per cell.
+\end{proof}
+
+% ledger: A14, A17 (E6); Lean component_solids_cover_holds (T1; formal proof by clamping to an interior point)
+\begin{lemma}[the component's solids cover $\R^3$; A-L6.2, written, with erratum E6; Lean \tier{T1}
+\lean{component\_solids\_cover\_holds}]\label[lemma]{lem:cover}
+The copies of $\solid$ in $\mathcal{C}$ cover $\R^3$ with disjoint interiors.
+\end{lemma}
+
+\begin{proof}
+By \cref{lem:grid}, across every panel shared by two chairs of $\mathcal{C}$ the adjacent cell has one owner, and each
+of the eight features on the panel has its companion in that owner, since another owner would
+duplicate the cell; so the two profiles agree on the whole panel. Around each paired feature take
+its closed normal tube of half-height $\rho$ and apply the tube map of \cref{sec:solid}; opposite
+polarity and opposite outward normals give the same map from either side, so this is one map, not
+two. The tubes are disjoint except for coincident pairs and are locally finite; the maps are the
+identity outside the tubes and on their boundaries, and glue with their inverses to a
+homeomorphism $H$ of $\R^3$. Every feature tube belongs to the two cells on either side of its
+panel, both with unique owners in $\mathcal{C}$, and a tube not on a tile's exposed boundary is
+disjoint from that tile's material; hence $H$ carries each baseline chair $G\carrier+t$ of
+$\mathcal{C}$ exactly onto $G\solid+t$, and the images cover $\R^3$ with disjoint interiors.
+\end{proof}
+
+The formal proof avoids the assembly-wide gluing. For any tile of the given tiling, choose a
+component carrier containing the centre of its inscribed quarter-ball. Clamping produces an
+interior point of the component's physical tile at squared distance at most $3/2500<1/100$ from
+that centre, hence inside the quarter-ball. Packing disjointness forces the two tiles to
+coincide. Thus every tile belongs to the component, and the original tiling's coverage gives
+component coverage. This uses an existing tiling and is not an existence proof.
+
+% ledger: A15; Lean unrestricted_alignment_holds (T1n), registration_of_tiling
+\begin{theorem}[unrestricted alignment; A-T6.3, written; assembled in Lean as
+\lean{registration\_of\_tiling} from \lean{unrestricted\_alignment\_holds},
+\tier{T1n}]\label{thm:registration}
+Every tiling by $\solid$ is registered: there is one ambient isometry after which every tile has
+a proper cubic frame and an integer translation, and every pair of tiles sharing a feature is in a
+relative pose of $\atlas$.
+\end{theorem}
+
+\begin{proof}
+The component $\mathcal{C}$ of \cref{lem:cover} already fills space. A tile outside $\mathcal{C}$
+would have nonempty interior, while the boundaries of the tiles of $\mathcal{C}$ form a locally
+finite union of polyhedral surfaces containing no ball; an interior point of the extra tile would
+then lie inside a tile of $\mathcal{C}$, contradicting disjointness of interiors. So there is no
+other component, and the ambient isometry that normalizes the root registers every tile.
+\end{proof}
+
+% ledger: A15 preserves periodicity; source 2305.17743 L53; chirality remark R§5
+Registration is one ambient isometry applied to the whole tiling, so it preserves periodicity in
+the Spectre paper's sense \cite{SMKGS24b}: the registered tiling has the conjugate symmetry
+group, and if the ambient isometry has linear part $A$, a period $p$ of the original tiling
+becomes the period $Ap$ of the registered tiling, with $\|Ap\|=\|p\|$. This closes the loophole of an integral network of tiles surrounded by tilted or
+shifted tiles in residual gaps: the tube homeomorphism proves physical coverage, not merely the
+occupancy of a grid. The relative poses in $\atlas$ are all proper, although all $48$ signed
+frames were admitted as candidates; a tiling may be reflected as a whole, but its two handedness
+sectors never mix, which is the content of \cref{thm:full}(3) proved in \cref{sec:aperiodicity}.
+In Lean, a registration is a record of an ambient isometry and, for each placement, a frame index
+among the $24$ and an integer shift; the theorem that every tiling has one is assembled from the
+three written lemmas of this section, which appear by name in \cref{app:lean}.

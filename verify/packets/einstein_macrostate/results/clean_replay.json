@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "seconds": 7.39298197800008,
+  "fresh_extraction": true,
+  "returncode": 0,
+  "tested_payload_hashes": {
+    "src/verify.py": "0cbf63947d53d1edfae0e688dae7089921502da1097d26d713a18824cd5ce954",
+    "src/edge_audit.py": "55a05de5c97546b4a25e217aa2dbede210d1401081eacc669a43871716700c5e",
+    "results/candidate_certificate.json": "44e9b3f6048497de02d1be72d0c80ddc94aaaf235382138c7468ffdbc5de5ff2",
+    "results/companion_collision_certificate.json": "36e89e2fe81f4788e7edea2a68fef013557e5b73f5a16ac76348fe241b068b08",
+    "results/feature_alignment.json": "367bbdd310e4cc333dc5c395538393bcee79399e72ace624c54125da411688cb",
+    "results/r44_solid.json": "f320d7a0c2d784a3eb29f001dc035808f67591d9ea8d3dd45949e66442f0ed55",
+    "PROOFS.md": "58c4da92d25d47057c2f5be26626df0bce6a34ac581af9932f2c8c2a30f7f4ed"
+  },
+  "external_dependencies": []
+}
