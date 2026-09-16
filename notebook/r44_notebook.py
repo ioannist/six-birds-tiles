@@ -33,6 +33,8 @@
 # not today's main.
 
 # %% tags=["hide-input"]
+# @title Initialize and verify the source snapshot { display-mode: "form" }
+# @markdown This prepares the fixed source snapshot and checks its recorded hashes.
 # This import is expanded by build.py so the downloadable notebook stands alone.
 from runtime import Session
 # These assignments are filled from reader/pin.json and its generated evidence map.
@@ -53,9 +55,11 @@ session.prepare()
 # checks; their complete output is saved with your session.
 
 # %% tags=["hide-input"]
+# @title Load the interactive Chair44 viewer { display-mode: "form" }
 session.run("viewer", session.viewer, "T2 source data; display only")
 
 # %% tags=["hide-input"]
+# @title Show the verification report { display-mode: "form" }
 session.replay()
 
 # %% [markdown]
@@ -70,6 +74,7 @@ session.replay()
 # first; only the resulting display coordinates are converted to floats.
 
 # %%
+# @title Inspect a collision witness { display-mode: "form" }
 record_index = 0  # @param {type:"integer"}
 partner_index = 0  # @param {type:"integer"}
 session.collision(record_index, partner_index)
@@ -82,6 +87,7 @@ session.collision(record_index, partner_index)
 # scope statements describe exactly what each computation establishes.
 
 # %% tags=["hide-input"]
+# @title Run the finite companion census { display-mode: "form" }
 session.companions()
 
 # %% [markdown]
@@ -95,6 +101,7 @@ session.companions()
 # you supply is a future U2 integration, not an operation of this notebook.
 
 # %%
+# @title Inspect a recorded parent shell { display-mode: "form" }
 shell_index = 0  # @param {type:"integer"}
 session.parent(shell_index)
 
@@ -106,6 +113,7 @@ session.parent(shell_index)
 # Expand the result to inspect all contacts yourself.
 
 # %% tags=["hide-input"]
+# @title Compare the parent and native contact atlases { display-mode: "form" }
 session.atlas()
 
 # %% [markdown]
@@ -116,6 +124,7 @@ session.atlas()
 # temporary copy; the original inputs are checked again afterwards.
 
 # %% tags=["hide-input"]
+# @title Run all six corruption controls { display-mode: "form" }
 mutations = session.mutations()
 from IPython.display import Markdown
 for result in mutations["tests"]:
@@ -128,6 +137,7 @@ for result in mutations["tests"]:
 # the result; an unexpected error is reported as a failed experiment.
 
 # %%
+# @title Try one certificate corruption { display-mode: "form" }
 mutation_name = "missing_triangle"  # @param ["missing_triangle", "reversed_triangle", "changed_geometric_apex", "missing_rejection_witness", "wrong_companion_quantifier", "missing_registered_contact"]
 mutation_index = 0  # @param {type:"integer"}
 session.mutation(mutation_name, mutation_index)
@@ -141,6 +151,7 @@ session.mutation(mutation_name, mutation_index)
 # needed. It does not run the long R44 periodicity search.
 
 # %% tags=["hide-input"]
+# @title Run the periodic control examples { display-mode: "form" }
 session.controls()
 
 # %% [markdown]
@@ -152,6 +163,7 @@ session.controls()
 # Finite experiments above do not execute the infinite-space argument.
 
 # %% tags=["hide-input"]
+# @title Open the proof-dependency map { display-mode: "form" }
 session.sources()
 
 # %% [markdown]
@@ -176,4 +188,5 @@ session.sources()
 # steps. This Python notebook always records `lean_ran: false`.
 
 # %% tags=["hide-input"]
+# @title Download the session receipt { display-mode: "form" }
 session.download()

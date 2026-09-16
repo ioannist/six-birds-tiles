@@ -29,8 +29,7 @@ installation is needed. [Viewer guide](viewer/README.md).
 
 ### Run the checks — executable notebook
 
-**Online notebook: coming soon.**
-<!-- HOSTED_NOTEBOOK_URL: replace the coming-soon line with the supplied link. -->
+**[Open the executable notebook in Google Colab](https://colab.research.google.com/github/ioannist/six-birds-tiles/blob/main/notebook/r44_notebook.ipynb).**
 
 Work through six questions with interactive views and executable checks:
 inspect the boundary, examine collision witnesses and parent certificates,

@@ -3,7 +3,8 @@
 [Open the notebook in Colab](https://colab.research.google.com/github/ioannist/six-birds-tiles/blob/main/notebook/r44_notebook.ipynb)
 and choose **Runtime → Run all**. You can also download
 [the standalone notebook](r44_notebook.ipynb) and open it in your own Jupyter environment.
-The online link becomes usable when these files are published to the repository.
+Colab presents the executable cells as short named controls; use **Show code** on
+any control when you want to inspect its implementation.
 
 Rotate the existing viewer, inspect a collision box, select a parent-certificate
 shell, compare the two contact sets, corrupt an input, and inspect actual periodic
