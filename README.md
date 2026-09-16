@@ -7,7 +7,7 @@ exact data, independent checkers and Lean formalization.
 
 **Project page:** [EmergenceCalculus.com/r44](https://www.EmergenceCalculus.com/r44)
 
-**Paper DOI:** [10.5281/zenodo.22734468](https://doi.org/10.5281/zenodo.22734468)
+**Paper DOI (Version 2):** [10.5281/zenodo.22792358](https://zenodo.org/records/22792358)
 (the reserved Zenodo page will become available when the record is published).
 
 ## Check it for yourself
