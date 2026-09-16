@@ -5,7 +5,7 @@ LATEXMK = latexmk -pdf -interaction=nonstopmode -halt-on-error
 
 all: main.pdf
 
-main.pdf: main.tex macros.tex publication_doi.tex ../refs.bib $(wildcard sec*.tex) $(wildcard app*.tex) notation.tex $(wildcard ../../figures/*.pdf) $(wildcard ../../figures/print-preview/*.pdf)
+main.pdf: main.tex macros.tex publication_doi.tex ../refs.bib $(wildcard sec*.tex) $(wildcard app*.tex) notation.tex $(wildcard generated/*.tex) $(wildcard fig_*.tex) $(wildcard ../../figures/*.pdf) $(wildcard ../../figures/print-preview/*.pdf)
 	$(LATEXMK) main.tex
 
 # WRITING_PLAN.md step 10 completion bar: no undefined references, no missing

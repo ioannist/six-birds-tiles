@@ -18,7 +18,7 @@ ROOT = os.environ.get("R44_ROOT") or os.path.abspath(os.path.join(os.path.dirnam
 TEX = os.path.join(ROOT, "paper", "tex")
 ORDER = ["main.tex", "sec1_intro.tex", "sec2_solid.tex", "sec3_finding.tex", "sec4_companions.tex",
          "sec5_registration.tex", "sec6_hierarchy.tex", "sec7_aperiodicity.tex", "sec8_mechanization.tex",
-         "sec9_remarks.tex", "appA_data.tex", "appB_census.tex", "appC_lean.tex", "appD_calibration.tex",
+         "sec9_context.tex", "sec9_remarks.tex", "appA_data.tex", "appB_census.tex", "appC_lean.tex", "appD_calibration.tex", "appE_geometry.tex",
          "notation.tex", "fig_roadmap.tex", "fig_feature_geometry.tex", "fig_companion_sectors.tex",
          "fig_collision_box.tex",
          "generated/mesh_table.tex", "generated/parameter_family_table.tex", "generated/census_table.tex",

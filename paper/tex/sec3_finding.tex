@@ -207,7 +207,7 @@ $\solid$ admits a tiling of $\R^3$.
 
 \begin{proof}
 Every contact that occurs inside a refined patch lies in the closed set of $30$ contacts from
-which the profile was built (\cref{sec:solid}), so every finite substitution patch is a packing
+which the profile was built (\cref{app:profile}), so every finite substitution patch is a packing
 of copies of $\solid$ whose internal panels match. Two refinements of the native chair contain the
 same-frame grandchild at $(2,2,2)$: the central child $(I,(1,1,1))$ has its own $000$ child there.
 Put $c_n=2(4^n-1)/3$ and $A_n=\sigma^{2n}(\carrier)-c_n(1,1,1)$, the $2n$-fold refinement
@@ -216,7 +216,7 @@ frames, and the support of $A_n$ contains the cube $[-c_n,(4^n+2)/3]^3$. These c
 $\R^3$, so the nested union is a registered baseline tiling of the whole space by chairs whose
 contacts all lie in the closed contact set. The \emph{small-collar realization} lemma then
 applies: a locally finite baseline chair tiling whose profiles match on every shared panel is
-carried to a tiling by $\solid$ by the glued tube homeomorphism of \cref{sec:solid}, each chair
+carried to a tiling by $\solid$ by the glued tube homeomorphism of \cref{app:tubes}, each chair
 going exactly to its copy of $\solid$ because every feature tube belongs to the two cells on
 either side of its panel, both with unique owners (\cref{sec:registration}, \cref{lem:cover}).
 Small-collar realization is the Lean theorem \lean{small\_collar\_realization\_holds}

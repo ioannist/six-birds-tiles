@@ -1,0 +1,126 @@
+\section{Geometric details of the construction}\label{app:solidchecks}
+
+% ledger: O1, O2, O3, O4, O5, O6, O7, R1, A16, T14; exposition of the existing construction checks relocated from Section 2
+The recipe in \cref{sec:solid} specifies the solid. Here we record how its signed
+height table is obtained and why the resulting boundary, asymmetry and feature
+angles have the properties used by the proof. The numerical choices in the recipe
+are one explicit member of the family described at the end of this appendix.
+
+\subsection{How the height table is determined}\label{app:profile}
+
+% ledger: R1; Lean contact_closure_30, profile_canonical
+The table of heights is not arbitrary; it is determined by the substitution of
+\cref{sec:substitution} and can be reconstructed from it. Start with the $21$ face contacts that
+occur inside the eight-child dissection of the doubled chair and propagate them through
+refinement until the set of contacts is closed; it closes at $30$. At every pair of marks that
+these contacts bring into coincidence impose that the two heights be opposite, $a_u=-a_v$. This
+gives $372$ distinct equations whose signed graph on the $192$ marks has exactly twelve balanced
+connected components, each with eight positive and eight negative vertices. Assign the magnitude
+$j$ to the $j$-th component in order of its smallest mark, take that mark positive, and transport
+signs along the graph. The result is the table of $192$ entries in the solid file, and the twelve
+magnitudes $1,\dots,12$ are the twelve components. Because every component uses a distinct
+magnitude, two features fit face to face only if they have the same magnitude and opposite sign.
+
+\subsection{Boundary and topology}\label{app:boundary}
+
+% ledger: O2, O3, O4; Lean boundary_sphere; verify/boundary_sphere.py; imports Moise, Rourke-Sanderson
+The boundary of $\solid$ is a triangulated surface with $2{,}138$ vertices, $6{,}408$ edges and
+$4{,}272$ triangles (\cref{tab:mesh}), checked triangle by triangle against the construction in \cref{sec:solid}. Every edge lies in exactly two triangles, the triangle graph is connected, the link of
+every vertex is a single cycle, and $V-E+F=2$; these are finite facts, verified in Lean and
+independently by a script. Two classical results then apply, and we state them exactly as used:
+a connected closed triangulated surface with Euler characteristic $2$ is homeomorphic to the
+sphere, since an orientable surface of genus $g$ has $\chi=2-2g$ and a non-orientable one with $k$
+crosscaps has $\chi=2-k$; and, by the polyhedral Schoenflies theorem of Alexander, a polyhedral
+$2$-sphere in $\R^3$ bounds a piecewise-linear $3$-ball \cite{Moi77,RS72}. Hence $\solid$, the
+closure of the bounded domain its boundary mesh bounds, is a closed topological $3$-ball. The same
+conclusion follows from the tube construction in \cref{app:tubes}, which exhibits an ambient homeomorphism
+carrying $\carrier$ to $\solid$.
+
+\begin{table}[ht]
+  \centering
+  \caption{Mesh facts of $\solid$, computed from the solid file with exact arithmetic and
+  cross-checked against its recorded counts; the verified statements are \lean{boundary\_sphere},
+  \lean{mesh\_angle\_audit} and \texttt{verify/boundary\_sphere.py} (FIGURES.md, Table 5).}
+  \label{tab:mesh}
+  \input{generated/mesh_table}
+\end{table}
+
+\subsection{The solid has no nonidentity self-isometry}\label{app:asymmetry}
+
+% ledger: O5, O11, R12; Lean planar_area_carrier_recovery_holds (T1, E5; formal proof by diameter endpoints); carrier_feature_frame_reduction_holds (T1n); no_native_symmetry (T1); paper/scripts/planar_areas.py (T2); external review of the manuscript 2026-09-09, finding m2
+$\solid$ has no nonidentity self-isometry. The argument has three parts, and we say once here at what level
+each is verified. First, an isometry $g$ with $g\solid=\solid$ preserves the carrier: the nine
+large planar boundary regions of $\solid$, one for each coordinate plane at heights $0$, $1$ and
+$2$, carry planar areas $2492/625$, $623/625$ and $1869/625$ respectively (the area-four, notch
+area-one and area-three regions less their feature bases; exact values from the mesh,
+\file{paper/scripts/planar_areas.py}), each more than $9/10$, whereas all the non-axis pyramid
+facets together have area less than $1212/15625<1/4$. So $g$ permutes those nine planes; the
+three distinct area types identify the height-$0$, height-$1$ and height-$2$ plane triples, hence
+$g$ fixes the origin, the corner $(2,2,2)$ and the notch, and maps $\carrier$ to itself
+(the Lean theorem \lean{planar\_area\_carrier\_recovery\_holds}, \tier{T1}, proves the same
+statement by a different route: a point in a feature tube is at squared distance at most
+$1089/100<12$ from every point of $\solid$, so the diameter pairs of $\solid$ lie in the
+undeformed carrier and are its antipodal corner pairs, which $g$ permutes; the six corners
+recover the centre and the axes, and the preserved missing corner excludes a reversal; the
+planar-area calculation above is the written proof). Second, an isometry that preserves both $\solid$
+and the chair has a signed permutation matrix as its linear part (the chair's own symmetry group
+is the six coordinate permutations) and must carry the table of feature centres and heights to
+itself; this reduction to one of the $48$ signed frames is a Lean theorem using
+\lean{native\_decide}. Third, among the $48$ signed frames only the identity preserves the
+table of $192$ features (a Lean theorem by kernel \lean{decide}). Consequently the stabilizer of
+a tiling's family of placements equals its symmetry group, as noted in \cref{sec:terminology}.
+
+\subsection{Feature angles}\label{app:angles}
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\linewidth}{!}{\input{fig_feature_geometry}}
+  \caption{Schematic feature geometry, with exaggerated height: a pyramid of height $j/10000$,
+  base half-width $1/100$, its deviation angles, and the interior cone with slope bound $L=3/25$
+  used in \cref{sec:companions}.}
+  \label{fig:feature}
+\end{figure}
+
+% ledger: O6, O7; Lean native_features_length, native_feature_centers_nodup, deviations_distinct, mesh_angle_audit
+The $192$ features play $192$ distinct roles: their centres are distinct points of
+$\tfrac18\Z^3$, and the twelve magnitudes give two sequences of twelve deviation angles, at the
+base edges and at the apex edges of a pyramid of slope $t_j=j/100$, all $24$ distinct: a
+coincidence between the two sequences would force $1+(i/100)^2=(1+(j/100)^2)^2$, that is
+$10000\,i^2=20000\,j^2+j^4$, which has no solution with $1\le i,j\le 12$ (a Lean theorem by
+kernel \lean{decide}). Every one of the $6{,}408$ mesh edges carries a declared dihedral angle,
+flat or orthogonal except at the features; the $1{,}536$ feature edges fall into $48$ classes of
+$32$, one class per deviation and sign (\cref{tab:mesh}).
+
+\subsection{Local deformation and retained cores}\label{app:tubes}
+
+% ledger: A16; Lean per_tube_homeomorphisms_holds, feature_tube_maps_glue_holds, feature_tube_map_carries_carrier_holds (T1n); disjointness and boundary identity T1
+Around each feature take the normal tube of half-height $\rho=1/100$ over its base. The map
+$(u,z)\mapsto(u,\,z+\chi(z)f(u))$, where $f$ is the signed tent function of the pyramid and
+$\chi(z)=\max(0,1-|z|/\rho)$, is strictly increasing in $z$ because $\|f\|_\infty\le 12/10000<\rho$,
+equals the identity on the boundary of the tube, and carries the flat base to the pyramid. The
+$192$ tubes are pairwise disjoint (the marks on a panel are at least $1/8$ apart in one tangent
+coordinate and more than $1/5$ from every panel edge, while the bases are $1/50$ across), so the
+maps glue to a homeomorphism of $\R^3$ that is the identity outside the tubes and carries
+$\carrier$ onto $\solid$. In particular every unit cube of the chair keeps its core
+$[\rho,1-\rho]^3$ inside $\solid$, a fact used in \cref{sec:registration}.
+
+\subsection{The open parameter family}\label{app:family}
+
+% ledger: T14; source proof/PROOFS_registered.md R§11; form 2303.10798 L80 (Tile(a,b))
+Finally, the integer heights are a convenient member of a family. Let the twelve component
+heights be real numbers $c_1,\dots,c_{12}$, keep the signs of the graph, and use height
+$c_j/10000$. With $t_j=|c_j|/100$, the whole proof goes through unchanged provided every $c_j$ is
+nonzero and the magnitudes $|c_j|$ are distinct; $1+t_i^2\ne(1+t_j^2)^2$ for all $i,j$; every
+$t_j<1$, every $(1+t_j^2)^2<2$, and $63\max_j t_j^2<1$; and the heights stay below $\rho$ and
+$\eta$. These are finitely many strict inequalities satisfied by $c_j=j$ (\cref{tab:family}), so
+\cref{thm:full} holds on an open twelve-parameter family of solids with the same architecture.
+This is not stability under arbitrary perturbation of the boundary, and we claim none.
+
+\begin{table}[ht]
+  \centering
+  \caption{The parameter family: the exact open conditions of R\S11 and their values at the
+  explicit member $c_j=j$, checked with exact rationals (FIGURES.md, Table 7).}
+  \label{tab:family}
+  \small
+  \input{generated/parameter_family_table}
+\end{table}

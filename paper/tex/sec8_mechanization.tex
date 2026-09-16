@@ -21,7 +21,7 @@ tiling exists, that every tiling has $\Per(T)=\{0\}$, and that $|\Sym(T)|\le24$;
 \lean{geometric\_hierarchy\_unique}, state clauses (3) and (4) of \cref{thm:full}. The
 development was written with a record \lean{Hypotheses} of named written lemmas as its
 verification boundary, and the written lemmas of this paper are the fields that record had: the
-tube construction and carrier recovery in \cref{sec:solid}, realization in \cref{sec:existence},
+tube construction and carrier recovery in \cref{app:tubes,app:asymmetry}, realization in \cref{sec:existence},
 and the companion and registration arguments in \cref{sec:companions,sec:registration}. Every one
 of them is now a Lean theorem of the pinned development (\cref{tab:hypotheses} lists the $19$
 theorems, with their tiers by their own axiom lines), the record is empty, and the conditional
@@ -30,7 +30,7 @@ form survives under the name \lean{r44\_einstein\_of\_hypotheses} over the empty
 finiteness, the unique parent, the coarsening and the hierarchy with its uniqueness among
 arbitrary geometrically nested registered families (\cref{thm:hierarchy}), is proved inside
 Lean. The honest summary is therefore this: the theorem is kernel-checked modulo the named
-compiler hooks; the written proofs of \cref{sec:solid,sec:existence} and
+compiler hooks; the written proofs of \cref{app:solidchecks,sec:existence} and
 \cref{sec:companions,sec:registration} remain as exposition, independently reviewed, and four of
 the formal proofs argue differently from the written ones, as noted where those lemmas appear
 (carrier recovery, containment rigidity, the covering by a component's solids, and small-collar
