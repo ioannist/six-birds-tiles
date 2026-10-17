@@ -161,3 +161,7 @@ python3 -m venv .venv && .venv/bin/pip install python-sat      # one-off (CaDiCa
 Caveats printed by the tool itself: grid-registered copies only (an assumption of this
 search, not derived from the proof); a bound N is evidence, never proof; tori detect only
 full-rank period lattices.
+
+## Additions from the Spectre fork
+
+Orientation spectrum, surface and interface laws, a standalone Lean file for their identities, a sympy regeneration of the solid, and a smooth-variant rigidity scan: see [ADDITIONS.md](ADDITIONS.md). All T2 or exploratory.
